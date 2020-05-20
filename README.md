@@ -1,7 +1,7 @@
 # データベース設計
 
 # ER図
-![人生を変えるフリマアプリ](https://github.com/Jun-Honda-0326/freemarket_sample_75c/issues/2)
+![人生を変えるフリマアプリ](https://user-images.githubusercontent.com/64017216/82402709-179b9480-9a98-11ea-8735-7c052d3cfdbf.png)
 
 ## itemsテーブル
 |Column|Type|Options|
