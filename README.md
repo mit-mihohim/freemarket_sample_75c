@@ -43,7 +43,7 @@
 - belongs_to :item
 
 
-## item_categorysテーブル
+## item_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|foreign_key: true|
