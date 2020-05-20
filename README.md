@@ -93,7 +93,7 @@
 |family_name_kana|string|null:false|
 |first_name_kana|string|null: false|
 |post_number|integer|null:false|
-|prefecture|string|null:false|
+|prefecture|integer|null:false, dafault: 0|
 |city|string|null:false|
 |house_number|integer|null: false|
 |building_name|string||
