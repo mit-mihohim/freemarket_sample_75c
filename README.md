@@ -15,6 +15,7 @@
 |dalivery_days|integer|null:false, dafault: 0|
 |price|integer|null:false|
 |user_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
