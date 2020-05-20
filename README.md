@@ -52,3 +52,18 @@
 |birth_date|date|null:false|
 |user_id|references|foreign_key: true|
 
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|family_name|string|null: false|
+|first_name|string|null:false|
+|family_name_kana|string|null:false|
+|first_name_kana|string|null: false|
+|post_number|integer|null:false|
+|prefecture|string|null:false|
+|city|string|null:false|
+|house_number|integer|null: false|
+|building_name|string||
+|phone_number|integer||
+|user_id|references|foreign_key: true|
+
