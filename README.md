@@ -31,7 +31,7 @@
 - has_many :items
 
 
-## item_sub_imagesテーブル
+## item_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |src|string|null: false|
