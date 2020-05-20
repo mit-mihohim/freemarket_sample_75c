@@ -9,12 +9,10 @@
 |name|string|null: false, index: true|
 |text|text|null: false|
 |brand|string||
-|status|string|null:false|
-|delivery_charge_bearer|string|null:false|
-|shipping_area|string|null: false|
-|delivery_charge_bearer|string|null:false|
-|shipping_area|sring|null:false|
-|dalivery_days|string|null:false|
+|status|integer|null:false, dafault: 0|
+|delivery_charge_bearer|integer|null:false, dafault: 0|
+|shipping_area|integer|null: false, dafault: 0|
+|dalivery_days|integer|null:false, dafault: 0|
 |price|integer|null:false|
 |main_image|string|null:false|
 |user_id|references|null: false, foreign_key: true|
