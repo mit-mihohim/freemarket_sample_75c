@@ -16,10 +16,22 @@
 |main_image|string|null:false|
 |user_id|references|foreign_key: true|
 
+### Association
+- belongs_to :user
+- has_many :item_sub_images
+- has_many :item_categories
+- has_many :categories, through: :item_categories
+
+
 ## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+
+### Association
+- has_many :item_categories
+- has_many :items, through: :item_categories
+
 
 ## item_sub_imagesテーブル
 |Column|Type|Options|
@@ -27,11 +39,20 @@
 |src|string|null: false|
 |item_id|references|foreign_key: true|
 
+### Association
+- belongs_to :item
+
+
 ## item_categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|foreign_key: true|
 |category_id|references|foreign_key: true|
+
+### Association
+belongs_to :item
+belongs_to :category
+
 
 ## usersテーブル
 |Column|Type|Options|
@@ -39,6 +60,13 @@
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
+
+### Association
+- has_one :profile
+- has_one :user_address
+- has_one :payment_card
+- has_many :items
+
 
 ## profilesテーブル
 |Column|Type|Options|
@@ -51,6 +79,10 @@
 |birth_month|date|null:false|
 |birth_date|date|null:false|
 |user_id|references|foreign_key: true|
+
+### Association
+- belongs_to :user
+
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -67,8 +99,14 @@
 |phone_number|integer||
 |user_id|references|foreign_key: true|
 
+### Association
+- belongs_to :user
+
 ## payment_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|foreign_key: true|
 |customer_id|string|null:false|
+
+### Association
+- belongs_to :user
