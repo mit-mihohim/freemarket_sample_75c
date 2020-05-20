@@ -1,3 +1,7 @@
+# Basic認証
+- ID: admin
+- PW: Password
+
 # データベース設計
 
 # ER図
