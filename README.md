@@ -33,3 +33,10 @@
 |item_id|references|foreign_key: true|
 |category_id|references|foreign_key: true|
 
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+
