@@ -20,3 +20,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+
+## item_sub_imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|src|string|null: false|
+|item_id|references|foreign_key: true|
+
