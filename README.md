@@ -67,3 +67,8 @@
 |phone_number|integer||
 |user_id|references|foreign_key: true|
 
+## payment_cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|customer_id|string|null:false|
