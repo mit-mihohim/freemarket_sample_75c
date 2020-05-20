@@ -8,4 +8,42 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %header.header
+      .headerInner
+        .mainHeader
+          %h1.logo
+            %a(href= "/")
+              = image_tag 'logo.png', size: '140x40'
+          .search-box
+            %input{type: "text", class:"search-box__text", placeholder: "キーワードから探す"}
+            %input{type:"submit", class:"search-box__btn"}
+        .nav-bar
+          %ul.nav-bar__left
+            %li.nav-bar__left__left
+              カテゴリー
+            %li.nav-bar__left__right
+              ブランド
+              -# %ul.categoryTree
+              -#   %li.categoryTree__item
+              -#     %a(href="/")
+              -#       メンズ
+              -#   %li.categoryTree__item
+              -#     %a(href="/")
+              -#       レディース
+          %ul.nav-bar__right
+            %li.nav-bar__right_login
+              ログイン
+            %li.nav-bar__right__new
+              新規登録
+
+
+
+
+
+
+
+
+
+
+
     = yield
