@@ -40,3 +40,15 @@
 |email|string|null: false, unique: true|
 |password|string|null: false|
 
+## profilesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|family_name|string|null: false|
+|first_name|string|null:false|
+|family_name_furigana|string|null:false|
+|first_name_furigana|string|null: false|
+|birth_year|date|null:false|
+|birth_month|date|null:false|
+|birth_date|date|null:false|
+|user_id|references|foreign_key: true|
+
