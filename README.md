@@ -23,7 +23,7 @@
 - has_many :categories, through: :item_categories
 
 
-## categorysテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
