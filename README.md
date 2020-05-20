@@ -19,9 +19,8 @@
 
 ### Association
 - belongs_to :user
+- belongs_to :category
 - has_many :item_sub_images, dependent: :destroy
-- has_many :item_categories, dependent: :destroy
-- has_many :categories, through: :item_categories
 
 
 ## categoriesテーブル
@@ -30,8 +29,7 @@
 |name|string|null: false|
 
 ### Association
-- has_many :item_categories, dependent: :destroy
-- has_many :items, through: :item_categories
+- has_many :items
 
 
 ## item_sub_imagesテーブル
@@ -42,17 +40,6 @@
 
 ### Association
 - belongs_to :item
-
-
-## item_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|references|null: false, foreign_key: true|
-|category_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :item
-- belongs_to :category
 
 
 ## usersテーブル
