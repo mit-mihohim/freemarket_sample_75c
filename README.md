@@ -76,9 +76,9 @@
 |first_name|string|null:false|
 |family_name_furigana|string|null:false|
 |first_name_furigana|string|null: false|
-|birth_year|date|null:false|
-|birth_month|date|null:false|
-|birth_date|date|null:false|
+|birth_year|integer|null:false, default: 0|
+|birth_month|integer|null:false, default: 0|
+|birth_date|integer|null:false, default: 0|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
