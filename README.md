@@ -50,8 +50,8 @@
 |category_id|references|foreign_key: true|
 
 ### Association
-belongs_to :item
-belongs_to :category
+- belongs_to :item
+- belongs_to :category
 
 
 ## usersテーブル
