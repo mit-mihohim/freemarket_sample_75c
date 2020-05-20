@@ -15,3 +15,8 @@
 |price|integer|null:false|
 |main_image|string|null:false|
 |user_id|references|foreign_key: true|
+
+## categorysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
