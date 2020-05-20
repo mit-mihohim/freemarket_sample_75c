@@ -1,7 +1,7 @@
 # データベース設計
 
 # ER図
-![人生を変えるフリマアプリ](https://user-images.githubusercontent.com/60055417/82395920-8f14f800-9a87-11ea-9e0c-c43ab24c968a.png)
+![人生を変えるフリマアプリ](https://user-images.githubusercontent.com/64117340/82398222-42342000-9a8d-11ea-992a-c7b41da54ba3.png)
 
 ## itemsテーブル
 |Column|Type|Options|
