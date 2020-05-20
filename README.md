@@ -3,7 +3,7 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, index:true|
 |text|text|null: false|
 |brand|string||
 |status|string|null:false|
