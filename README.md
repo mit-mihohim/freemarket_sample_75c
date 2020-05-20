@@ -108,7 +108,7 @@
 ## payment_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |customer_id|string|null:false|
 
 ### Association
