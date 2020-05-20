@@ -19,7 +19,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :category
-- has_many :item_sub_images, dependent: :destroy
+- has_many :item_images, dependent: :destroy
 
 
 ## categoriesテーブル
