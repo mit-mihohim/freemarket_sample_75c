@@ -27,3 +27,9 @@
 |src|string|null: false|
 |item_id|references|foreign_key: true|
 
+## item_categorysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|references|foreign_key: true|
+|category_id|references|foreign_key: true|
+
