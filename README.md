@@ -100,7 +100,7 @@
 |house_number|integer|null: false|
 |building_name|string||
 |phone_number|integer||
-|user_id|references|foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
