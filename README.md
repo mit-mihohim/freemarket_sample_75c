@@ -19,8 +19,8 @@
 
 ### Association
 - belongs_to :user
-- has_many :item_sub_images
-- has_many :item_categories
+- has_many :item_sub_images, dependent: :destroy
+- has_many :item_categories, dependent: :destroy
 - has_many :categories, through: :item_categories
 
 
@@ -30,7 +30,7 @@
 |name|string|null: false|
 
 ### Association
-- has_many :item_categories
+- has_many :item_categories, dependent: :destroy
 - has_many :items, through: :item_categories
 
 
@@ -63,10 +63,10 @@
 |password|string|null: false|
 
 ### Association
-- has_one :profile
-- has_one :user_address
-- has_one :payment_card
-- has_many :items
+- has_one :profile, dependent: :destroy
+- has_one :user_address, dependent: :destroy
+- has_one :payment_card, dependent: :destroy
+- has_many :items, dependent: :destroy
 
 
 ## profilesテーブル
