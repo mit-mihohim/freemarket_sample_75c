@@ -10,5 +10,5 @@ class ApplicationController < ActionController::Base
   def production?
     Rails.env.production?
   end
- end
+
 end
