@@ -1,40 +1,103 @@
-.contents {
-  color: white;
-  text-shadow: 0 0 8px gray;
-  .theme-visual {
-    background-image: image-url("pict/bg-mainVisual-pict_pc.jpg");
-    background-size: cover;
-    height: 600px;
-    display: flex;
-    align-items: center;
-    .content {
-      padding: 60px;
-      &__title {
-        font-size: 60px;
-      }
-      &__text {
-        margin: 15px;
-        font-size: 20px;
+* {
+  box-sizing: border-box;
+
+  .contents {
+    width: 100%;
+    .theme-visual {
+      background-image: image-url("pict/bg-mainVisual-pict_pc.jpg");
+      background-size: cover;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      .content {
+        padding: 60px;
+        color: white;
+        text-shadow: 0 0 8px gray;
+        &__title {
+          font-size: 60px;
+        }
+        &__text {
+          margin: 15px;
+          font-size: 20px;
+        }
       }
     }
+    .introduction {
+      height: 100%;
+      padding: 70px;
+      align-items: center;
+
+      .title {
+        color: black;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 20px;
+
+        &__border {
+          height: 5px;
+          width: 100px;
+          background-color: #3CCACE;
+          border-radius: 10px;
+          margin: 10px auto;
+        }
+      }
+      .lists {
+        display: flex;
+        margin: auto 70px;
+        justify-content: space-between;
+        .list {
+          width: 30%;
+          &__image {
+            position: relative;
+            .number {
+              position: absolute;
+              background-color:#3CCACE;
+              width: 50px;
+              height: 50px;
+              color: white;
+              font-size: 30px;
+              font-weight: bold;
+              text-align: center;
+            }
+            .image {
+              width: 100%;
+            }
+          }
+          &__subtitle {
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            span {
+              color: #3CCACE;
+            }
+          }
+          &__text {
+            font-size: 18px;
+            &--center {
+              text-align: center;
+              font-size: 18px;
+            }
+          }
+        }
+      }
+
+
+    }
+    .dl-content {
+      
+    }
+    .service-feature {
+      background-color: blue;
+      height: 740px;
+    }
+    .item-index {
+      background-color: red;
+      height: 420px;
+    }
   }
-  .introduction {
-    height: 650px;
-    background-color: green;
-  }
-  .dl-content {
-    background-image: image-url("pict/bg-topMiddleDl-pict.jpg");
-    background-size: cover;
-    height: 400px;
-  }
-  .service-feature {
-    background-color: blue;
-    height: 740px;
-  }
-  .item-index {
-    background-color: red;
-    height: 420px;
-  }
+
+
+
 }
-
-
