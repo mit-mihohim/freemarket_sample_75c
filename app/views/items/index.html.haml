@@ -84,5 +84,51 @@
         %p.list__text--center
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   
-  .item-index
-    アイテム一覧
+  .products-container
+    .products-index
+      .title
+        商品一覧
+        .title__border
+      %ul.lists
+        %li.list
+          = link_to('#') do
+            = image_tag 'pict/pict-reason-03.jpg', class: 'image'
+            .info
+              .info__top
+                .name
+                  商品1
+                .favorite
+                  ★ 
+                  %span 0
+              .price
+                3000円
+                %p (税込)
+              
+        %li.list
+          = link_to('#', {}) do
+            = image_tag 'pict/pict-reason-03.jpg', class: 'image'
+            .info
+              .info__top
+                .name
+                  商品2
+                .favorite
+                  ★ 
+                  %span 0
+              .price
+                3000円
+                %p (税込)
+
+        %li.list
+          = link_to('#', {}) do
+            = image_tag 'pict/pict-reason-03.jpg', class: 'image'
+            .info
+              .info__top
+                .name
+                  商品3
+                .favorite
+                  ★ 
+                  %span 0
+              .price
+                3000円
+                %p (税込)
+
