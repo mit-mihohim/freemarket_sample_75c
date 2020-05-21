@@ -11,9 +11,43 @@
         = link_to image_tag('Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png', alt: 'apple badge', height: '54', width: 'auto', class: ''), "#"
 
   .introduction
-    FURIMAが選ばれる3つの理由
+    .title
+      FURIMAが選ばれる3つの理由
+      .title__border
+    %ul.lists
+      %li.list
+        .list__image
+          .number
+            1
+          = image_tag 'pict/pict-reason-01.jpg', class: 'image'
+        .list__subtitle
+          %span 3分
+          ですぐに出品
+        %p.list__text
+          スマホで入力するだけで簡単に出品できる！
+      %li.list
+        .list__image
+          .number
+            2
+          = image_tag 'pict/pict-reason-02.jpg', class: 'image'
+        .list__subtitle
+          %span シンプル
+          で使いやすい
+        %p.list__text
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.list
+        .list__image
+          .number
+            3
+          = image_tag 'pict/pict-reason-03.jpg', class: 'image'
+        .list__subtitle
+          手数料
+          %span 業界最安値
+        %p.list__text--center
+          最大3%でお得に出品&購入！
+
   .dl-content
-    会員数日本一
+    
   .service-feature
     FURIMAの特徴
   .item-index
