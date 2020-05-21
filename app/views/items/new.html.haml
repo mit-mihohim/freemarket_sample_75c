@@ -1,0 +1,64 @@
+.form-new
+  = form_with url: root_path, local: true do |f|
+    .form-image
+      .form-image__title
+        %label<>出品画像
+        %span<>必須
+      %p 最大10枚までアップロードできます
+      .form-image__box
+        = f.label :image, class: 'form-image__box--icon' do
+          = image_tag "icon_camera.png", size: '30x30'
+          = f.file_field :image, class: '#'
+        %p
+          ドラッグアンドドロップ
+          %br
+          またはクリックしてファイルをアップロード
+
+    .form-item
+      .form-item__name
+        .form-item__name__label
+          %label<>商品名
+          %span<>必須
+        .form-item__name__input
+          = f.text_field :text, placeholder: "40文字まで"
+      .form-item__text
+        .form-item__text__label
+          %label<>商品の説明
+          %span<>必須
+        .form-item__text__input
+          = f.text_area :text, placeholder: "商品の説明（必須1,000文字以内(色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .form-item__text__style-counter
+          1/1000
+
+    .form-detail
+      %p 商品の詳細
+      .form-detail__category
+        .form-detail__category__label
+          %label<>カテゴリー
+          %span<>必須
+        .form-detail__category__input
+          = f.select :name, [ ["レディース",1], ["メンズ", 2], ["ベビー・キッズ", 3 ] ], prompt: "選択してください"
+      .form-detail__brand
+        .form-detail__brand__label
+          %label<>ブランド
+          %span<>任意
+        .form-detail__brand__input
+          = f.text_field :brand, placeholder: "例）シャネル"
+      .form-detail__status
+        .form-detail__status__label
+          %label<>商品の状態
+          %span<>必須
+        .form-detail__status__input
+          = f.select :status, [ ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ], prompt: "選択してください"
+
+    .form-shipping
+    .form-price
+    .form-btn
+    .form-term
+
+
+
+
+
+
+
