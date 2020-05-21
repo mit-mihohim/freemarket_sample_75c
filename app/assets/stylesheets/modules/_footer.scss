@@ -2,71 +2,74 @@
   position: absolute;
   bottom: 0px;
   width: 100%;
-.footer-banner{
-  height:360px;
-  padding: 100px 40px;
-  background-image: url("bg-appBanner-pict.jpg");
-  background-size: cover;
-  background-position:center;
   
-  &__inner{
-    color: #fff;
-    text-align: center;
-    &--title{
-      font-size: 24px;
-      font-weight: bold;
-      line-height: 1.4;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-    }
-    &--text{
-      font-size: 35px;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      margin-bottom: 20px;
-    }
-     a:hover{
-     opacity:0.6;
-    }
-  }
-}
-
-.footer-footer{
-  height: 355px;
-  text-align: center;
-  background-color: #272727;
-  color: #fff;
-
-  &__contents{
-    max-width: 840px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    padding-top: 60px;
-   
-    a{
-      color: #fff;
-    }
-    a:hover{
-      text-decoration: underline;
-    }
+  .footer-banner{
+    height:360px;
+    padding: 100px 40px;
+    background-image: url("bg-appBanner-pict.jpg");
+    background-size: cover;
+    background-position:center;
     
-    &--content{
-      &--head{
-        font-size: 16px;
-        font-weight: bold;
+      &__inner{
+        color: #fff;
+        text-align: center;
+
+        &--title{
+          font-size: 24px;
+          font-weight: bold;
+          line-height: 1.4;
+          text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        }
+
+        &--text{
+          font-size: 35px;
+          text-shadow: 0 0 5px rgba(0,0,0,0.4);
+          margin-bottom: 20px;
+        }
+          :hover{
+          opacity:0.6;
+          }
+      } 
+  }
+
+  .footer-footer{
+    height: 355px;
+    text-align: center;
+    background-color: #272727;
+    color: #fff;
+
+    &__contents{
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      padding-top: 60px;
+      a{
+        color: #fff;
       }
-      ul{
-        margin-top:20px;
-        li{
-          font-size: 12px;
-          line-height: 32px;
+        a:hover{
+          text-decoration: underline;
+        }
+    
+      &--content{
+        &--head{
+          font-size: 16px;
+          font-weight: bold;
+        }
+        ul{
+          margin-top:20px;
+          li{
+            font-size: 12px;
+            line-height: 32px;
+          }
         }
       }
     }
+
+    &__logo--text{
+      font-size: 14px;
+    }
   }
-  p{
-    font-size: 14px;
-  }
-}
 }
 
 
