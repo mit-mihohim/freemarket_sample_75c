@@ -2,48 +2,46 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title FreemarketSample75c
+    %title FURIMA
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header.header
-      .headerInner
-        .mainHeader
-          %h1.logo
+    .header
+      .topHeader
+        .topHeader__main
+          %h1.topHeader__main-logo
             %a(href= "/")
               = image_tag 'logo.png', size: '140x40'
           .search-box
             %input{type: "text", class:"search-box__text", placeholder: "キーワードから探す"}
-            %input{type:"submit", class:"search-box__btn"}
+            %button{type:"submit", class:"search-box__btn"}
+              = image_tag 'icon-search.png', size: '19x19'
         .nav-bar
           %ul.nav-bar__left
             %li.nav-bar__left__left
-              カテゴリー
+              = link_to 'カテゴリー', root_path
+
             %li.nav-bar__left__right
-              ブランド
-              -# %ul.categoryTree
-              -#   %li.categoryTree__item
-              -#     %a(href="/")
-              -#       メンズ
-              -#   %li.categoryTree__item
-              -#     %a(href="/")
-              -#       レディース
+              = link_to 'ブランド', root_path
+              
           %ul.nav-bar__right
             %li.nav-bar__right_login
-              ログイン
+              = link_to 'ログイン', root_path
             %li.nav-bar__right__new
-              新規登録
+              = link_to '新規会員登録', root_path
 
+    .footer          
+    
+    .footer-banner
+    .footer-footer
+    
+      .contents
 
+      .footer__logo
 
-
-
-
-
-
-
-
-
+    .purchase-btn
+  
+    
     = yield
