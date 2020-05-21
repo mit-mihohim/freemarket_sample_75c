@@ -37,17 +37,32 @@
       .banner__inner
         %h2.banner__inner--title
           だれでもかんたん、人生を変えるフリマアプリ
-        .banner__inner--text
+        %p.banner__inner--text
           今すぐ無料ダウンロード！
 
-        %p.bannaer__inner__icon
+        .bannaer__inner--icon
+          %a(href= "/")
+            = image_tag 'Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png', size: "180x53"
+          %a(href= "/")
+            = image_tag 'google-play-badge.png', size: "180x53"
+          
        
 
-    -# .footer
+    .footer
     
-    -#   .contents
+      %ul.footer__contents
+        %li.footer__contents--content
+          %h2.footer__contents--content--head
+            FURIMAについて
+        %li.footer__contents--content
+          %h2.footer__contents--content--head
+            FURIMAを見る
+        %li.footer__contents--content
+          %h2.footer__contents--content--head
+            ヘルプガイド
 
-    -#   .footer__logo
+
+      .footer__logo
 
     .purchase-btn
   
