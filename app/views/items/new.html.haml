@@ -71,8 +71,24 @@
           %span<>必須
         .form-shipping__days__input
           = f.select :name, [ ["1〜2日で発送",1], ["2〜3日で発送", 2], ["4〜7日で発送", 3] ], prompt: "選択してください"
-          
+
     .form-price
+      %p 価格（¥300~9,999,999）
+      .form-price__value
+        .form-price__value__left
+          %label<>販売価格
+          %span<>必須
+        .form-price__value__right
+          %span<>¥
+          = f.text_field :price, placeholder: "0"
+          
+      .form-price__fee
+        販売手数料（10%）
+        %span<>ー
+      .form-price__plofit
+        販売利益
+        %span<>ー
+      
     .form-btn
     .form-term
 
