@@ -3,265 +3,270 @@
   color: #333333;
 
   .wrapper {
-    min-height: calc(100vh - 210px);
+    min-height: calc(100vh - 195px);
+  }
 
-    .devise_header {
-      height: 130px;
-      width: 100%;
+  &__header {
+    height: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 50px;
+    }
+  }
+
+  .progress_bar {
+    display: flex;
+    margin-left: 50px;
+      
+    .step {
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      color: #ccc;
+      &--active {
+        color: #3CCACE;
+      }
+
+      .step_icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3px;
+
+        &__circle {
+          background-color: #ccc;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          &--active {
+            background-color: #3CCACE;
+          }
+        }
+
+        &__bar {
+          background-color: #ccc;
+          width: 40px;
+          height: 2px;
+          &--active {
+            background-color: #3CCACE;
+          }
+        }
+
+        .invisible {
+          opacity: 0;
+        }
+        
+      }
+    }
+  }
+
+
+  .login {
+    background-color: white;
+    width: 455px;
+    margin: 0 auto;
+
+    &__top {
+      height: 145px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      font-size: 14px;
+      border-bottom: 1px solid #f5f5f5;
 
-      img {
-        height: 50px;
+      .sign_up_link {
+        margin-top: 5px;
+        background-color: #0099e8;
+        text-decoration: none;
+        color: white;
+        width: 320px;
+        height: 42px;
+        line-height: 42px;
+        text-align: center;
       }
     }
 
-    .progress_bar {
-      display: flex;
-      margin-left: 50px;
-        
-      .step {
+    &__bottom {
+      padding: 40px 64px 32px;
+
+      .field {
+        margin-bottom: 24px;
         text-align: center;
-        font-size: 12px;
-        font-weight: bold;
-        color: #ccc;
-        &--active {
-          color: #3CCACE;
-        }
 
-        .step_icon {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-top: 3px;
-
-          &__circle {
-            background-color: #ccc;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            &--active {
-              background-color: #3CCACE;
-            }
-          }
-
-          &__bar {
-            background-color: #ccc;
-            width: 40px;
-            height: 2px;
-            &--active {
-              background-color: #3CCACE;
-            }
-          }
-
-          .invisible {
-            opacity: 0;
-          }
+        input {
+          width: 285px;
+          padding: 10px 16px 8px;
+          border-style: none;
+          border-radius: 4px;
+          border: 1px solid #ccc;
           
         }
       }
-    }
-  
 
-    .login {
-      background-color: white;
-      width: 455px;
-      margin: 0 auto;
-  
-      &__top {
-        height: 145px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      .submit_btn {
+        border-style: none;
+        background-color: #3CCACE;
+        color: white;
+        width: 320px;
+        height: 50px;
+        margin-bottom: 40px;
+        cursor: pointer;
+      }
+
+      .password_reset a {
+        text-decoration: none;
         font-size: 14px;
-        border-bottom: 1px solid #f5f5f5;
-  
-        .sign_up_link {
-          margin-top: 5px;
-          background-color: #0099e8;
-          text-decoration: none;
-          color: white;
-          width: 320px;
-          height: 42px;
-          line-height: 42px;
-          text-align: center;
-        }
-      }
-  
-      &__bottom {
-        padding: 40px 64px 32px;
-  
-        .field {
-          margin-bottom: 24px;
-          text-align: center;
-  
-          input {
-            width: 285px;
-            padding: 10px 16px 8px;
-            border-style: none;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            
-          }
-        }
-  
-        .submit_btn {
-          border-style: none;
-          background-color: #3CCACE;
-          color: white;
-          width: 320px;
-          height: 50px;
-          margin-bottom: 40px;
-          cursor: pointer;
-        }
-  
-        .password_reset a {
-          text-decoration: none;
-          font-size: 14px;
-          color: #0099e8;
-        }
+        color: #0099e8;
       }
     }
+  }
 
-    .sign-up {
-      background-color: white;
-      width: 700px;
-      margin: 0 auto;
+  .sign-up {
+    background-color: white;
+    width: 700px;
+    margin: 0 auto;
 
-      &__top {
-        height: 97px;
-        border-bottom: 1px solid #f5f5f5;
-        font-size: 22px;
-        line-height: 97px;
-        text-align: center;
-        font-weight: bold;
+    &__top {
+      height: 97px;
+      border-bottom: 1px solid #f5f5f5;
+      font-size: 22px;
+      line-height: 97px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    &__bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 0 40px;
+
+      .field {
+        width: 355px;
+        margin-bottom: 24px;
+
+        label {
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+        span {
+          background-color: #ea352d;
+          color: white;
+          font-size: 12px;
+          padding: 2px 4px;
+          border-radius: 2px;
+        }
+
+        &--optional span {
+          background-color: #ccc;
+        }
+
+        input {
+          margin: 5px 0;
+          width: 325px;
+          padding: 10px 16px 8px;
+          border-style: none;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+        }
+
+        .two_rows_input {
+          display: flex;
+          justify-content: space-between;
+          input {
+            width: 140px;
+          }
+        }
+
+        p {
+          font-size: 14px;
+          color: #888888;
+        }
+
+        select {
+          margin: 5px 0;
+          background: none;
+          border: 1px solid #ccc;
+          width: 359px;
+          height: 45px;
+          font-size: 14px;
+          color: #333333;
+          cursor: pointer;
+        }
       }
 
-      &__bottom {
+      .identify {
+        width: 345px;
+        font-size: 14px;
+        padding: 10px 0;
+
+        h3 {
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+      }
+
+      .birthday_input {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 24px 0 40px;
-
-        .field {
-          width: 355px;
-          margin-bottom: 24px;
-
-          label {
-            font-size: 14px;
-            font-weight: bold;
-          }
-
-          span {
-            background-color: #ea352d;
-            color: white;
-            font-size: 12px;
-            padding: 2px 4px;
-            border-radius: 2px;
-          }
-
-          &--optional span {
-            background-color: #ccc;
-          }
-
-          input {
-            margin: 5px 0;
-            width: 325px;
-            padding: 10px 16px 8px;
-            border-style: none;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-          }
-
-          .two_rows_input {
-            display: flex;
-            justify-content: space-between;
-            input {
-              width: 140px;
-            }
-          }
-
-          p {
-            font-size: 14px;
-            color: #888888;
-          }
-
-          select {
-            margin: 5px 0;
-            background: none;
-            border: 1px solid #ccc;
-            width: 359px;
-            height: 45px;
-            font-size: 14px;
-            color: #333333;
-            cursor: pointer;
-          }
-        }
-
-        .identify {
-          width: 345px;
+        margin: 5px 0 5px;
+        select {
+          background: none;
+          border: 1px solid #ccc;
+          width: 85px;
+          height: 45px;
           font-size: 14px;
-          padding: 10px 0;
-
-          h3 {
-            font-weight: bold;
-            margin-bottom: 5px;
-          }
-        }
-
-        .birthday_input {
-          display: flex;
-          margin: 5px 0 5px;
-          select {
-            background: none;
-            border: 1px solid #ccc;
-            width: 85px;
-            height: 45px;
-            font-size: 14px;
-            color: #333333;
-            cursor: pointer;
-          }
-
-          span {
-            background-color: white;
-            color: #333333;
-            line-height: 45px;
-          }
-        }
-
-        .confirm_message {
-          width: 345px;
-          font-size: 14px;
-          text-align: center;
-          padding: 40px 0 30px;
-          span {
-            color: #0099e8;
-          }
-        }
-
-        .send_btn {
-          display: block;
-          text-decoration: none;
-          background-color: #3CCACE;
-          color: white;
-          width: 345px;
-          height: 50px;
-          line-height: 50px;
-          text-align: center;
-          font-size: 14px;
-          margin: 10px auto 0;
+          color: #333333;
           cursor: pointer;
         }
 
-        .about_message {
-          width: 345px;
-          color: #0099e8;
-          font-size: 14px;
-          text-align: end;
-          margin-top: 20px;
+        span {
+          background-color: white;
+          color: #333333;
+          line-height: 45px;
         }
+      }
+
+      .confirm_message {
+        width: 345px;
+        font-size: 14px;
+        text-align: center;
+        padding: 40px 0 30px;
+        span {
+          color: #0099e8;
+        }
+      }
+
+      .send_btn {
+        display: block;
+        text-decoration: none;
+        background-color: #3CCACE;
+        color: white;
+        width: 345px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 14px;
+        margin: 10px auto 20px;
+        cursor: pointer;
+      }
+
+      .about_message {
+        width: 345px;
+        color: #0099e8;
+        font-size: 14px;
+        text-align: end;
+        margin-top: 20px;
+      }
+
+      .thank_message {
+        margin: 40px 0;
+        text-align: center;
       }
     }
   }
