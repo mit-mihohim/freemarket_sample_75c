@@ -16,7 +16,7 @@
         .section.confirm-item__box__payMoney--text
           支払い金額
         .section.confirm-item__box__payMoney--price
-          ¥9,980(税込み)送料込み
+          ¥9,980
       %section.confirm-item__box__payWay
         .section.confirm-item__box__payWay--text
           支払い方法 :クレジットカード
@@ -32,7 +32,16 @@
             登録する
 
       %section.confirm-item__box__address
-        配送先
+        .confirm-item__box__address--text
+          配送先
+          .confirm-item__box__address--info
+            %p.postNumber
+              〒550-0012
+            %p.streetAddress
+              大阪府大阪市西区東町1-10-11
+            %p.userName
+              本多 淳
+        .confirm-item__box__address--change
+          変更する
       %section.confirm-item__box__purchase
-        購入する
-
+        %input{type:"submit",class:"purchase-btn", value:"購入内容を確定する"}

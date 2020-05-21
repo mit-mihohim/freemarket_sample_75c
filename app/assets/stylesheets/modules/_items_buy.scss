@@ -10,7 +10,7 @@
 
     &__box{
       width:700px;
-      height:800px;
+      height:750px;
       margin: 0 auto;
       background-color:white;
       &--title{
@@ -61,13 +61,14 @@
       &__payWay{
           height: 100px;
           border-bottom: 1px solid #f5f5f5;
-          padding: 15px 0 15px 60px;
+          padding: 15px 0 10px 60px;
           display: flex;
           justify-content: space-evenly;
+          align-items: center;
           &--info{
             &--edit{
               display: flex;
-              margin-top: 50px;
+              margin-top: 70px;
               color: blue;
               cursor: pointer;
               .creditChange{
@@ -79,9 +80,34 @@
       
 
       &__address{
-        height: 120px;
+        height: 100px;
         border-bottom: 1px solid #f5f5f5;
-        margin-top: 20px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding:15px 0 10px 20px;
+     
+          &--change{
+            display: flex;
+              margin-top: 70px;
+              color: blue;
+              cursor: pointer;
+        }
+      }
+      &__purchase{
+        line-height: 200px;
+        text-align: center;
+        .purchase-btn{
+        width:345px;
+        height:50px;
+        background-color:#3ccace;
+        border: 1px solid;
+        border-color: #3ccace;
+        color: white;
+        font-weight: bold;
+        line-height: 50px;
+        cursor: pointer;
+        }
       }
     }
   }
