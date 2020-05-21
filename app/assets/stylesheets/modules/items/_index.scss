@@ -104,8 +104,63 @@
       
     }
     .service-feature {
-      background-color: blue;
-      height: 740px;
+      height: 100%;
+      padding: 70px 110px;
+      .title {
+        color: black;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 20px;
+        &__border {
+          height: 5px;
+          width: 100px;
+          background-color: #3CCACE;
+          border-radius: 10px;
+          margin: 10px auto;
+        }
+      }
+      .lists {
+        display: flex;
+        margin: auto 110px;
+        justify-content: space-between;
+        .list {
+          width: 30%;
+          margin: auto 30px;
+          &__image {
+            position: relative;
+            .number {
+              position: absolute;
+              background-color:#3CCACE;
+              width: 50px;
+              height: 50px;
+              color: white;
+              font-size: 30px;
+              font-weight: bold;
+              text-align: center;
+            }
+            .image {
+              width: 100%;
+            }
+          }
+          &__subtitle {
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            span {
+              color: #3CCACE;
+            }
+          }
+          &__text {
+            font-size: 18px;
+            &--center {
+              text-align: center;
+              font-size: 18px;
+            }
+          }
+        }
+      }
     }
     .item-index {
       background-color: red;
