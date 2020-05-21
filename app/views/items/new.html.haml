@@ -52,6 +52,26 @@
           = f.select :status, [ ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ], prompt: "選択してください"
 
     .form-shipping
+      %p 配送について
+      .form-shipping__charge
+        .form-shipping__charge__label
+          %label<>配送料の負担
+          %span<>必須
+        .form-shipping__charge__input
+          = f.select :name, [ ["送料込み(出品者負担)",1], ["送料込み(購入者負担)", 2] ], prompt: "選択してください"
+      .form-shipping__area
+        .form-shipping__area__label
+          %label<>発送元の地域
+          %span<>必須
+        .form-shipping__area__input
+          = f.select :name, [ ["北海道",1], ["青森県", 2], ["岩手県", 3] ], prompt: "選択してください"
+      .form-shipping__days
+        .form-shipping__days__label
+          %label<>発送までの日数
+          %span<>必須
+        .form-shipping__days__input
+          = f.select :name, [ ["1〜2日で発送",1], ["2〜3日で発送", 2], ["4〜7日で発送", 3] ], prompt: "選択してください"
+          
     .form-price
     .form-btn
     .form-term
