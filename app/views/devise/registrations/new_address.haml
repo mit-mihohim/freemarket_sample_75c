@@ -52,7 +52,6 @@
           %span 任意
           %br/
           %input{name: "phone_number", placeholder: "例）09012345678"}
-        .send_btn
-          会員登録
+        = link_to "会員登録", create_addresses_path, class: "send_btn"
         
   = render "devise/template/footer"
