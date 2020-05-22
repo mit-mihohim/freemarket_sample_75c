@@ -16,6 +16,7 @@
   text-align: center;
   padding-bottom: 20px;
 }
+
 * {
   box-sizing: border-box;
   .contents {
@@ -91,8 +92,6 @@
           }
         }
       }
-  
-  
     }
     .dl-content {
       background-image: image-url("pict/bg-topMiddleDl-pict.jpg");
@@ -164,6 +163,7 @@
     .products-container {
       height: 100%;
       background-color: $background-offwhite;
+
       .products-index {
         padding: 70px 100px;
         .title {

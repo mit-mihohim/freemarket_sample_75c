@@ -34,9 +34,10 @@
   box-sizing: border-box;
 
   .form-new {
-    
+    background-color: white;
     max-width: 700px;
     margin: 0 auto;
+    padding-bottom: 5px;
     a {
       text-decoration: none;
     }
@@ -265,22 +266,22 @@
       &__fee {
         padding: 12px 0;
         height: 70px;
-        line-height: 70px;
+        line-height: 56px;
         font-size: 14px;
         color: $font-black;
         border-bottom: 1px solid $unfinish;
         span {
-          display: inline-block;
+          float: right;
         }
       }
       &__plofit {
         padding-top: 12px;
         height: 58px;
-        line-height: 58px;
+        line-height: 44px;
         font-size: 14px;
         color: $font-black;
         span {
-          display: inline-block;
+          float: right; 
         }
       }
     }
