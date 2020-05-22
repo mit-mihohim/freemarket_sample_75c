@@ -6,4 +6,7 @@ class ItemsController < ApplicationController
     
   end
 
+  def buy
+  end
+
 end

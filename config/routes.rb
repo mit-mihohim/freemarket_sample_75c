@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     get 'create_addresses', to: 'users/registrations#create_address' # 機能実装時は、post 'addresses' に書き換える
   end
   
-
   root 'items#index'
-  resources :items, only: [:new, :index]
+  resources :items, only: [:new, :index] do
+    get 'items/buy'
+  end
 end

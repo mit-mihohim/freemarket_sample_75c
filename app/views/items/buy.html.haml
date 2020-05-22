@@ -1,0 +1,51 @@
+.wrapper
+  .confirm-item
+    .confirm-item__box
+
+      %section.confirm-item__box__title
+        購入内容の確認
+
+      %section.confirm-item__box__itemView
+        .confirm-item__box__itemView__image
+          =image_tag "pict-reason-02.jpg", size:"85x85"
+        .confirm-item__box__itemView__text
+          使い勝手抜群の最新バージョンです。<br>
+          状態も綺麗なのでおすすめです！
+          .confirm-item__box__itemView__text__price
+            ¥9,980(税込み)送料込み
+
+      %section.confirm-item__box__payMent
+        .confirm-item__box__payMent__text
+          支払い金額
+        .confirm-item__box__payMent__price
+          ¥9,980
+
+      %section.confirm-item__box__payMethod
+        .confirm-item__box__payMethod__text
+          支払い方法 :クレジットカード
+          .confirm-item__box__payMethod__info
+            %p.creditNumber
+              カード番号: ********1234 
+            %p.expirDate
+              有効期限: 24年12月
+        .confirm-item__box__payMethod__info__edit
+          %p.creditChange
+            変更する
+          %p.creditRegistration
+            登録する
+
+      %section.confirm-item__box__address
+        .confirm-item__box__address__text
+          配送先
+          .confirm-item__box__address__info
+            %p.postNumber
+              〒550-0012
+            %p.streetAddress
+              大阪府大阪市西区東町1-10-11
+            %p.userName
+              本多 淳
+        .confirm-item__box__address__change
+          変更する
+
+      %section.confirm-item__box__purchase
+        %input{type:"submit",class:"purchase-btn", value:"購入内容を確定する"}
