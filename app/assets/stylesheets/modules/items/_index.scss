@@ -1,6 +1,23 @@
+@mixin flex-space() {
+  display: flex;
+  justify-content: space-between;
+}
+@mixin border() {
+  height: 5px;
+  width: 100px;
+  background-color: #3CCACE;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+@mixin title() {
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 20px;
+}
 * {
   box-sizing: border-box;
-
   .contents {
     width: 100%;
     .theme-visual {
@@ -26,26 +43,17 @@
       height: 100%;
       padding: 70px;
       align-items: center;
-
+  
       .title {
-        color: black;
-        font-size: 30px;
-        font-weight: bold;
-        text-align: center;
-        padding-bottom: 20px;
-
+        @include title();
+  
         &__border {
-          height: 5px;
-          width: 100px;
-          background-color: #3CCACE;
-          border-radius: 10px;
-          margin: 10px auto;
+          @include border();
         }
       }
       .lists {
-        display: flex;
+        @include flex-space();
         margin: auto 70px;
-        justify-content: space-between;
         .list {
           width: 30%;
           &__image {
@@ -82,18 +90,18 @@
           }
         }
       }
-
-
+  
+  
     }
     .dl-content {
       background-image: image-url("pict/bg-topMiddleDl-pict.jpg");
       background-size: cover;
       height: 400px;
       align-items: center;
-      padding: 60px;
+      padding: 70px 120px;
       color: white;
       text-shadow: 0 0 8px gray;
-      &__title h3 {
+      &__title {
         font-size: 30px;
         font-weight: bold;
       }
@@ -101,29 +109,19 @@
         margin: 15px 0;
         font-size: 20px;
       }
-      
     }
     .service-feature {
       height: 100%;
       padding: 70px 110px;
       .title {
-        color: black;
-        font-size: 30px;
-        font-weight: bold;
-        text-align: center;
-        padding-bottom: 20px;
+        @include title();
         &__border {
-          height: 5px;
-          width: 100px;
-          background-color: #3CCACE;
-          border-radius: 10px;
-          margin: 10px auto;
+          @include border();
         }
       }
       .lists {
-        display: flex;
+        @include flex-space();
         margin: auto 110px;
-        justify-content: space-between;
         .list {
           width: 30%;
           margin: auto 30px;
@@ -168,17 +166,9 @@
       .products-index {
         padding: 70px 100px;
         .title {
-          color: black;
-          font-size: 30px;
-          font-weight: bold;
-          text-align: center;
-          padding-bottom: 20px;
+          @include title();
           &__border {
-            height: 5px;
-            width: 100px;
-            background-color: #3CCACE;
-            border-radius: 10px;
-            margin: 10px auto;
+            @include border();
           }
         }
         .lists {
@@ -202,8 +192,7 @@
               padding: 20px;
               font-size: 16px;
               &__top {
-                display: flex;
-                justify-content: space-between;
+                @include flex-space();
                 .name {
                   font-weight: bold;
                 }
@@ -222,7 +211,4 @@
       }
     }
   }
-
-
-
 }
