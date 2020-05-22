@@ -1,0 +1,22 @@
+.header
+  .topHeader
+    .topHeader__main
+      %h1.topHeader__main--logo
+        = link_to root_path do
+          = image_tag 'logo.png', size: '140x40' 
+      .search-box
+        %input{type: "text", class:"search-box__text", placeholder: "キーワードから探す"}
+        %button{type:"submit", class:"search-box__btn"}
+          = image_tag 'icon-search.png', size: '19x19'
+    .nav-bar 
+      %ul.nav-bar__left
+        %li.nav-bar__left__left
+          = link_to 'カテゴリー', root_path
+        %li.nav-bar__left__right
+          = link_to 'ブランド', root_path
+          
+      %ul.nav-bar__right
+        %li.nav-bar__right_login
+          = link_to 'ログイン', root_path
+        %li.nav-bar__right__new
+          = link_to '新規会員登録', root_path
