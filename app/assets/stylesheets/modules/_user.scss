@@ -1,3 +1,15 @@
+@mixin line_up_side($justify-content: center, $align-items: center) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin line_up_vertical($flex-direction: column, $align-items: center) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+}
+
 .devise {
   background-color: #f5f5f5;
   color: #333333;
@@ -7,11 +19,9 @@
   }
 
   &__header {
-    height: 130px;
+    @include line_up_side;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 130px;
 
     img {
       height: 50px;
@@ -23,18 +33,16 @@
     margin-left: 50px;
       
     .step {
+      color: #ccc;
       text-align: center;
       font-size: 12px;
       font-weight: bold;
-      color: #ccc;
       &--active {
         color: #3CCACE;
       }
 
       .step_icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include line_up_side;
         margin-top: 3px;
 
         &__circle {
@@ -58,8 +66,7 @@
 
         .invisible {
           opacity: 0;
-        }
-        
+        }    
       }
     }
   }
@@ -71,21 +78,19 @@
     margin: 0 auto;
 
     &__top {
-      height: 145px;
-      display: flex;
+      @include line_up_side;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      height: 145px;
       font-size: 14px;
       border-bottom: 1px solid #f5f5f5;
 
       .sign_up_link {
-        margin-top: 5px;
         background-color: #0099e8;
-        text-decoration: none;
         color: white;
         width: 320px;
         height: 42px;
+        margin-top: 5px;
+        text-decoration: none;
         line-height: 42px;
         text-align: center;
       }
@@ -109,19 +114,19 @@
       }
 
       .submit_btn {
-        border-style: none;
         background-color: #3CCACE;
         color: white;
         width: 320px;
         height: 50px;
         margin-bottom: 40px;
+        border-style: none;
         cursor: pointer;
       }
 
       .password_reset a {
+        color: #0099e8;
         text-decoration: none;
         font-size: 14px;
-        color: #0099e8;
       }
     }
   }
@@ -136,14 +141,12 @@
       border-bottom: 1px solid #f5f5f5;
       font-size: 22px;
       line-height: 97px;
-      text-align: center;
       font-weight: bold;
+      text-align: center;
     }
 
     &__bottom {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      @include line_up_vertical;
       padding: 24px 0 40px;
 
       .field {
@@ -168,8 +171,8 @@
         }
 
         input {
-          margin: 5px 0;
           width: 325px;
+          margin: 5px 0;
           padding: 10px 16px 8px;
           border-style: none;
           border-radius: 4px;
@@ -185,30 +188,30 @@
         }
 
         p {
-          font-size: 14px;
           color: #888888;
+          font-size: 14px;
         }
 
         select {
-          margin: 5px 0;
           background: none;
-          border: 1px solid #ccc;
+          color: #333333;
           width: 359px;
           height: 45px;
+          margin: 5px 0;
+          border: 1px solid #ccc;
           font-size: 14px;
-          color: #333333;
           cursor: pointer;
         }
       }
 
       .identify {
         width: 345px;
-        font-size: 14px;
         padding: 10px 0;
+        font-size: 14px;
 
         h3 {
-          font-weight: bold;
           margin-bottom: 5px;
+          font-weight: bold;
         }
       }
 
@@ -243,25 +246,25 @@
       }
 
       .send_btn {
-        display: block;
-        text-decoration: none;
         background-color: #3CCACE;
         color: white;
+        display: block;
         width: 345px;
         height: 50px;
+        margin: 10px auto 20px;
+        text-decoration: none;
+        font-size: 14px;
         line-height: 50px;
         text-align: center;
-        font-size: 14px;
-        margin: 10px auto 20px;
         cursor: pointer;
       }
 
       .about_message {
-        width: 345px;
         color: #0099e8;
+        width: 345px;
+        margin-top: 20px;
         font-size: 14px;
         text-align: end;
-        margin-top: 20px;
       }
 
       .thank_message {
@@ -272,21 +275,19 @@
   }
 
   &__footer {
+    @include line_up_vertical;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 30px 0;
 
     &__nav li {
-      font-size: 12px;
       display: inline;
       margin-right: 15px;
+      font-size: 12px;
     }
 
     img {
-      height: auto;
       width: 185px;
+      height: auto;
       margin-top: 30px;
     }
 
