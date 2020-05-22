@@ -7,12 +7,13 @@
       %p 最大10枚までアップロードできます
       .form-image__box
         %label
-          = f.file_field :image, class: '#', style: "display: none;"
+          = f.file_field :image, class: '.file_field', style: "display: none;"
           = image_tag "icon_camera.png", size: '24x24'
           %p
             ドラッグアンドドロップ
             %br
             またはクリックしてファイルをアップロード
+
 
     .form-item
       .form-item__name
@@ -29,6 +30,7 @@
           = f.text_area :text, placeholder: "商品の説明（必須1,000文字以内(色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
         .form-item__text__style-counter
           0/1000
+
 
     .form-detail
       %p 商品の詳細
@@ -50,6 +52,7 @@
           %span<>必須
         .form-detail__status__input
           = f.select :status, [ ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ], prompt: "選択してください"
+
 
     .form-shipping
       .form-shipping__title
@@ -75,6 +78,7 @@
         .form-shipping__days__input
           = f.select :name, [ ["1〜2日で発送",1], ["2〜3日で発送", 2], ["4〜7日で発送", 3] ], prompt: "選択してください"
 
+
     .form-price
       .form-price__title
         %p 価格（¥300~9,999,999）
@@ -87,7 +91,6 @@
         .form-price__value__right
           %span<>¥
           = f.text_field :price, placeholder: "0"
-          
       .form-price__fee
         販売手数料（10%）
         %span<>ー
@@ -95,6 +98,7 @@
         販売利益
         %span<>ー
       
+
     .form-btn
       .form-btn__top
         = link_to "#" do
