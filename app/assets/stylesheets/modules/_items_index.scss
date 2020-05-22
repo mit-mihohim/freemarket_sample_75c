@@ -5,12 +5,12 @@
 @mixin border() {
   height: 5px;
   width: 100px;
-  background-color: #3CCACE;
+  background-color: $main-color;
   border-radius: 10px;
   margin: 10px auto;
 }
 @mixin title() {
-  color: black;
+  color: $font-black;
   font-size: 30px;
   font-weight: bold;
   text-align: center;
@@ -28,7 +28,7 @@
       align-items: center;
       .content {
         padding: 60px;
-        color: white;
+        color: $font-white;
         text-shadow: 0 0 8px gray;
         &__title {
           font-size: 60px;
@@ -60,10 +60,10 @@
             position: relative;
             .number {
               position: absolute;
-              background-color:#3CCACE;
+              background-color: $main-color;
               width: 50px;
               height: 50px;
-              color: white;
+              color: $font-white;
               font-size: 30px;
               font-weight: bold;
               text-align: center;
@@ -79,7 +79,7 @@
             text-align: center;
             padding: 15px;
             span {
-              color: #3CCACE;
+              color: $main-color;
             }
           }
           &__text {
@@ -100,7 +100,7 @@
       height: 400px;
       align-items: center;
       padding: 70px 120px;
-      color: white;
+      color: $font-white;
       text-shadow: 0 0 8px gray;
       &__title {
         font-size: 30px;
@@ -130,10 +130,10 @@
             position: relative;
             .number {
               position: absolute;
-              background-color:#3CCACE;
+              background-color: $main-color;
               width: 50px;
               height: 50px;
-              color: white;
+              color: $font-white;
               font-size: 30px;
               font-weight: bold;
               text-align: center;
@@ -148,7 +148,7 @@
             text-align: center;
             padding: 15px;
             span {
-              color: #3CCACE;
+              color: $main-color;
             }
           }
           &__text {
@@ -163,7 +163,7 @@
     }
     .products-container {
       height: 100%;
-      background-color: whitesmoke;
+      background-color: $background-offwhite;
       .products-index {
         padding: 70px 100px;
         .title {
@@ -177,14 +177,14 @@
           margin: 0 auto;
           display: flex;
           .list {
-            background-color: white;
+            background-color: $font-white;
             text-decoration: none;
             width: 30%;
             margin: auto 30px;
             font-size: 0;
             a {
               text-decoration: none;
-              color: black;
+              color: $font-black;
             }
             .image {
               width: 100%;
