@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   
   root 'items#index'
-  resources :items, only: [:new, :index] do
-    get 'items/buy'
-  end
+  resources :items, only: [:new, :index] 
+  get 'items/buy',  to: 'items#buy'
+
 end
