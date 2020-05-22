@@ -28,7 +28,7 @@
       align-items: center;
       .content {
         padding: 60px;
-        color: $font-white;
+        color: $basic-white;
         text-shadow: 0 0 8px gray;
         &__title {
           font-size: 60px;
@@ -63,7 +63,7 @@
               background-color: $main-color;
               width: 50px;
               height: 50px;
-              color: $font-white;
+              color: $basic-white;
               font-size: 30px;
               font-weight: bold;
               text-align: center;
@@ -100,7 +100,7 @@
       height: 400px;
       align-items: center;
       padding: 70px 120px;
-      color: $font-white;
+      color: $basic-white;
       text-shadow: 0 0 8px gray;
       &__title {
         font-size: 30px;
@@ -133,7 +133,7 @@
               background-color: $main-color;
               width: 50px;
               height: 50px;
-              color: $font-white;
+              color: $basic-white;
               font-size: 30px;
               font-weight: bold;
               text-align: center;
@@ -177,7 +177,7 @@
           margin: 0 auto;
           display: flex;
           .list {
-            background-color: $font-white;
+            background-color: $basic-white;
             text-decoration: none;
             width: 30%;
             margin: auto 30px;

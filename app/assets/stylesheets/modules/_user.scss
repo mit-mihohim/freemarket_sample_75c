@@ -11,8 +11,8 @@
 }
 
 .devise {
-  background-color: #f5f5f5;
-  color: #333333;
+  background-color: $background-offwhite;
+  color: $font-black;
 
   &__wrapper {
     min-height: calc(100vh - 195px);
@@ -33,12 +33,12 @@
     margin-left: 50px;
       
     .step {
-      color: #ccc;
+      color: $unfinish;
       text-align: center;
       font-size: 12px;
       font-weight: bold;
       &--active {
-        color: #3CCACE;
+        color: $main-color;
       }
 
       &__icon {
@@ -46,21 +46,21 @@
         margin-top: 3px;
 
         &__circle {
-          background-color: #ccc;
+          background-color: $unfinish;
           width: 12px;
           height: 12px;
           border-radius: 50%;
           &--active {
-            background-color: #3CCACE;
+            background-color: $main-color;
           }
         }
 
         &__bar {
-          background-color: #ccc;
+          background-color: $unfinish;
           width: 40px;
           height: 2px;
           &--active {
-            background-color: #3CCACE;
+            background-color: $main-color;
           }
         }
 
@@ -73,7 +73,7 @@
 
 
   .login {
-    background-color: white;
+    background-color: $basic-white;
     width: 455px;
     margin: 0 auto;
 
@@ -82,11 +82,11 @@
       flex-direction: column;
       height: 145px;
       font-size: 14px;
-      border-bottom: 1px solid #f5f5f5;
+      border-bottom: 1px solid $background-offwhite;
 
       .sign_up_link {
-        background-color: #0099e8;
-        color: white;
+        background-color: $link-blue;
+        color: $basic-white;
         width: 320px;
         height: 42px;
         margin-top: 5px;
@@ -108,14 +108,14 @@
           padding: 10px 16px 8px;
           border-style: none;
           border-radius: 4px;
-          border: 1px solid #ccc;
+          border: 1px solid $unfinish;
           
         }
       }
 
       .submit_btn {
-        background-color: #3CCACE;
-        color: white;
+        background-color: $main-color;
+        color: $basic-white;
         width: 320px;
         height: 50px;
         margin-bottom: 40px;
@@ -124,7 +124,7 @@
       }
 
       .password_reset a {
-        color: #0099e8;
+        color: $link-blue;
         text-decoration: none;
         font-size: 14px;
       }
@@ -132,13 +132,13 @@
   }
 
   .sign-up {
-    background-color: white;
+    background-color: $basic-white;
     width: 700px;
     margin: 0 auto;
 
     &__top {
       height: 97px;
-      border-bottom: 1px solid #f5f5f5;
+      border-bottom: 1px solid $background-offwhite;
       font-size: 22px;
       line-height: 97px;
       font-weight: bold;
@@ -159,15 +159,15 @@
         }
 
         span {
-          background-color: #ea352d;
-          color: white;
+          background-color: $caution-red;
+          color: $basic-white;
           font-size: 12px;
           padding: 2px 4px;
           border-radius: 2px;
         }
 
         &--optional span {
-          background-color: #ccc;
+          background-color: $unfinish;
         }
 
         input {
@@ -176,7 +176,7 @@
           padding: 10px 16px 8px;
           border-style: none;
           border-radius: 4px;
-          border: 1px solid #ccc;
+          border: 1px solid $unfinish;
         }
 
         .two_rows_input {
@@ -188,17 +188,17 @@
         }
 
         p {
-          color: #888888;
+          color: $fade-font;
           font-size: 14px;
         }
 
         select {
           background: none;
-          color: #333333;
+          color: $font-black;
           width: 359px;
           height: 45px;
           margin: 5px 0;
-          border: 1px solid #ccc;
+          border: 1px solid $unfinish;
           font-size: 14px;
           cursor: pointer;
         }
@@ -220,17 +220,17 @@
         margin: 5px 0 5px;
         select {
           background: none;
-          border: 1px solid #ccc;
+          border: 1px solid $unfinish;
           width: 85px;
           height: 45px;
           font-size: 14px;
-          color: #333333;
+          color: $font-black;
           cursor: pointer;
         }
 
         span {
-          background-color: white;
-          color: #333333;
+          background-color: $basic-white;
+          color: $font-black;
           line-height: 45px;
         }
       }
@@ -241,13 +241,13 @@
         text-align: center;
         padding: 40px 0 30px;
         span {
-          color: #0099e8;
+          color: $link-blue;
         }
       }
 
       .send_btn {
-        background-color: #3CCACE;
-        color: white;
+        background-color: $main-color;
+        color: $basic-white;
         display: block;
         width: 345px;
         height: 50px;
@@ -260,7 +260,7 @@
       }
 
       .about_message {
-        color: #0099e8;
+        color: $link-blue;
         width: 345px;
         margin-top: 20px;
         font-size: 14px;
