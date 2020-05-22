@@ -1,0 +1,298 @@
+@mixin line_up_side($justify-content: center, $align-items: center) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin line_up_vertical($flex-direction: column, $align-items: center) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+}
+
+.devise {
+  background-color: #f5f5f5;
+  color: #333333;
+
+  .wrapper {
+    min-height: calc(100vh - 195px);
+  }
+
+  &__header {
+    @include line_up_side;
+    width: 100%;
+    height: 130px;
+
+    img {
+      height: 50px;
+    }
+  }
+
+  .progress_bar {
+    display: flex;
+    margin-left: 50px;
+      
+    .step {
+      color: #ccc;
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      &--active {
+        color: #3CCACE;
+      }
+
+      &__icon {
+        @include line_up_side;
+        margin-top: 3px;
+
+        &__circle {
+          background-color: #ccc;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          &--active {
+            background-color: #3CCACE;
+          }
+        }
+
+        &__bar {
+          background-color: #ccc;
+          width: 40px;
+          height: 2px;
+          &--active {
+            background-color: #3CCACE;
+          }
+        }
+
+        .invisible {
+          opacity: 0;
+        }    
+      }
+    }
+  }
+
+
+  .login {
+    background-color: white;
+    width: 455px;
+    margin: 0 auto;
+
+    &__top {
+      @include line_up_side;
+      flex-direction: column;
+      height: 145px;
+      font-size: 14px;
+      border-bottom: 1px solid #f5f5f5;
+
+      .sign_up_link {
+        background-color: #0099e8;
+        color: white;
+        width: 320px;
+        height: 42px;
+        margin-top: 5px;
+        text-decoration: none;
+        line-height: 42px;
+        text-align: center;
+      }
+    }
+
+    &__bottom {
+      padding: 40px 64px 32px;
+
+      .field {
+        margin-bottom: 24px;
+        text-align: center;
+
+        input {
+          width: 285px;
+          padding: 10px 16px 8px;
+          border-style: none;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          
+        }
+      }
+
+      .submit_btn {
+        background-color: #3CCACE;
+        color: white;
+        width: 320px;
+        height: 50px;
+        margin-bottom: 40px;
+        border-style: none;
+        cursor: pointer;
+      }
+
+      .password_reset a {
+        color: #0099e8;
+        text-decoration: none;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .sign-up {
+    background-color: white;
+    width: 700px;
+    margin: 0 auto;
+
+    &__top {
+      height: 97px;
+      border-bottom: 1px solid #f5f5f5;
+      font-size: 22px;
+      line-height: 97px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &__bottom {
+      @include line_up_vertical;
+      padding: 24px 0 40px;
+
+      .field {
+        width: 355px;
+        margin-bottom: 24px;
+
+        label {
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+        span {
+          background-color: #ea352d;
+          color: white;
+          font-size: 12px;
+          padding: 2px 4px;
+          border-radius: 2px;
+        }
+
+        &--optional span {
+          background-color: #ccc;
+        }
+
+        input {
+          width: 325px;
+          margin: 5px 0;
+          padding: 10px 16px 8px;
+          border-style: none;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+        }
+
+        .two_rows_input {
+          display: flex;
+          justify-content: space-between;
+          input {
+            width: 140px;
+          }
+        }
+
+        p {
+          color: #888888;
+          font-size: 14px;
+        }
+
+        select {
+          background: none;
+          color: #333333;
+          width: 359px;
+          height: 45px;
+          margin: 5px 0;
+          border: 1px solid #ccc;
+          font-size: 14px;
+          cursor: pointer;
+        }
+      }
+
+      .identify {
+        width: 345px;
+        padding: 10px 0;
+        font-size: 14px;
+
+        h3 {
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+      }
+
+      .birthday_input {
+        display: flex;
+        margin: 5px 0 5px;
+        select {
+          background: none;
+          border: 1px solid #ccc;
+          width: 85px;
+          height: 45px;
+          font-size: 14px;
+          color: #333333;
+          cursor: pointer;
+        }
+
+        span {
+          background-color: white;
+          color: #333333;
+          line-height: 45px;
+        }
+      }
+
+      .confirm_message {
+        width: 345px;
+        font-size: 14px;
+        text-align: center;
+        padding: 40px 0 30px;
+        span {
+          color: #0099e8;
+        }
+      }
+
+      .send_btn {
+        background-color: #3CCACE;
+        color: white;
+        display: block;
+        width: 345px;
+        height: 50px;
+        margin: 10px auto 20px;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 50px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .about_message {
+        color: #0099e8;
+        width: 345px;
+        margin-top: 20px;
+        font-size: 14px;
+        text-align: end;
+      }
+
+      .thank_message {
+        margin: 40px 0;
+        text-align: center;
+      }
+    }
+  }
+
+  &__footer {
+    @include line_up_vertical;
+    width: 100%;
+    padding: 30px 0;
+
+    &__nav li {
+      display: inline;
+      margin-right: 15px;
+      font-size: 12px;
+    }
+
+    img {
+      width: 185px;
+      height: auto;
+      margin-top: 30px;
+    }
+
+    &__copywrite small {
+      font-size: 13px;
+    }
+  }
+}

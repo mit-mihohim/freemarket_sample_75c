@@ -1,0 +1,102 @@
+*{
+  box-sizing: border-box;
+  font-family:"Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  a{
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+.header{
+  width: 100%;
+  height: 98px;
+  padding:  0 60px;
+  a{
+    color:black;
+  }
+  
+  .topHeader{
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-top:15px ;
+
+    &__main{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &--logo{
+        margin-right: 30px;
+        display: block;
+      }
+
+      .search-box{
+        width:1040px;
+        height: 38px;
+        display: flex;
+
+        &__text{
+          width: 100%;
+          height: 38px;
+          padding-left: 5px;
+        }
+
+        &__btn{         
+          width: 38px;
+          height: 38px;
+          background-color: #33cccc;
+          cursor: pointer;
+        }
+          :hover{
+            opacity: 0.9;
+          }
+      }
+    }
+
+    .nav-bar{
+      width: 100%;
+      display: flex;
+      justify-content:space-between;
+      font-size: 14px;
+      margin-bottom: 10px;
+      padding-top:10px;
+
+      &__left{
+        display: flex;
+        li{
+          padding-right: 30px;
+        }
+      }
+
+      &__right{
+        display: flex;  
+        li{
+          padding-left: 30px;
+        }
+      }
+    }
+  }
+}
+
+.exhibition-btn{
+  width: 118px;
+  height: 118px;
+  background-color:#3ccace;
+  color: #fff;
+  text-align: center;
+  border-radius: 4%;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  cursor: pointer;
+    :hover{
+      opacity: 0.8;
+    }
+
+  &__text{
+    padding-top: 15px;
+    padding-bottom: 5px;
+    font-size: 18px;
+  }
+}
+
