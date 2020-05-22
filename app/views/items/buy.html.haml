@@ -1,9 +1,10 @@
 .wrapper
-  .header
   .confirm-item
     .confirm-item__box
+
       %section.confirm-item__box--title
         購入内容の確認
+
       %section.confirm-item__box__itemView
         .confirm-item__box__itemView--image
           =image_tag "pict-reason-02.jpg", size:"85x85"
@@ -12,20 +13,22 @@
           状態も綺麗なのでおすすめです！
           .confirm-item__box__itemView--text--price
             ¥9,980(税込み)送料込み
+
       %section.confirm-item__box__payMoney
-        .section.confirm-item__box__payMoney--text
+        .confirm-item__box__payMoney--text
           支払い金額
-        .section.confirm-item__box__payMoney--price
+        .confirm-item__box__payMoney--price
           ¥9,980
+
       %section.confirm-item__box__payWay
-        .section.confirm-item__box__payWay--text
+        .confirm-item__box__payWay--text
           支払い方法 :クレジットカード
-          .section.confirm-item__box__payWay--info
+          .confirm-item__box__payWay--info
             %p.creditNumber
               カード番号: ********1234 
             %p.expirDate
               有効期限: 24年12月
-        .section.confirm-item__box__payWay--info--edit
+        .confirm-item__box__payWay--info--edit
           %p.creditChange
             変更する
           %p.creditRegistration
@@ -43,5 +46,6 @@
               本多 淳
         .confirm-item__box__address--change
           変更する
+
       %section.confirm-item__box__purchase
         %input{type:"submit",class:"purchase-btn", value:"購入内容を確定する"}

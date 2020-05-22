@@ -1,34 +1,39 @@
-.wrapper{
-  width: 100vw;
-  background-color:#f8f8f8;
+@mixin flexbox() {
+  display: flex;
+  align-items: center;
+}
+@mixin fontText {
+  text-align: center;
+  font-weight: bold;
+}
 
+.wrapper{
+  background-color:#f8f8f8;
   .confirm-item{
     width: 100%;
     height: 830px;
     padding: 120px 0 200px 0;
     margin: 0 auto;
-
     &__box{
       width:700px;
       height:750px;
       margin: 0 auto;
       background-color:white;
       &--title{
+        @include fontText();
         height: 95px;
-        font-size: 24px;
-        text-align: center;
+        font-size: 24px; 
         line-height: 95px;
-        font-weight: bold;
         color: #333;
         border-bottom:1px solid #f5f5f5 ;
       }
+
       &__itemView{
+      @include flexbox();
       height:130px;
       border-bottom: 1px solid #f5f5f5f5;
-      display: flex;
-      align-items: center;
       font-size: 14px;
-      justify-content: center;
+      justify-content: center;    
         &--image{
           width: 90px;
           height: 90px;
@@ -43,12 +48,12 @@
           }
         }
       }
+
       &__payMoney{
+        @include flexbox();
         height: 90px;
-        border-bottom: 1px solid #f5f5f5;
-        display: flex;
-        justify-content:center;
-        align-items: center;
+        border-bottom: 1px solid #f5f5f5;       
+        justify-content: center;
         &--text{
           margin-right: 60px;
           font-size: 20px;
@@ -58,13 +63,13 @@
           font-weight: bold;
         }
       }
+
       &__payWay{
+          @include flexbox();
           height: 100px;
           border-bottom: 1px solid #f5f5f5;
-          padding: 15px 0 10px 60px;
-          display: flex;
+          padding: 15px 0 10px 60px;    
           justify-content: space-evenly;
-          align-items: center;
           &--info{
             &--edit{
               display: flex;
@@ -78,37 +83,36 @@
           }
         }
       
-
       &__address{
+        @include flexbox();
         height: 100px;
         border-bottom: 1px solid #f5f5f5;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        padding:15px 0 10px 20px;
-     
+        justify-content: space-evenly;    
+        padding:15px 0 10px 20px;   
           &--change{
             display: flex;
-              margin-top: 70px;
-              color: blue;
-              cursor: pointer;
+            margin-top: 70px;
+            color: blue;
+            cursor: pointer;
         }
       }
+
       &__purchase{
+        @include fontText();
         line-height: 200px;
-        text-align: center;
         .purchase-btn{
-        width:345px;
+        width:350px;
         height:50px;
         background-color:#3ccace;
-        border: 1px solid;
-        border-color: #3ccace;
+        border: 1px solid #3ccace;
         color: white;
-        font-weight: bold;
         line-height: 50px;
         cursor: pointer;
         }
-      }
+        :hover{
+          opacity: 0.8;
+        }
+      }    
     }
   }
 }
