@@ -9,7 +9,7 @@
     background-position:center;
     
       &__inner{
-        color: #fff;
+        color: $basic-white;
         text-align: center;
 
         &--title{
@@ -34,7 +34,7 @@
     height: 355px;
     text-align: center;
     background-color: #272727;
-    color: #fff;
+    color: $basic-white;
 
     &__contents{
       max-width: 840px;
@@ -43,7 +43,7 @@
       justify-content: space-around;
       padding-top: 60px;
       a{
-        color: #fff;
+        color: $basic-white;
       }
         a:hover{
           text-decoration: underline;
