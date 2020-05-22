@@ -41,7 +41,7 @@
         color: #3CCACE;
       }
 
-      .step_icon {
+      &__icon {
         @include line_up_side;
         margin-top: 3px;
 
