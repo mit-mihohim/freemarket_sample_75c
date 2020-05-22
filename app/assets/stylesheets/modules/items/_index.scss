@@ -1,0 +1,214 @@
+@mixin flex-space() {
+  display: flex;
+  justify-content: space-between;
+}
+@mixin border() {
+  height: 5px;
+  width: 100px;
+  background-color: #3CCACE;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+@mixin title() {
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 20px;
+}
+* {
+  box-sizing: border-box;
+  .contents {
+    width: 100%;
+    .theme-visual {
+      background-image: image-url("pict/bg-mainVisual-pict_pc.jpg");
+      background-size: cover;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      .content {
+        padding: 60px;
+        color: white;
+        text-shadow: 0 0 8px gray;
+        &__title {
+          font-size: 60px;
+        }
+        &__text {
+          margin: 15px 0;
+          font-size: 20px;
+        }
+      }
+    }
+    .introduction {
+      height: 100%;
+      padding: 70px;
+      align-items: center;
+  
+      .title {
+        @include title();
+  
+        &__border {
+          @include border();
+        }
+      }
+      .lists {
+        @include flex-space();
+        margin: auto 70px;
+        .list {
+          width: 30%;
+          &__image {
+            position: relative;
+            .number {
+              position: absolute;
+              background-color:#3CCACE;
+              width: 50px;
+              height: 50px;
+              color: white;
+              font-size: 30px;
+              font-weight: bold;
+              text-align: center;
+            }
+            .image {
+              width: 100%;
+            }
+          }
+          &__subtitle {
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            span {
+              color: #3CCACE;
+            }
+          }
+          &__text {
+            font-size: 18px;
+            &--center {
+              text-align: center;
+              font-size: 18px;
+            }
+          }
+        }
+      }
+  
+  
+    }
+    .dl-content {
+      background-image: image-url("pict/bg-topMiddleDl-pict.jpg");
+      background-size: cover;
+      height: 400px;
+      align-items: center;
+      padding: 70px 120px;
+      color: white;
+      text-shadow: 0 0 8px gray;
+      &__title {
+        font-size: 30px;
+        font-weight: bold;
+      }
+      &__text {
+        margin: 15px 0;
+        font-size: 20px;
+      }
+    }
+    .service-feature {
+      height: 100%;
+      padding: 70px 110px;
+      .title {
+        @include title();
+        &__border {
+          @include border();
+        }
+      }
+      .lists {
+        @include flex-space();
+        margin: auto 110px;
+        .list {
+          width: 30%;
+          margin: auto 30px;
+          &__image {
+            position: relative;
+            .number {
+              position: absolute;
+              background-color:#3CCACE;
+              width: 50px;
+              height: 50px;
+              color: white;
+              font-size: 30px;
+              font-weight: bold;
+              text-align: center;
+            }
+            .image {
+              width: 100%;
+            }
+          }
+          &__subtitle {
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            span {
+              color: #3CCACE;
+            }
+          }
+          &__text {
+            font-size: 18px;
+            &--center {
+              text-align: center;
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+    .products-container {
+      height: 100%;
+      background-color: whitesmoke;
+      .products-index {
+        padding: 70px 100px;
+        .title {
+          @include title();
+          &__border {
+            @include border();
+          }
+        }
+        .lists {
+          width: 80%;
+          margin: 0 auto;
+          display: flex;
+          .list {
+            background-color: white;
+            text-decoration: none;
+            width: 30%;
+            margin: auto 30px;
+            font-size: 0;
+            a {
+              text-decoration: none;
+              color: black;
+            }
+            .image {
+              width: 100%;
+            }
+            .info {
+              padding: 20px;
+              font-size: 16px;
+              &__top {
+                @include flex-space();
+                .name {
+                  font-weight: bold;
+                }
+                .favorite {
+                  color: #f8427f;
+                }
+              }
+              .price {
+                p {
+                  font-size: 8px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
