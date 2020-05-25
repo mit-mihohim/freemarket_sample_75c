@@ -292,7 +292,8 @@
       
       margin: 32px 170px;
       &__top {
-        a {
+        cursor: pointer;
+        input {
           color: $basic-white;
           background-color: $main-color;
           display: inline-block;
