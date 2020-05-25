@@ -65,8 +65,8 @@
           .form-shipping__charge__label
             %label<>配送料の負担
             %span<>必須
-          .form-shipping__charge__input
             = f.select :delivery_charge_bearer, Item.delivery_charge_bearers.keys.map{|k| [k]}, {include_blank: "選択して下さい"}
+          
         .form-shipping__area
           .form-shipping__area__label
             %label<>発送元の地域
