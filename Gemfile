@@ -75,6 +75,9 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'devise'
+gem 'ancestry', '~> 1.2'
+gem 'active_hash'
+gem 'payjp'
 
 group :production do
   gem 'unicorn'
