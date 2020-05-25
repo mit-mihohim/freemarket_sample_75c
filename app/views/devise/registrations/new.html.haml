@@ -5,8 +5,8 @@
       .sign-up__top
         会員情報入力
       .sign-up__bottom
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          = render "devise/shared/error_messages", resource: resource
+        = form_for(@user, url: user_registration_path) do |f|
+          = render "devise/shared/error_messages", resource: @user
           .field
             = f.label :ニックネーム 
             %span 必須
@@ -29,46 +29,35 @@
           .identify
             %h3 本人確認
             %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-          .field
-            %label お名前(全角)
-            %span 必須
-            %br/
-            .two_rows_input
-              %input{name: "family_name", placeholder: "例）山田"}
-              %input{name: "family_name", placeholder: "例）彩"}
-          .field
-            %label お名前カナ(全角)
-            %span 必須
-            %br/
-            .two_rows_input
-              %input{name: "family_name_kana", placeholder: "例）ヤマダ"}
-              %input{name: "family_name_kana", placeholder: "例）アヤ"}
-          .field.field--birthday
-            %label 生年月日
-            %span 必須
-            %br/
-            .birthday_input
-              %select{name: "birth_year"}
-                %option --
-                %option 2020
-              %span 年
-              %select{name: "birth_month"}
-                %option --
-                %option 1
-              %span 月
-              %select{name: "birth_date"}
-                %option --
-                %option 1
-              %span 日
-            %p ※ 本人情報は正しく入力してください。会員登録後、
-            %p 修正するにはお時間を頂く場合があります。
+          = f.fields_for :profile do |i|
+            .field
+              %label お名前(全角)
+              %span 必須
+              %br/
+              .two_rows_input
+                = i.text_field :last_name, placeholder: "例）山田"
+                = i.text_field :first_name, placeholder: "例）彩"
+            .field
+              %label お名前カナ(全角)
+              %span 必須
+              %br/
+              .two_rows_input
+                = i.text_field :last_name_kana, placeholder: "例）ヤマダ"
+                = i.text_field :first_name_kana, placeholder: "例）アヤ"
+            .field.field--birthday
+              %label 生年月日
+              %span 必須
+              %br/
+              .birthday_input
+                = raw sprintf(i.date_select(:birthday, start_year: 1900, end_year: Time.now.year, dafault: Date.new(1990, 1, 1), date_separator: '%s'), '年', '月') + '日'
+              %p ※ 本人情報は正しく入力してください。会員登録後、
+              %p 修正するにはお時間を頂く場合があります。
 
           .confirm_message
             「次へ進む」のボタンを押すことにより、
             %span 利用規約
             に同意したものとみなします
-          = link_to "/addresses", class:"send_btn" do
-            次へ進む
+          = f.submit "次へ進む", class:"send_btn"
           .about_message
             本人情報の登録について＞
 
