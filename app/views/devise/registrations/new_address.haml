@@ -36,7 +36,7 @@
             %label 都道府県
             %span 必須
             %br/
-            = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { include_blank: "選択して下さい"}
           .field
             %label 市町村
             %span 必須
