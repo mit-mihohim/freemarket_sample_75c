@@ -7,7 +7,12 @@
         発送元・お届け先住所入力
       .sign-up__bottom
         = form_for @address do |f|
-          = render "devise/shared/error_messages", resourece: @address
+          - if @address.errors.any?
+            #error_explanation
+              %ul
+                - @address.errors.full_messages.each do |message|
+                  %li
+                    = message
           .field
             %label お名前
             %span 必須
