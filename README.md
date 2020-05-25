@@ -32,9 +32,11 @@
 |------|----|-------|
 |name|string|null: false|
 
+### gem指定
+gem ancestry
 ### Association
 - has_many :items
-
+- has_ancestry
 
 ## item_imagesテーブル
 |Column|Type|Options|
