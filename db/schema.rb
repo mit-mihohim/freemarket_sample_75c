@@ -29,11 +29,9 @@ ActiveRecord::Schema.define(version: 2020_05_25_022602) do
     t.integer "shipping_area", default: 0, null: false
     t.integer "delivery_days", default: 0, null: false
     t.integer "price", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_items_on_name"
-    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,5 +48,4 @@ ActiveRecord::Schema.define(version: 2020_05_25_022602) do
   end
 
   add_foreign_key "item_images", "items"
-  add_foreign_key "items", "users"
 end
