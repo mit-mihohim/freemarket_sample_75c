@@ -1,7 +1,7 @@
 = render "devise/template/header"
 .wrapper
   .form-new
-    = form_for @item do |f|
+    = form_with(model: @item, local: true) do |f|
       .form-image
         .form-image__label
           %label<>出品画像
