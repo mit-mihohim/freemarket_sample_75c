@@ -54,7 +54,7 @@
             %label<>商品の状態
             %span<>必須
           .form-detail__status__input
-            = f.select :status, [ ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ], prompt: "選択してください"
+            = f.select :statuses, Item.statuses
 
 
       .form-shipping
