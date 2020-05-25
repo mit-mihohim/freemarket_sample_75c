@@ -9,12 +9,10 @@ Rails.application.routes.draw do
   end
   
   root 'items#index'
-<<<<<<< HEAD
-=======
   resources :items, only: [:new, :index] 
   get 'items/buy',  to: 'items#buy'
   resources :payment_cards, only: [:index]
->>>>>>> ffe43cb... ルーティング仮定義
+  resources :payment_cards, only: [:new, :create]
 
   resources :items, only: [:index, :new, :create] 
 
