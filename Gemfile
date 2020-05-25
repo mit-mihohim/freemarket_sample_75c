@@ -75,7 +75,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'devise'
-gem 'ancestry', '~> 1.2'
+gem 'ancestry'
 gem 'active_hash'
 gem 'payjp'
 
