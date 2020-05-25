@@ -2,8 +2,8 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def new
-    
+  def new 
+    @item = Item.new
   end
 
   def buy
