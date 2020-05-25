@@ -57,7 +57,6 @@
             %span<>必須
           .form-detail__status__input
             = f.select :status, Item.statuses.keys.map{|k| [k]}, {include_blank: "選択して下さい"}
-
       .form-shipping
         .form-shipping__title
           %p 配送について
