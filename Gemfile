@@ -78,6 +78,8 @@ gem 'devise'
 gem 'ancestry', '~> 1.2'
 gem 'active_hash'
 gem 'payjp'
+gem 'rails-i18n'
+gem 'enum_help'
 
 group :production do
   gem 'unicorn'
