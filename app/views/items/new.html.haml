@@ -11,14 +11,14 @@
           %label
             = f.fields_for :item_images do |i|
               .js-file_group{"data-index" => "#{i.index}"}
-                = i.file_field :src, class: '.js-file', style: "display: none;"
-              %span.js-remove
-                削除
+                = i.file_field :src, class: 'js-file', style: "display:none;"
                 = image_tag "icon_camera.png", size: '24x24'
-            %p
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
+              %span.js-remove
+                削除            
+              %p
+                ドラッグアンドドロップ
+                %br
+                  またはクリックしてファイルをアップロード
 
 
       .form-item
