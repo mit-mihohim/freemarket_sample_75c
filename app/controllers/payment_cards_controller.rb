@@ -5,7 +5,7 @@ class PaymentCardsController < ApplicationController
 
   def new
     # cardがすでに登録済みの場合、indexのページに戻します。
-    @card = PaymentCard.where(user_id: current_user.id).first
+    # @card = PaymentCard.where(user_id: current_user.id).first
 
   end
 
