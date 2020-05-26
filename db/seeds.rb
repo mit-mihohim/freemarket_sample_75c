@@ -1,7 +1,66 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# カテゴリ一覧(多階層構造)
+# level1 親カテゴリ level2 子カテゴリ level3 孫カテゴリ で追加
+
+categories = [
+  {level1: "レディース", level2:[
+                                {level2: "アウター", level3: ["テーラードジャケット", "ノーカラージャケット", "デニムジャケット", "レザージャケット", "ダウンジャケット", "ブルゾン", "トレンチコート", "ロングコート", "ダッフルコート", "チェスターコート", "その他"]},
+                                {level2: "トップス", level3: ["カットソー(Tシャツ)/半袖", "カットソー/長袖","シャツ(ブラウス)/半袖", "シャツ(ブラウス)/長袖", "キャミソール", "タンクトップ", "ニット(セーター)", "スウェット", "その他"]},
+                                {level2: "パンツ", level3: ["デニム(ジーンズ)", "ショートパンツ", "ハーフパンツ", "チノパン", "カーゴ", "クロップド", "サロペット(カバーオール)", "その他"]},
+                                {level2: "スカート", level3: ["ミニ", "ひざ丈", "ロング", "その他"]},
+                                {level2: "ワンピース", level3: ["ミニ", "ひざ丈", "ロング", "その他"]},
+                                {level2: "靴", level3: ["スニーカー", "サンダル", "ブーツ", "ヒール/パンプス", "その他"]},
+                                {level2: "帽子", level3: ["キャップ", "ニットキャップ", "ハット", "ハンチング", "その他"]},
+                                {level2: "バッグ", level3: ["トートバッグ", "リュック", "ボストンバッグ", "ショルダーバッグ", "その他"]},
+                              ]
+  },
+  {level1: "メンズ", level2:[
+                                {level2: "アウター", level3: ["テーラードジャケット", "ノーカラージャケット", "デニムジャケット", "レザージャケット", "ダウンジャケット", "ブルゾン", "トレンチコート", "ロングコート", "ダッフルコート", "チェスターコート", "その他"]},
+                                {level2: "トップス", level3: ["カットソー(Tシャツ)/半袖", "カットソー/長袖","シャツ/半袖", "シャツ/長袖", "ポロシャツ", "タンクトップ", "ニット(セーター)", "スウェット", "その他"]},
+                                {level2: "パンツ", level3: ["デニム(ジーンズ)", "ショートパンツ", "ハーフパンツ", "チノパン", "カーゴ", "クロップド", "サロペット(カバーオール)", "その他"]},
+                                {level2: "靴", level3: ["スニーカー", "サンダル", "ブーツ", "ビジネスシューズ", "その他"]},
+                                {level2: "帽子", level3: ["キャップ", "ニットキャップ", "ハット", "ハンチング", "その他"]},
+                                {level2: "バッグ", level3: ["トートバッグ", "リュック", "ボストンバッグ", "ショルダーバッグ", "その他"]},
+                              ]
+  },
+  {level1: "ベビー/キッズ", level2:[
+                                    {level2: "ベビー服(女の子)", level3: ["アウター", "トップス", "パンツ", "スカート", "ワンピース", "カバーオール", "その他"]},
+                                    {level2: "ベビー服(男の子)", level3: ["アウター", "トップス", "パンツ", "カバーオール", "その他"]},
+                                    {level2: "キッズ服(女の子)", level3: ["アウター", "トップス", "パンツ", "スカート", "ワンピース", "その他"]},
+                                    {level2: "キッズ服(男の子)", level3: ["アウター", "トップス", "パンツ", "その他"]},
+                                    {level2: "キッズ靴", level3: ["スニーカー", "ブーツ", "長靴", "サンダル", "その他"]},
+                                    {level2: "キッズ/ベビー小物", level3: ["帽子", "バッグ", "スタイ", "その他"]},
+                                  ]
+  },
+  {level1: "本・音楽・ゲーム", level2:[
+                                      {level2: "本", level3: ["文学/小説", "社会/人文", "ノンフィクション", "地図/旅行", "ビジネス", "哲学", "健康/医学", "IT/コンピューター", "趣味/暮らし", "アート", "洋書", "絵本", "その他"]},
+                                      {level2: "漫画", level3: ["少年漫画", "少女漫画", "同人誌", "その他"]},
+                                      {level2: "CD", level3: ["邦楽", "洋楽", "クラシック", "キッズ", "その他"]},
+                                      {level2: "DVD/BlueRay", level3: ["邦画", "洋画", "アニメ", "ミュージック", "お笑い", "スポーツ", "キッズ", "その他"]},
+                                      {level2: "ゲーム", level3: ["TVゲーム機本体", "TVゲーム機ソフト", "携帯ゲーム機本体", "携帯ゲーム機ソフト", "その他"]}
+                                    ]
+  },
+  {level1: "ハンドメイド", level2:[
+                                  {level2: "アクセサリー", level3: ["ピアス", "イヤリング", "ネックレス", "リング", "その他"]},
+                                  {level2: "小物", level3: ["バッグ", "財布", "その他"]},
+                                  {level2: "インテリア", level3: ["家具", "ガーデン", "その他"]},
+                                  {level2: "ベビー/キッズ", level3: ["スタイ", "ファッション雑貨", "その他"]},
+                                ]
+  },
+]
+
+# カテゴリ展開用
+categories.each.with_index(1) do |category,i|
+  level1_var="@categories#{i}"
+  level1_val= Category.create(name:"#{category[:level1]}")
+  eval("#{level1_var} = level1_val")
+
+  category[:level2].each.with_index(1) do |level1_child,j|
+    level2_var="#{level1_var}_#{j}"
+    level2_val= eval("#{level1_var}.children.create(name:level1_child[:level2])")
+    eval("#{level2_var} = level2_val")
+
+    level1_child[:level3].each do |level3_val|
+      eval("#{level2_var}.children.create(name:level3_val)")
+    end
+  end
+end
