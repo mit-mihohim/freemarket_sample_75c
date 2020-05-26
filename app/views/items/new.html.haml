@@ -54,7 +54,7 @@
             %label<>商品の状態
             %span<>必須
           .form-detail__status__input
-            = f.select :status, Item.statuses.keys.map{|k|[I18n.t("enums.item.status.#{k}"),k]}
+            = f.select :status, Item.statuses.keys.map{|k| [k]}, {include_blank: "選択して下さい"}
 
       .form-shipping
         .form-shipping__title
@@ -64,19 +64,19 @@
             %label<>配送料の負担
             %span<>必須
           .form-shipping__charge__input
-            = f.select :delivery_charge_bearer, Item.delivery_charge_bearers.keys.map{|k|[I18n.t("enums.item.delivery_charge_bearer.#{k}"),k]}
+            = f.select :delivery_charge_bearer, Item.delivery_charge_bearers.keys.map{|k| [k]}, {include_blank: "選択して下さい"}
         .form-shipping__area
           .form-shipping__area__label
             %label<>発送元の地域
             %span<>必須
           .form-shipping__area__input
-            = f.collection_select :shipping_area,  Prefecture.all, :id, :name
+            = f.collection_select :shipping_area,  Prefecture.all, :id, :name, {include_blank: "選択して下さい"}
         .form-shipping__days
           .form-shipping__days__label
             %label<>発送までの日数
             %span<>必須
           .form-shipping__days__input
-            = f.select :delivery_days, Item.delivery_days.keys.map{|k|[I18n.t("enums.item.delivery_days.#{k}"),k]}
+            = f.select :delivery_days, Item.delivery_days.keys.map{|k|[k]}, {include_blank: "選択して下さい"}
       .form-price
         .form-price__title
           %p 価格（¥300~9,999,999
