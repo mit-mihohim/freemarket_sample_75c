@@ -1,3 +1,4 @@
+= render "layouts/header"
 .card_add 
   .title クレジットカード情報入力
 
@@ -61,3 +62,5 @@
       .card-question カード裏面の番号とは？
     .add 
       = submit_tag "登録する", class: "add__btn", id: "payment_card_submit-button"
+
+= render "layouts/footer"
