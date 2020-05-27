@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 2020_05_25_064937) do
     t.index ["name"], name: "index_items_on_name"
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
+  
+  create_table "payment_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "payjp_customer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_payment_cards_on_user_id"
+  end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "last_name", null: false
@@ -92,6 +100,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_064937) do
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
+  add_foreign_key "payment_cards", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "payment_cards", "users"
 end
