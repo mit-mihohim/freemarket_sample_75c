@@ -1,0 +1,55 @@
+= render "devise/template/header"
+
+.wrapper
+  .item-box
+    %h2.item__name
+      春の華やか花柄ワンピース
+    %ul.item__images
+      %li.image__main
+        =image_tag "pict-reason-02.jpg", size:"85x85"
+      %ul.image__sub
+        %li
+          =image_tag "pict-reason-02.jpg", size:"25x25"
+        %li
+          =image_tag "pict-reason-02.jpg", size:"25x25"
+        %li
+          =image_tag "pict-reason-02.jpg", size:"25x25"
+    .item__price
+      %span ¥1900
+      .item__price-details
+        %span (税込)
+        %span 送料込み
+    .item__details
+      %p 逃した春を思い出させてくれるようなワンピース。白色、綿素材、１、２回着用。夏に向けてまだまだ活躍できるアイテムです！
+    %table.item__table
+      %tbody.item__info
+        %tr
+          %th 出品者
+          %td name
+        %tr
+          %th カテゴリ
+          %td カテゴリ項目
+        %tr
+          %th ブランド
+          %td 
+        %tr
+          %th 商品サイズ
+          %td 
+        %tr
+          %th 商品の状態
+          %td 新品、未使用
+        %tr
+          %th 配送料の負担
+          %td 送料込み(出品者負担)
+        %tr
+          %th 発送元の地域
+          %td 大阪府
+        %tr
+          %th 発送日の目安
+          %td 1~2日
+        
+    
+
+
+        
+  = render "devise/template/footer"
