@@ -57,11 +57,11 @@
   }
 
   .main_contents {
-    width: 700px;
     margin-left: 40px;
 
     .user_header {
       background-image: image-url("pict/bg-mainVisual-pict_pc.jpg");
+      width: 700px;
       height: 200px;
       background-size: cover;
       position: relative;
@@ -96,6 +96,7 @@
 
     .item_window {
       background-color: white;
+      width: 700px;
       margin-top: 40px;
       
       h3 {
