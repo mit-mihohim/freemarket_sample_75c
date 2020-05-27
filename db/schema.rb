@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_015220) do
+ActiveRecord::Schema.define(version: 2020_05_25_022602) do
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "src", null: false
@@ -50,4 +50,5 @@ ActiveRecord::Schema.define(version: 2020_05_27_015220) do
   end
 
   add_foreign_key "item_images", "items"
+  add_foreign_key "items", "users"
 end
