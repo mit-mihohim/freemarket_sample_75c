@@ -2,12 +2,6 @@
 .wrapper
   .form-new
     = form_with model: @item, local: true do |f|
-      - if @item.errors.any?
-        #error_explanation
-          %ul
-            - @item.errors.full_messages.each do |message|
-              %li
-                = message
       .form-image
         .form-image__label
           %label<>出品画像
@@ -38,8 +32,8 @@
             %span<>必須
           .form-item__text__input
             = f.text_area :text, placeholder: "商品の説明（必須1,000文字以内(色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-          .form-item__text__style-counter
-            0/1000
+          -# .form-item__text__style-counter
+          -#   0/1000
 
 
       .form-detail
