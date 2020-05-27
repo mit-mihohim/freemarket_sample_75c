@@ -8,27 +8,13 @@ class ItemsController < ApplicationController
   end
 
   def create  
-     Item.create(item_params)
+    Item.create(item_params)
     redirect_to new_item_path
   end
 
   private
   def item_params
-    params.require(:item).permit(:name, :text, :brand, :status, :delivery_charge_bearer, :shipping_area, :delivery_days, :price, item_images_attributes:[:src])
-
-  end
-
-  def create
-    Item.create(item_params)
-    redirect_to root_path
-  end
-
-  private
-  def item_params
-    params.require(:item).permit(:name, :text, :brand, :status, :delivery_charge_bearer, :shipping_area, :delivery_days, :price, item_images_attribute:[:src])
-  end
-
-  def buy
+    params.require(:item).permit(:name, :text, :brand, :status, :delivery_charge_bearer, :shipping_area, :delivery_days, :price, [item_images_attributes:[:src]]).merge(seller_id: current_user.id)
   end
 
 end

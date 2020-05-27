@@ -10,7 +10,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :delivery_days, null:false, default:0
       t.integer :price, null:false
       # t.references :category, null:false, foreign_key:true 
-      # t.references :user, null:false, foreign_key: true
+      t.references :buyer, foreign_key: {to_table: :users}
+      t.references :seller, foreign_key:  {to_table: :users}
       t.timestamps null:false
     end
   end
