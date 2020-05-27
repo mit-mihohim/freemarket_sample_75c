@@ -8,8 +8,12 @@ class ItemsController < ApplicationController
   end
 
   def create  
-    Item.create(item_params)
-    redirect_to new_item_path
+    @item = Item.new(item_params)
+    if  @item.save
+      redirect_to root_path, notice: "出品が完了しました"
+     else
+      redirect_to new_item_path, alert: "必須項目を入力して下さい"
+     end
   end
 
   private

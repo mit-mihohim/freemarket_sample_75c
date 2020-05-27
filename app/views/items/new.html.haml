@@ -2,6 +2,12 @@
 .wrapper
   .form-new
     = form_with model: @item, local: true do |f|
+      - if @item.errors.any?
+        #error_explanation
+          %ul
+            - @item.errors.full_messages.each do |message|
+              %li
+                = message
       .form-image
         .form-image__label
           %label<>出品画像
