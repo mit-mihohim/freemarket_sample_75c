@@ -10,8 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2020_05_27_015220) do
 
-ActiveRecord::Schema.define(version: 2020_05_25_064937) do
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "post_number", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "house_number", null: false
+    t.string "building_name"
+    t.string "phone_number"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "src", null: false
@@ -35,24 +51,6 @@ ActiveRecord::Schema.define(version: 2020_05_25_064937) do
     t.integer "seller_id"
     t.integer "buyer_id"
     t.index ["name"], name: "index_items_on_name"
-
-
-
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "post_number", null: false
-    t.integer "prefecture_id", null: false
-    t.string "city", null: false
-    t.string "house_number", null: false
-    t.string "building_name"
-    t.string "phone_number"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -65,7 +63,6 @@ ActiveRecord::Schema.define(version: 2020_05_25_064937) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
-
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -81,11 +78,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_064937) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-
-  add_foreign_key "item_images", "items"
-  add_foreign_key "items", "users"
-
   add_foreign_key "addresses", "users"
+  add_foreign_key "item_images", "items"
   add_foreign_key "profiles", "users"
-
 end
