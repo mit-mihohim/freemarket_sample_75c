@@ -5,7 +5,7 @@
 # データベース設計
 
 # ER図
-![人生を変えるフリマアプリ](https://user-images.githubusercontent.com/64017216/82408857-74527b80-9aa7-11ea-87cd-8e24afd002b1.png)
+![人生を変えるフリマアプリ](https://user-images.githubusercontent.com/63847712/82854803-794e7980-9f44-11ea-9119-57fdc31d2728.png)
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -67,9 +67,7 @@
 |first_name|string|null:false|
 |family_name_furigana|string|null:false|
 |first_name_furigana|string|null: false|
-|birth_year|integer|null:false, default: 0|
-|birth_month|integer|null:false, default: 0|
-|birth_date|integer|null:false, default: 0|
+|birthday|date|null:false|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -83,12 +81,12 @@
 |first_name|string|null:false|
 |family_name_kana|string|null:false|
 |first_name_kana|string|null: false|
-|post_number|integer|null:false|
-|prefecture|integer|null:false, dafault: 0|
+|post_number|string|null:false|
+|prefecture_id|integer|null:false, dafault: 0|
 |city|string|null:false|
 |house_number|integer|null: false|
 |building_name|string||
-|phone_number|integer||
+|phone_number|string||
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
