@@ -13,6 +13,7 @@ class PaymentCardsController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.payjp_customer_id)
       # PAY.JPの顧客情報から、デフォルトで使うクレジットカードを取得する。
       @card_info = customer.cards.retrieve(customer.default_card)
+      #@card_info = customer.cards.retrieve(@card.card_id)
       # クレジットカード情報から表示させたい情報を定義する。
       # クレジットカードの画像を表示するために、カード会社を取得
       @card_brand = @card_info.brand
@@ -52,7 +53,7 @@ class PaymentCardsController < ApplicationController
     customer = Payjp::Customer.create(
       #email: current_user.email, #email:は不要？
       card: params["payjp_token"],
-      #metadata: {user_id: current_user.id}
+      metadata: {user_id: 1}
     )
 
     # トークン化した情報を自アプリのPayment_cardsテーブルに登録
@@ -79,6 +80,8 @@ class PaymentCardsController < ApplicationController
       redirect_to action: "index", alert: "削除できませんでした"
     end
   end
+
+
 
   private
   def set_card
