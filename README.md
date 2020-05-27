@@ -18,7 +18,8 @@
 |shipping_area|integer|null: false, dafault: 0|
 |dalivery_days|integer|null:false, dafault: 0|
 |price|integer|null:false|
-|user_id|references|null: false, foreign_key: true|
+|seller_id|references|null: false, foreign_key: true|
+|seller_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -57,7 +58,7 @@
 - has_one :profile, dependent: :destroy
 - has_one :user_address, dependent: :destroy
 - has_one :payment_card, dependent: :destroy
-- has_many :items, dependent: :destroy
+- has_many :items, dependent: :destroy, foreign_key: :items
 
 
 ## profilesテーブル
