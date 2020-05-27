@@ -41,7 +41,7 @@ class PaymentCardsController < ApplicationController
 
   def new
     # cardがすでに登録済みの場合、indexのページに戻します。
-    @card = PaymentCard.where(user_id: 1).first
+    @card = PaymentCard.where(user_id: current_user.id).first
     redirect_to action: "index" if @card.present?
   end
 
@@ -53,12 +53,11 @@ class PaymentCardsController < ApplicationController
     customer = Payjp::Customer.create(
       #email: current_user.email, #email:は不要？
       card: params["payjp_token"],
-      metadata: {user_id: 1}
+      metadata: {user_id: current_user.id}
     )
 
     # トークン化した情報を自アプリのPayment_cardsテーブルに登録
-    # @card = PaymentCard.new(user_id: current_user.id, payjp_customer_id: customer.id)
-    @card = PaymentCard.new(user_id: 1, payjp_customer_id: customer.id)
+    @card = PaymentCard.new(user_id: current_user.id, payjp_customer_id: customer.id)
     if @card.save
       redirect_to action: "index"
     else
@@ -85,7 +84,7 @@ class PaymentCardsController < ApplicationController
 
   private
   def set_card
-    @card = PaymentCard.where(user_id: 1).first if PaymentCard.where(user_id: 1).present?
+    @card = PaymentCard.where(user_id: current_user.id).first if PaymentCard.where(user_id: current_user.id).present?
   end
 
 end
