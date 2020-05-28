@@ -17,7 +17,7 @@
           
       %ul.nav-bar__right
         - if user_signed_in?
-          %li.nav-bar
+          %li.nav-bar__right
             = link_to "マイページ", user_path(current_user)
         - else
           %li.nav-bar__right_login

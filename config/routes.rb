@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   get 'items/buy',  to: 'items#buy'
   resources :items 
-  resources :users, only: :show
-
+  resources :users, only: :show do
+    collection do
+      get 'edit_profile', 'edit_address'
+      patch 'update_profile', 'update_address'
+    end
+  end
 end
