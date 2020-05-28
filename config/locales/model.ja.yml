@@ -28,3 +28,14 @@ ja:
         city: 市町村
         house_number: 番地
         phone_number: 電話番号
+      item:
+        name: 商品名
+        text: 商品説明
+        item_images: 出品画像
+        price: 価格
+        status: 商品の状態
+        delivery_charge_bearer: 配送料の負担
+        shipping_area: 配送地域
+        delivery_days: 配送日数
+
+  

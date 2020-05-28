@@ -8,12 +8,18 @@ class ItemsController < ApplicationController
   end
 
   def create  
-    @item = Item.new(item_params)
-    if  @item.save
-      redirect_to root_path, notice: "出品が完了しました"
-     else
-      redirect_to new_item_path, alert: "必須項目を入力して下さい"
-     end
+    begin
+      @item = Item.new(item_params)
+        if @item.save
+          redirect_to root_path, notice: "出品が完了しました"
+        else
+          render :new
+        end
+    rescue => e
+      puts "エラーが発生しました"
+      Rails.logger.debug e.message
+      redirect_to root_path
+    end
   end
 
   private

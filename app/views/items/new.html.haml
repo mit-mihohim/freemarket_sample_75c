@@ -2,6 +2,7 @@
 .wrapper
   .form-new
     = form_with model: @item, local: true do |f|
+      = render "devise/shared/error_messages", resource: @item
       .form-image
         .form-image__label
           %label<>出品画像
@@ -10,6 +11,7 @@
         .form-image__box
           %label
             = f.fields_for :item_images do |i|
+              = render "devise/shared/error_messages", resource: @item
               .js-file_group{"data-index" => "#{i.index}"}
                 = i.file_field :src, class: 'js-file', style: "display:none;"
                 = image_tag "icon_camera.png", size: '24x24'
