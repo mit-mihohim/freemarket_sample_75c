@@ -1,0 +1,37 @@
+= render "layouts/header"
+- flash.each do |key, value| 
+  = content_tag(:div, value, class: "flash flash__#{key}")
+
+.mypage
+  = render "side_menu"
+  .main_contents
+    .sign-up
+      .sign-up__top.sign-up__top--mypage
+        本人情報
+      .sign-up__bottom
+        = form_with(model: @profile, url: update_profile_users_path, local: true) do |f|
+          -# = render "devise/shared/error_messages", model: @profile
+          .field
+            %label お名前(全角)
+            %span 必須
+            %br/
+            .two_rows_input
+              = f.text_field :last_name, placeholder: "例）山田"
+              = f.text_field :first_name, placeholder: "例）彩"
+          .field
+            %label お名前カナ(全角)
+            %span 必須
+            %br/
+            .two_rows_input
+              = f.text_field :last_name_kana, placeholder: "例）ヤマダ"
+              = f.text_field :first_name_kana, placeholder: "例）アヤ"
+          .field.field--birthday
+            %label 生年月日
+            %span 必須
+            %br/
+            .birthday_input
+              = raw sprintf(f.date_select(:birthday, use_month_numbers: true, start_year: 1900, end_year: Time.now.year, date_separator: '%s'), '年', '月') + '日'
+
+          = f.submit "変更する", class:"send_btn"
+
+= render "layouts/footer"
