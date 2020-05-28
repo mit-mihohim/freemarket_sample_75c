@@ -1,6 +1,6 @@
 # Basic認証
 - ID: admin
-- PW: Password
+- PW: password
 
 # データベース設計
 
