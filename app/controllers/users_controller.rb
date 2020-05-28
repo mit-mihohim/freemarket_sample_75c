@@ -21,8 +21,7 @@ class UsersController < ApplicationController
   private
 
   def authenticate_user
-    @user = User.find(params[:id])
-    unless user_signed_in? && @user == current_user
+    unless user_signed_in? && current_user == User.find(params[:id])
       redirect_to root_path
     end
   end
