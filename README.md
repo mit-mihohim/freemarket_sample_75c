@@ -19,7 +19,7 @@
 |dalivery_days|integer|null:false, dafault: 0|
 |price|integer|null:false|
 |seller_id|references|null: false, foreign_key: true|
-|seller_id|references|null: false, foreign_key: true|
+|buyer_id|references|foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 
 ### Association
