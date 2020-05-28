@@ -7,18 +7,17 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
-  
-  root 'items#index'
-
-  resources :items, only: [:index, :new, :create] 
-
-
-  get 'items/buy',  to: 'items#buy'
-  resources :items 
   resources :users, only: :show do
     collection do
       get 'edit_profile', 'edit_address'
       patch 'update_profile', 'update_address'
     end
   end
+
+  root 'items#index'
+
+  get 'items/buy',  to: 'items#buy'
+  resources :items 
+  
+  resources :categories, only: :index
 end
