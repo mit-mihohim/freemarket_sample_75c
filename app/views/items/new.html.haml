@@ -10,17 +10,20 @@
         %p 最大10枚までアップロードできます
         .form-image__box
           %label
-            = f.fields_for :item_images do |i|
-              = render "devise/shared/error_messages", resource: @item
-              .js-file_group{"data-index" => "#{i.index}"}
-                = i.file_field :src, class: 'js-file', style: "display:none;"
-                = image_tag "icon_camera.png", size: '24x24'
-              %span.js-remove
-                削除            
-              %p
-                ドラッグアンドドロップ
-                %br
-                  またはクリックしてファイルをアップロード
+            .previews
+              - if @item.persisted?
+                - @item.item_images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: {index: i}, width: "100", height: "100"
+              = f.fields_for :item_images do |i|
+                .js-file_group{"data-index" => "#{i.index}"}
+                  = i.file_field :src, class: 'js-file', class: "hidden"
+                  = image_tag "icon_camera.png", size: '24x24'
+                  %span.js-remove
+                    削除            
+                %p
+                  ドラッグアンドドロップ
+                  %br
+                    またはクリックしてファイルをアップロード
       .form-item
         .form-item__name
           .form-item__name__label
