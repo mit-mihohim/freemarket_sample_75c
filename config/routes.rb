@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get 'items/buy',  to: 'items#buy'
   resources :users, only: :show
 
+  resources :categories, only: :index
 end
