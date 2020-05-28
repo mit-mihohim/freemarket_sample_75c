@@ -9,8 +9,12 @@ Rails.application.routes.draw do
   end
   
   root 'items#index'
+
   resources :items, only: [:index, :new, :create] 
+
+
   get 'items/buy',  to: 'items#buy'
+  resources :items 
   resources :users, only: :show
 
 end

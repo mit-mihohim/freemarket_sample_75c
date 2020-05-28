@@ -1,11 +1,16 @@
 class ItemsController < ApplicationController
   def index
+
+  end
+
+  def show
   end
 
   def new 
     @item = Item.new
     @item.item_images.new
   end
+
 
   def create  
     begin
@@ -25,6 +30,17 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :text, :brand, :status, :delivery_charge_bearer, :shipping_area, :delivery_days, :price, [item_images_attributes:[:src, :_destroy, :id]]).merge(seller_id: current_user.id)
+
+  def edit
+    
+  end
+
+  def destroy
+    
+  end
+
+  def buy
+
   end
 
 end
