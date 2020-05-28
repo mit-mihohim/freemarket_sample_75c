@@ -29,9 +29,10 @@
       %li
         %p メール/パスワード
         %span ＞
-    %li
-      %p 本人情報
-      %span ＞
+    = link_to edit_profile_users_path do
+      %li
+        %p 本人情報
+        %span ＞
     = link_to destroy_user_session_path, method: :delete do
       %li
         %p ログアウト
