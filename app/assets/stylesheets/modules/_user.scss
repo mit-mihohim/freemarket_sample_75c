@@ -234,6 +234,21 @@
         font-size: 14px;
       }
 
+
+      .send_btn {
+        background-color: $main-color;
+        color: $basic-white;
+        display: block;
+        width: 345px;
+        height: 50px;
+        margin: 10px auto 20px;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 50px;
+        text-align: center;
+        border: 1px solid;
+        font-weight: bold;
+
       select {
         background: none;
         color: $font-black;
@@ -320,4 +335,5 @@
       text-align: center;
     }
   }
+ } 
 }

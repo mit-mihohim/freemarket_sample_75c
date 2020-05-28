@@ -65,6 +65,10 @@
         label {
           img {
             margin-top: 30px;
+            cursor: pointer;
+            .previews{
+              height: 140px;
+            }
           }
         }
       }
@@ -292,14 +296,17 @@
       
       margin: 32px 170px;
       &__top {
-        a {
+        cursor: pointer;
+        input {
           color: $basic-white;
           background-color: $main-color;
           display: inline-block;
           height: 46px;
           line-height: 46px;
           font-size: 17px;
+          border: 1px solid;
           border-radius: 4px;
+          border-color:$main-color;
           text-align: center;
           font-weight: 600;
           width: 100%;

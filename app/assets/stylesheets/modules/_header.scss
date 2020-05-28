@@ -46,6 +46,8 @@
           height: 38px;
           background-color: $main-color;
           cursor: pointer;
+          border: 1px solid;
+          border-color:$main-color;
         }
           :hover{
             opacity: 0.9;
