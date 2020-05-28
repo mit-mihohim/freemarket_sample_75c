@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :index] 
   get 'items/buy',  to: 'items#buy'
   resources :users, only: :show
+  resources :profiles, only: [:edit, :update]
 
 end
