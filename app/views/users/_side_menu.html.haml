@@ -19,9 +19,10 @@
       %span ＞
   %h3 設定
   %ul.side_menu__bottom
-    %li
-      %p 発送元・お届け先住所変更
-      %span ＞
+    = link_to edit_address_users_path do
+      %li
+        %p 発送元・お届け先住所変更
+        %span ＞
     %li
       %p 支払い方法
       %span ＞
