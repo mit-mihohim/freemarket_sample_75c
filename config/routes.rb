@@ -9,13 +9,13 @@ Rails.application.routes.draw do
   end
   
   root 'items#index'
-  resources :items, only: [:new, :index] 
+
   get 'items/buy',  to: 'items#buy'
+  resources :items 
   resources :users, only: :show do
     collection do
       get 'edit_profile', 'edit_address'
       patch 'update_profile', 'update_address'
     end
   end
-
 end
