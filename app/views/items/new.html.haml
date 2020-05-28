@@ -2,7 +2,6 @@
 .wrapper
   .form-new
     = form_with model: @item, local: true do |f|
-      = render "devise/shared/error_messages", resource: @item
       .form-image
         .form-image__label
           %label<>出品画像

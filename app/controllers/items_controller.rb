@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
         if @item.save
           redirect_to root_path, notice: "出品が完了しました"
         else
-          render :new
+          redirect_to new_item_path, alert: "必須項目を全て埋めて下さい"
         end
     rescue => e
       puts "エラーが発生しました"
