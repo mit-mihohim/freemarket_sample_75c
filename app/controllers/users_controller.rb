@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user, only: :show
   before_action :set_profile, except: :show
 
   def show
@@ -18,6 +19,14 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def authenticate_user
+    @user = User.find(params[:id])
+    unless user_signed_in? && @user == current_user
+      redirect_to root_path
+    end
+  end
+
   def set_profile
     @profile = current_user.profile
   end
