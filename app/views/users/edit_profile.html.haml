@@ -10,7 +10,7 @@
         本人情報
       .sign-up__bottom
         = form_with(model: @profile, url: update_profile_users_path, local: true) do |f|
-          -# = render "devise/shared/error_messages", model: @profile
+          = render "devise/shared/error_messages", resource: @profile
           .field
             %label お名前(全角)
             %span 必須
