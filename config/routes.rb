@@ -19,5 +19,10 @@ Rails.application.routes.draw do
   get 'items/buy',  to: 'items#buy'
   resources :items 
   
-  resources :categories, only: :index
+  resources :categories, only: :index do
+    collection do
+      get "get_children" , defaults: {format: "json"}
+      get "get_grandchildren", defaults: {format: "json"}
+    end
+  end
 end
