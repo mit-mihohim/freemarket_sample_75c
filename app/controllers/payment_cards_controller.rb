@@ -26,15 +26,15 @@ class PaymentCardsController < ApplicationController
       when "Visa"
         @card_image = "visa.png"
       when "JCB"
-        @card_image = "jcb.svg"
+        @card_image = "jcb.png"
       when "MasterCard"
-        @card_image = "master-card.svg"
+        @card_image = "master-card.png"
       when "American Express"
-        @card_image = "american_express.svg"
+        @card_image = "amex.png"
       when "Diners Club"
-        @card_image = "dinersclub.svg"
+        @card_image = "diners.png"
       when "Discover"
-        @card_image = "discover.svg"
+        @card_image = "discover.png"
       end
     end
   end
