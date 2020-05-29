@@ -9,7 +9,7 @@
         %p 最大10枚までアップロードできます
         .form-image__box
           #image-box
-            .previews
+            #previews
               - if @item.persisted?
                 - @item.item_images.each_with_index do |image, i|
                   = image_tag image.src.url, data: {index: i}, width: "100", height: "100"
@@ -17,7 +17,15 @@
               .js-file_group{"data-index" => "#{image.index}"}
                 = image.file_field :src, class: 'js-file' 
                 .js-remove
-                  削除      
+                  削除
+              - if @item.persisted?
+                = image.check_box :_destroy, data: {index: image.index}, class: 'hidden-destroy'
+            - if @item.persisted?
+              .js-file_group{"data-index" => "#{@item.item_images.count}"}  
+                = file_field_tag :src, name: "item[item_images_attributes][#{@item.item_images.count}][:src]", class: 'js-file'
+                .js-remove
+                  削除
+              
 
       .form-item
         .form-item__name
