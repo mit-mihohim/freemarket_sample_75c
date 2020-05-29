@@ -1,23 +1,21 @@
 = render "layouts/header"
+
 .card_add 
   .title クレジットカード情報入力
-
-  -#form_tagメソッドでcreateアクションに入力情報を渡します。
-  = form_tag(payment_cards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do
+  = form_tag("/payment_cards", method: :post, id: "charge-form", class: "details", name: "inputForm") do
+  
     .number-details
       .card-number カード番号
       %span.must_check 必須
     .number
       = text_field_tag 'payment_card_no', "", class: 'cardnumber', id: "payment_card_no", placeholder: '半角数字のみ', type: "text", maxlength: "16"
-    -# 事前にassets/imagesにcardsファイルを作成、中に各カード会社の画像を入れておき、呼び出す。
-    -# .image
-    -#   = image_tag(image_path('cards/visa.png'), class: 'visa')
-    -#   = image_tag(image_path('cards/master.png'), class: 'master')
-    -#   = image_tag(image_path('cards/jcb.png'), class: 'jcb')
-    -#   = image_tag(image_path('cards/amex.png'), class: 'amex')
-    -#   = image_tag(image_path('cards/diners.png'), class: 'diners')
-    -#   = image_tag(image_path('cards/discover.png'), class: 'discover')
-
+    .image
+      = image_tag(image_path('creditcards/visa.png'), class: 'visa', width: 45, height: 30)
+      = image_tag(image_path('creditcards/master-card.png'), class: 'master', width: 45, height: 30)
+      = image_tag(image_path('creditcards/jcb.png'), class: 'jcb', width: 45, height: 30)
+      = image_tag(image_path('creditcards/amex.png'), class: 'amex', width: 45, height: 30)
+      = image_tag(image_path('creditcards/diners.png'), class: 'diners', width: 45, height: 30)
+      = image_tag(image_path('creditcards/discover.png'), class: 'discover', width: 45, height: 30)
     .expirationdate
       .expirationdate__details
         .date 有効期限
@@ -52,7 +50,6 @@
             %option{value: "2029"} 29
             %option{value: "2030"} 30
           .year-details 年
-
     .securitycode
       .securitycode__details
         .securitycode-details__title セキュリティコード
