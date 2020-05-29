@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  layout 'no_flash'
 
   def new
     @user = User.new

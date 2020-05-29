@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user, only: :show
   before_action :set_profile, only: [:edit_profile, :update_profile]
   before_action :set_address, only: [:edit_address, :update_address]
+  layout 'no_flash'
 
   def show
   end
