@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-
+    @items = Item.where(buyer_id: nil).order("created_at DESC").limit(3)
   end
 
   def show
@@ -30,15 +30,6 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :text, :brand, :status, :delivery_charge_bearer, :shipping_area, :delivery_days, :price, [item_images_attributes:[:src, :_destroy, :id]]).merge(seller_id: current_user.id)
-  end
-  
-  def edit
-  end
-
-  def destroy 
-  end
-
-  def buy
   end
 
 end
