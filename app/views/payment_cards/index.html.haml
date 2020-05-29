@@ -1,4 +1,5 @@
 = render "layouts/header"
+
 .mypage-main.col-9
   %h2.header_title
     支払い方法
@@ -8,7 +9,7 @@
       - if @card.present?
         .container
           .creditcard-info
-            -# = image_tag "creditcards/#{@card_image}",width:'34',height:'20', alt:'master-card'
+            = image_tag "creditcards/#{@card_image}",width:'34',height:'20', alt:'master-card'
             %p.creditcard-info__number
               = "**** **** **** " + @card_info.last4 #クレジットカードの下４桁を表示
             %p.creditcard-info__period 
@@ -19,4 +20,5 @@
           = link_to new_payment_card_path, class:"new-card-btn" do
             %i.far.fa-credit-card 
             クレジットカードを追加する
+            
 = render "layouts/footer"
