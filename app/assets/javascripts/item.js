@@ -8,9 +8,6 @@ $(document).on('turbolinks:load', function(){
                       <img src="" alt="preview">
                     </div>
                     <div class="lower-box">
-                      <div class="update-box">
-                        <label class="edit_btn">編集</label>
-                      </div>
                       <div class="delete-box" id="delete_btn_${count}">
                         <span>削除</span>
                       </div>
@@ -114,13 +111,13 @@ $(document).on('turbolinks:load', function(){
         }
         setLabel(count);
         if(id < 5){
-          $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_src`});
+          $('.label-box').attr({id: `label-box--${id}`,for: `item_item_images_attributes_${id}_src`});
 
         }
       } else {
 
         //投稿編集時
-        $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
+        $(`#item_item_images_attributes_${id}__destroy`).prop('checked',true);
         //5個めが消されたらラベルを表示
         if (count == 4) {
           $('.label-content').show();
