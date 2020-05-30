@@ -34,7 +34,12 @@ $(function(){
       children.forEach(function(child){
         insertHtml += appendOption(child);
       });
+      // 子カテゴリセレクションの表示
       appendChildrenSelection(insertHtml);
+    });
+    $("#children_categories").on("change", function(){
+      var childCategory = document.getElementById("children_categories").value;
+      
     })
   })
 });
