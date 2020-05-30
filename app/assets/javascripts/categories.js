@@ -1,4 +1,7 @@
 $(function(){
+  // 子カテゴリ用option作成
+  function appendOption(category){
+  }
   // 親カテゴリーセレクトボックスの選択を変えたら、イベント発火
   $("#category_select").on("change", function(){
     // 取得した親カテゴリーのvalueをcategoryに代入
