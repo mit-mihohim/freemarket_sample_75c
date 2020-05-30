@@ -10,5 +10,9 @@ $(function(){
       data: {parentCategory: parentCategory},
       dataType: "json",
     })
+    .done(function(children){
+      children.forEach(function(child){
+      })
+    })
   })
 });
