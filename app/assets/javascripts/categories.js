@@ -6,6 +6,17 @@ $(function(){
                 </option>`;
     return html;
   }
+  // 子カテゴリセレクトボックスhtml作成
+  function appendChildrenSelection(insertHtml){
+    var childrenSelectHtml = "";
+    childrenSelectHtml = `<div class="form-detail__category__input__children">
+                            <select class="select-default" id="children_categories" name="item[category]">
+                              <option value="">選択して下さい</option>
+                              ${insertHtml}
+                            </select>
+                          </div>`;
+    $(".form-detail__category__input").append(childrenSelectHtml);
+  }
   // 親カテゴリーセレクトボックスの選択を変えたら、イベント発火
   $("#category_select").on("change", function(){
     // 取得した親カテゴリーのvalueをcategoryに代入
@@ -22,7 +33,8 @@ $(function(){
       // 子カテゴリoptionを1つづつ作成
       children.forEach(function(child){
         insertHtml += appendOption(child);
-      })
+      });
+      appendChildrenSelection(insertHtml);
     })
   })
 });
