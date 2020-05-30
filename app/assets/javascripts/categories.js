@@ -1,6 +1,10 @@
 $(function(){
   // 子カテゴリ用option作成
   function appendOption(category){
+    var html = `<option value="${category.id}">
+                  ${category.name}
+                </option>`;
+    return html;
   }
   // 親カテゴリーセレクトボックスの選択を変えたら、イベント発火
   $("#category_select").on("change", function(){
@@ -14,7 +18,10 @@ $(function(){
       dataType: "json",
     })
     .done(function(children){
+      var insertHtml = "";
+      // 子カテゴリoptionを1つづつ作成
       children.forEach(function(child){
+        insertHtml += appendOption(child);
       })
     })
   })
