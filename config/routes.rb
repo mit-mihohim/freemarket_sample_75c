@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   
   resources :categories, only: :index do
     collection do
-      get "get_children" , defaults: {format: "json"}
-      get "get_grandchildren", defaults: {format: "json"}
+      get "children_category"
+      get "grandchildren_category"
     end
   end
 end
