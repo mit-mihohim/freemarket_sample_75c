@@ -22,10 +22,10 @@ window.addEventListener('DOMContentLoaded', function(){
     Payjp.createToken(card, function(status, response) {  
       if (status === 200) { //成功した場合(status === 200はリクエストが成功している状況です。)
         //データを自サーバにpostしないようにremoveAttr("name")で削除
-        $(".number").removeAttr("name");
-        $(".cvc").removeAttr("name");
-        $(".exp_month").removeAttr("name");
-        $(".exp_year").removeAttr("name"); 
+        $("#payment_card_no").removeAttr("name");
+        $("#payment_card_cvc").removeAttr("name");
+        $("#payment_card_month").removeAttr("name");
+        $("#payment_card_year").removeAttr("name"); 
         var token = response.id;
         $("#charge-form").append($('<input type="hidden" name="payjp_token" class="payjp-token" />').val(token));
         $("#charge-form").get(0).submit();
