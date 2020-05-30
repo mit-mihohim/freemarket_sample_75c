@@ -6,23 +6,22 @@
         .form-image__label
           %label<>出品画像
           %span<>必須
-        %p 最大10枚までアップロードできます
+        %p 最大5枚までアップロードできます
         .form-image__box
-          %label
-            .previews
-              - if @item.persisted?
-                - @item.item_images.each_with_index do |image, i|
-                  = image_tag image.src.url, data: {index: i}, width: "100", height: "100"
-              = f.fields_for :item_images do |i|
-                .js-file_group{"data-index" => "#{i.index}"}
-                  = i.file_field :src, class: 'js-file', class: "hidden"
-                  = image_tag "icon_camera.png", size: '24x24'
-                  %span.js-remove
-                    削除            
-                %p
-                  ドラッグアンドドロップ
-                  %br
-                    またはクリックしてファイルをアップロード
+          .prev-content
+          .label-content
+            %label{for: "item_item_images_attributes_0_src", class: "label-box", id: "label-box--0"} 
+              %pre.label-box-visible 
+                = image_tag "icon_camera.png", size: '35x35' 
+          .hidden-content
+            = f.fields_for :item_images do |i|
+              = i.file_field :src, class: "hidden-field"
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][src]", id: "item_item_images_attributes_1_src" }
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][src]", id: "item_item_images_attributes_2_src" }
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][src]", id: "item_item_images_attributes_3_src" }
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][src]", id: "item_item_images_attributes_4_src" }
+
+
       .form-item
         .form-item__name
           .form-item__name__label
