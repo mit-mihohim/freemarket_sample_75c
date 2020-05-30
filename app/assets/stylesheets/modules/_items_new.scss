@@ -139,6 +139,9 @@
         }
         &__input {
           @include form-select();
+          .select-default {
+            margin-bottom: 12px;
+          }
         }
       }
 
