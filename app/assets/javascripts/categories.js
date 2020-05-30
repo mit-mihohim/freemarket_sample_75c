@@ -39,7 +39,12 @@ $(function(){
     });
     $("#children_categories").on("change", function(){
       var childCategory = document.getElementById("children_categories").value;
-      
+      $.ajax ({
+        url: "/categories/grandchildren_category",
+        type: "GET",
+        data: {childCategory: childCategory},
+        dataType: "json"
+      })
     })
   })
 });
