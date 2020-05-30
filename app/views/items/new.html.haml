@@ -44,8 +44,6 @@
             %span<>必須
           .form-detail__category__input
             = f.collection_select :category, @parents, :id, :name, {prompt: "選択して下さい"}, {class: "select-default", id: "category_select"}
-          .form-details__category__input__children
-          .form-details__category__input__grandchildren
             
         .form-detail__brand
           .form-detail__brand__label
