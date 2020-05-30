@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   end
 
   def children_category
-    @children = Category.find(params[:parent_id]).children
+    @children = Category.find(params[:parentCategory]).children
   end
 
   def grandchildren_category
