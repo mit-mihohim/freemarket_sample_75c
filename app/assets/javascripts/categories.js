@@ -36,6 +36,10 @@ $(function(){
       });
       // 子カテゴリセレクションの表示
       appendChildrenSelection(insertHtml);
+      // 親カテゴリが変更されると、子カテゴリを取り除く
+      $("#category_select").on("change", function(){
+        $("#children_categories").remove()
+      })
     });
   });
 });
