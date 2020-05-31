@@ -13,7 +13,6 @@ class PaymentCardsController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.payjp_customer_id)
       # PAY.JPの顧客情報から、デフォルトで使うクレジットカードを取得する。
       @card_info = customer.cards.retrieve(customer.default_card)
-      #@card_info = customer.cards.retrieve(@card.card_id)
       # クレジットカード情報から表示させたい情報を定義する。
       # クレジットカードの画像を表示するために、カード会社を取得
       @card_brand = @card_info.brand
