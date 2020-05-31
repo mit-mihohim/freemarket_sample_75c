@@ -41,5 +41,8 @@ $(function(){
         $("#children_categories").remove()
       })
     });
+    .fails(function(){
+      alert("カテゴリー取得に失敗しました");
+    })
   });
 });
