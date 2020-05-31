@@ -70,6 +70,9 @@ $(function(){
         insertHtml += appendOption(grandchild);
       });
       appendGrandchildrenSelection(insertHtml);
+      $(document).on("change", "#children_categories", function(){
+        $("#grandchildren_categories").remove();
+      })
     })
   })
 });
