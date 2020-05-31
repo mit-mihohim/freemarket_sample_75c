@@ -1,5 +1,5 @@
 $(function(){
-  // 子カテゴリ用option作成
+  // カテゴリoption作成
   function appendOption(category){
     var html = `<option value="${category.id}">
                   ${category.name}
@@ -56,7 +56,10 @@ $(function(){
       dataType: "json"
     })
     .done(function(grandchildren){
-      
+      var insertHtml = "";
+      grandchildren.forEach(function(grandchild){
+        insertHtml += appendOption(grandchild);
+      });
     })
   })
 });
