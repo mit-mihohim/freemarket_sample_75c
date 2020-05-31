@@ -1,13 +1,7 @@
-// 画像読み込みの必要がないので"load"イベントじゃなく"DOMContentLoaded"
 $(document).on('turbolinks:load',function(){
-
-  //id名が"payment_card_submit-button"というボタンが押されたらノードを取得
-  // "document"は開いているWebページのDOMツリーが入っているオブジェクト
-  // let submit = document.getElementById("payment_card_submit-button");
   // payjpの公開鍵をセット
   Payjp.setPublicKey('pk_test_1505a12ddfdefed5da5d58ab');
   //ボタンが押されたらトークン作成開始。
-  // submit.addEventListener('click', function(e){ 
   $("#payment_card_submit-button").on("click",function(e){
     //ボタンを1度無効化
     e.preventDefault(); 
