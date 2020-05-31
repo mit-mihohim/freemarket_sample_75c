@@ -8,6 +8,6 @@ class CategoriesController < ApplicationController
   end
 
   def grandchildren_category
-    @grandchildren = Categorty.find(params[:childCategory]).children
+    @grandchildren = Category.find(params[:childCategory]).children
   end
 end
