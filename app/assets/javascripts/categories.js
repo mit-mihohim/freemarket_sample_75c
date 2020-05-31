@@ -9,7 +9,7 @@ $(function(){
   // 子カテゴリセレクトボックスhtml作成
   function appendChildrenSelection(insertHtml){
     var childrenSelectHtml = "";
-    childrenSelectHtml = `<select class="select-default" id="children_categories" name="item[category]">
+    childrenSelectHtml = `<select class="select-default" id="children_categories" name="item[category_id]">
                             <option value="">選択して下さい</option>
                             ${insertHtml}
                           </select>`;
@@ -18,7 +18,7 @@ $(function(){
   // 孫カテゴリセレクトボックスhtml作成
   function appendGrandchildrenSelection(insertHtml){
     var grandchildrenSelectHtml = "";
-    grandchildrenSelectHtml = `<select class="select-default" id="grandchildren_categories" name="item[category]">
+    grandchildrenSelectHtml = `<select class="select-default" id="grandchildren_categories" name="item[category_id]">
                                 <option value="">選択して下さい</option>
                                 ${insertHtml}
                               </select>`;
@@ -57,8 +57,8 @@ $(function(){
         alert("カテゴリー取得に失敗しました");
       })
     }
-    
   });
+
   // 子カテゴリ選択でイベント発火
   $(document).on("change", "#children_categories", function(){
     // 取得した子カテゴリのvalueを代入
