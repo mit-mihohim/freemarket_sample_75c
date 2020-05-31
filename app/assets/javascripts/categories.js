@@ -74,5 +74,8 @@ $(function(){
         $("#grandchildren_categories").remove();
       })
     })
+    .fail(function(){
+      alert("カテゴリー取得に失敗しました");
+    })
   })
 });
