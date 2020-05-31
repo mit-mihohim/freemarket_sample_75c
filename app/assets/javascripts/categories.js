@@ -40,9 +40,12 @@ $(function(){
       $("#category_select").on("change", function(){
         $("#children_categories").remove()
       })
-    });
-    .fails(function(){
+    })
+    .fail(function(){
       alert("カテゴリー取得に失敗しました");
     })
   });
+  $(document).on("change", "#children_categories", function(){
+    console.log("OK")
+  })
 });
