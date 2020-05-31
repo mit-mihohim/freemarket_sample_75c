@@ -49,5 +49,11 @@ $(function(){
   $(document).on("change", "#children_categories", function(){
     // 取得した子カテゴリのvalueを代入
     var childCategory = document.getElementById("children_categories").value;
+    $.ajax ({
+      url: "/categories/grandchildren_category",
+      type: "GET",
+      data: {childCategory: childCategory},
+      dataType: "json"
+    })
   })
 });
