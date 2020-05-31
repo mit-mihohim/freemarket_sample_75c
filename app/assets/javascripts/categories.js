@@ -69,6 +69,7 @@ $(function(){
       grandchildren.forEach(function(grandchild){
         insertHtml += appendOption(grandchild);
       });
+      appendGrandchildrenSelection(insertHtml);
     })
   })
 });
