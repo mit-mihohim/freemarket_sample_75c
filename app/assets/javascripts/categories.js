@@ -55,5 +55,8 @@ $(function(){
       data: {childCategory: childCategory},
       dataType: "json"
     })
+    .done(function(grandchildren){
+      
+    })
   })
 });
