@@ -45,7 +45,9 @@ $(function(){
       alert("カテゴリー取得に失敗しました");
     })
   });
+  // 子カテゴリ選択でイベント発火
   $(document).on("change", "#children_categories", function(){
-    console.log("OK")
+    // 取得した子カテゴリのvalueを代入
+    var childCategory = document.getElementById("children_categories").value;
   })
 });
