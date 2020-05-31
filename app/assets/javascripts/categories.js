@@ -15,6 +15,15 @@ $(function(){
                           </select>`;
     $(".form-detail__category__input").append(childrenSelectHtml);
   }
+  // 孫カテゴリセレクトボックスhtml作成
+  function appendGrandchildrenSelection(insertHtml){
+    var grandchildrenSelectHtml = "";
+    grandchildrenSelectHtml = `<select class="select-default" id="grandchildren_categories" name="item[category]">
+                                <option value="">選択して下さい</option>
+                                ${insertHtml}
+                              </select>`;
+    $(".form-detail__category__input").append(grandchildrenSelectHtml);
+  }
 
 
   // 親カテゴリーセレクトボックスの選択を変えたら、イベント発火
