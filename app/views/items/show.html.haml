@@ -7,14 +7,15 @@
         = @item.name
       %ul.item__images
         %li.item__images__main
-          =image_tag "pict-reason-02.jpg", size:"400x400"
-        %ul.item__images__sub
-          %li
-            =image_tag "pict-reason-02.jpg", size:"120x120"
-          %li
-            =image_tag "pict-reason-02.jpg", size:"120x120"
-          %li
-            =image_tag "pict-reason-02.jpg", size:"120x120"
+          - @item.item_images.each do |image|
+            = image_tag image.src.url, size:"200x200"
+        -# %ul.item__images__sub
+        -#   %li
+        -#     =image_tag "pict-reason-02.jpg", size:"120x120"
+        -#   %li
+        -#     =image_tag "pict-reason-02.jpg", size:"120x120"
+        -#   %li
+        -#     =image_tag "pict-reason-02.jpg", size:"120x120"
       .item__price
         = "#{@item.price}円"
         .item__price__info
