@@ -22,10 +22,11 @@
     = link_to edit_address_users_path(current_user) do
       %li{id: "edit_address"}
         %p 発送元・お届け先住所変更
+        %span ＞ 
+    = link_to payment_cards_path do
+      %li{id: "payment_method"}
+        %p 支払い方法
         %span ＞
-    %li{id: "payment_method"}
-      %p 支払い方法
-      %span ＞
     = link_to edit_user_registration_path do
       %li{id: "edit_user"}
         %p メール/パスワード

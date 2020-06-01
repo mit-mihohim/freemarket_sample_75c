@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   end
   
   root 'items#index'
+  resources :items 
   get 'items/buy',  to: 'items#buy'
   resources :payment_cards, only: [:new, :create, :index, :destroy]
-  resources :items 
   resources :users, only: :show do
     collection do
       get 'edit_profile', 'edit_address'

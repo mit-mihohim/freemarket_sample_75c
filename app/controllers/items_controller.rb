@@ -27,13 +27,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  
-
-  private
-  def item_params
-    params.require(:item).permit(:name, :text, :brand, :status, :delivery_charge_bearer, :shipping_area, :delivery_days, :price, [item_images_attributes: [:src, :_destroy, :id]]).merge(seller_id: current_user.id)
-  end
-  
   def edit
   end
 
@@ -44,6 +37,11 @@ class ItemsController < ApplicationController
   end
 
   def buy
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(:name, :text, :brand, :status, :delivery_charge_bearer, :shipping_area, :delivery_days, :price, [item_images_attributes: [:src, :_destroy, :id]]).merge(seller_id: current_user.id)
   end
 
 end
