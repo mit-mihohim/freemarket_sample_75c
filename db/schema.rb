@@ -53,11 +53,13 @@ ActiveRecord::Schema.define(version: 2020_05_25_115912) do
     t.integer "shipping_area", default: 0, null: false
     t.integer "delivery_days", default: 0, null: false
     t.integer "price", null: false
+    t.bigint "category_id", null: false
     t.bigint "buyer_id"
     t.bigint "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
@@ -97,6 +99,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_115912) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "item_images", "items"
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "payment_cards", "users"
