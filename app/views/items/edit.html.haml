@@ -9,17 +9,24 @@
         %p 最大5枚までアップロードできます
         .form-image__box
           .prev-content
+            - @item.item_images.each do |image|
+              .preview-box
+                .upper-box
+                  = image_tag image.src.url, alt: "preview"
+                .lower-box
+                  .delete-box
+                    %span 削除
+
           .label-content
-            %label{for: "item_item_images_attributes_0_src", class: "label-box", id: "label-box--0"} 
+            = f.label :"item_images_attributes_#{@item.item_images.length}_src", class: "label-box", id: "label-box--#{@item.item_images.length}" do
               %pre.label-box-visible 
                 = image_tag "icon_camera.png", size: '35x35' 
           .hidden-content
             = f.fields_for :item_images do |i|
               = i.file_field :src, class: "hidden-field"
-              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][src]", id: "item_item_images_attributes_1_src" }
-              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][src]", id: "item_item_images_attributes_2_src" }
-              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][src]", id: "item_item_images_attributes_3_src" }
-              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][src]", id: "item_item_images_attributes_4_src" }
+              = i.check_box:_destroy, class: "hidden-checkbox"
+            - @item.item_images.length.upto(4) do |i|
+              %input{name: "item[item_images_attributes][#{i}][src]", id: "item_item_images_attributes_#{i}_src", class:"hidden-field", type:"file"}
 
 
       .form-item
