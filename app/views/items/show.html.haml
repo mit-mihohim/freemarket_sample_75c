@@ -50,7 +50,8 @@
               = @item.delivery_charge_bearer
           %tr
             %th 発送元の地域
-            %td 大阪府
+            %td
+              = @item.prefecture.name
           %tr
             %th 発送日の目安
             %td 1~2日
