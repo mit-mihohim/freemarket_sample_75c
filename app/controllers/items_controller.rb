@@ -4,6 +4,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @item.item_images
   end
 
   def new 
