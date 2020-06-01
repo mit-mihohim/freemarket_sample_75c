@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
   
- 
+  
   resources :users, only: :show do
     collection do
       get 'edit_profile', 'edit_address'
