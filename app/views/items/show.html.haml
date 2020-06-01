@@ -54,7 +54,8 @@
               = @item.prefecture.name
           %tr
             %th 発送日の目安
-            %td 1~2日
+            %td
+              = @item.delivery_days
 
         -# セラーの場合は編集削除ボタンを表示させる
       - if user_signed_in?
