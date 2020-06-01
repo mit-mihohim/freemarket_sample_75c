@@ -57,6 +57,7 @@ class ItemsController < ApplicationController
   end
 
   def move_to_root_path
+    flash[:alert] = "ログインが必要です"
     redirect_to root_path
   end
 
