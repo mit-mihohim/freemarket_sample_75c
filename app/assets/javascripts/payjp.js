@@ -1,16 +1,17 @@
-$(document).on('turbolinks:load',function(){
+window.addEventListener('DOMContentLoaded', function(){
   // payjpの公開鍵をセット
   Payjp.setPublicKey('pk_test_1505a12ddfdefed5da5d58ab');
   //ボタンが押されたらトークン作成開始。
-  $("#payment_card_submit-button").on("click",function(e){
+  let submit = document.getElementById("payment_card_submit-button");
+  submit.addEventListener('click', function(e){
     //ボタンを1度無効化
     e.preventDefault(); 
     //入力されたカード情報を取得(id名の記載ミスに注意！)
     let card = { 
-        number: $("#payment_card_no").val(), //valueプロパティで文字列の値を取得
-        cvc: $("#payment_card_cvc").val(),
-        exp_month: $("#payment_card_month").val(),
-        exp_year: $("#payment_card_year").val()
+        number: document.getElementById("payment_card_no").value, //valueプロパティで文字列の値を取得
+        cvc: document.getElementById("payment_card_cvc").value,
+        exp_month: document.getElementById("payment_card_month").value,
+        exp_year: document.getElementById("payment_card_year").value
     };
     
     // トークンを生成
