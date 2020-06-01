@@ -9,16 +9,16 @@ Rails.application.routes.draw do
   end
   
   root 'items#index'
-  resources :items, only: [:new, :index] 
-  get 'items/buy',  to: 'items#buy'
+  resources :items do
+    resources :purchases do
+      collection do
+        get :buy
+        post :pay
+      end
+    end
+  end
+
   resources :payment_cards, only: [:new, :create, :index, :destroy]
-  resources :users, only: :show
-
-  resources :items, only: [:index, :new, :create] 
-
-
-  get 'items/buy',  to: 'items#buy'
-  resources :items 
   resources :users, only: :show do
     collection do
       get 'edit_profile', 'edit_address'
