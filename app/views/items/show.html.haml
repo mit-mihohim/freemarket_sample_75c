@@ -57,13 +57,8 @@
             %td
               = @item.delivery_days
 
-        -# セラーの場合は編集削除ボタンを表示させる
-      - if user_signed_in?
-        .item__buy-btn
-          = link_to items_buy_path do
-            購入画面に進む
-        
-        -# セラーとカレントユーザーが同じの場合下記表示/
+      -# セラーとカレントユーザーが同じの場合下記表示/
+      - if user_signed_in? && current_user.id == @item.seller_id
         %ul.item__edit-btns
           %li.edit-btn
             = link_to items_buy_path do
@@ -71,6 +66,10 @@
           %li.delete-btn
             = link_to items_buy_path do
               削除
+      - else 
+        .item__buy-btn
+          = link_to items_buy_path do
+            購入画面に進む
 
     %ul.pagenation
       %li.prep-item
