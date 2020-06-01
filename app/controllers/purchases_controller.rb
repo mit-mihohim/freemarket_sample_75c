@@ -13,6 +13,7 @@ class PurchasesController < ApplicationController
       @exp_month = @card_info.exp_month.to_s
       @exp_year = @card_info.exp_year.to_s.slice(2,3)
       @address = current_user.address
+      @item_image = ItemImage.where(item_id: @item.id).first
     end
   end
 
