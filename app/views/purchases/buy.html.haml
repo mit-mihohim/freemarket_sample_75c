@@ -8,18 +8,17 @@
 
       %section.confirm-item__box__itemView
         .confirm-item__box__itemView__image
-          =image_tag "pict-reason-02.jpg", size:"85x85"
+          = image_tag @item_image.src.url, size:"85x85"
         .confirm-item__box__itemView__text
-          使い勝手抜群の最新バージョンです。<br>
-          状態も綺麗なのでおすすめです！
+          = @item.text
           .confirm-item__box__itemView__text__price
-            ¥9,980(税込み)送料込み
+            = "¥ #{@item.price.to_s(:delimited)}(税込み) #{@item.delivery_charge_bearer}"
 
       %section.confirm-item__box__payMent
         .confirm-item__box__payMent__text
           支払い金額
         .confirm-item__box__payMent__price
-          = "¥ #{@item.price}"
+          = "¥ #{@item.price.to_s(:delimited)}"
 
       %section.confirm-item__box__payMethod
         .confirm-item__box__payMethod__text
@@ -46,7 +45,7 @@
             %p.userName
               = @address.last_name + @address.first_name
         .confirm-item__box__address__change
-          = link_to  do
+          = link_to edit_address_users_path do
             変更する
 
       %section.confirm-item__box__purchase
