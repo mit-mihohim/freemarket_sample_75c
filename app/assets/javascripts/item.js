@@ -1,4 +1,3 @@
-$(document).on('click', function(){
   $(function(){
 
     //プレビューのhtmlを定義
@@ -133,4 +132,3 @@ $(document).on('click', function(){
       }
     });
   });
-});
