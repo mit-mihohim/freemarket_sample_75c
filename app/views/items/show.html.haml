@@ -18,8 +18,8 @@
       .item__price
         = "#{@item.price}円"
         .item__price__info
-          %span (税込)
-          %span 送料込み
+          %span
+            = @item.delivery_charge_bearer
       .item__details
         %p
           = @item.text
@@ -46,7 +46,8 @@
               = @item.status
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td
+              = @item.delivery_charge_bearer
           %tr
             %th 発送元の地域
             %td 大阪府
