@@ -74,10 +74,12 @@
 
     %ul.pagenation
       %li.prep-item
-        = link_to "#" do
-          前の商品
+        - if @item.previous.present?
+          = link_to item_path(@item.previous) do
+            << 前へ
       %li.prep-item
-        = link_to "#" do
-          後ろの商品
+        - if @item.next.present?
+          = link_to item_path(@item.next) do
+            次へ >>
 
 = render "layouts/footer"
