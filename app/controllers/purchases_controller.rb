@@ -40,14 +40,14 @@ class PurchasesController < ApplicationController
     #購入品の情報の取得
     @item = Item.find(params[:item_id])
     if @item.buyer_id
-      redirect_to item_path, notice: '購入済み商品のため購入できません'
+      redirect_to item_path, alert: '購入済み商品のため購入できません'
     end
   end
 
   def authenticate_buyer
     #出品者が購入しようとしたらredirect
     if @item.seller_id == current_user.id
-      redirect_to root_path, notice: '出品者は購入できません'
+      redirect_to root_path, alert: '出品者は購入できません'
     end
   end
 end
