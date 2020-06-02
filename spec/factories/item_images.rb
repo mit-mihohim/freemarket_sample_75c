@@ -1,7 +1,6 @@
 FactoryBot.define do
 
   factory :item_image do
-    item
-    src                  {"sample.jpeg"}
+    src              {File.open("#{Rails.root}/public/images/test_image.jpeg")}   
   end
 end

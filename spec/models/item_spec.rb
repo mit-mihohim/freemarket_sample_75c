@@ -3,6 +3,13 @@ require 'rails_helper'
 describe Item do
   describe '#create' do
 
+    it "必須項目が入力されていれば登録できること" do
+      category = create(:category)
+      user = create(:user)
+      item = build(:item,category: category, seller_id: user.id )
+      expect(item).to be_valid
+    end
+
     it "nameがない場合は登録できないこと" do
       item = build(:item, name: nil)
       item.valid?
@@ -43,12 +50,6 @@ describe Item do
       item = build(:item, price: nil)
       item.valid?
       expect(item.errors[:price]).to include("を入力してください")
-    end
-
-    it "category_idがない場合は登録できないこと" do
-      item = build(:item, category_id: nil)
-      item.valid?
-      expect(item.errors[:category_id]).to include("を入力してください")
     end
 
   end
