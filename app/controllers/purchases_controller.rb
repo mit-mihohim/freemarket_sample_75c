@@ -1,11 +1,9 @@
 class PurchasesController < ApplicationController
   require "payjp"
-  before_action :set_card, :set_item
+  before_action :set_card, :set_item, :authenticate_buyer
 
   def buy
-    if @item.seller_id == current_user.id
-      redirect_to root_path, notice: '出品者は購入できません'
-    elsif @card.blank?
+    if @card.blank?
       redirect_to new_payment_card_path
     else
       Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
@@ -20,18 +18,14 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    if @item.seller_id == current_user.id
-      redirect_to root_path, notice: '出品者は購入できません' 
-    else
-      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
-      Payjp::Charge.create(
-        :amount => @item.price,
-        :customer => @card.payjp_customer_id,
-        :currency => "jpy"
-      )
-      @item.update(buyer_id: current_user.id)
-      redirect_to root_path, notice: '支払いが完了しました' 
-    end
+    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+    Payjp::Charge.create(
+      :amount => @item.price,
+      :customer => @card.payjp_customer_id,
+      :currency => "jpy"
+    )
+    @item.update(buyer_id: current_user.id)
+    redirect_to root_path, notice: '支払いが完了しました' 
   end
 
 
@@ -45,5 +39,12 @@ class PurchasesController < ApplicationController
   def set_item
     #購入品の情報
     @item = Item.find(params[:item_id])
+  end
+
+  def authenticate_buyer
+    #購入者が出品者ではないか確認
+    if @item.seller_id == current_user.id
+      redirect_to root_path, notice: '出品者は購入できません'
+    end
   end
 end
