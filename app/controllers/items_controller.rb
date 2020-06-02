@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item.item_images
+    @main_image = @item.item_images.first
   end
 
   def new 
