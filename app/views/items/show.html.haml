@@ -58,14 +58,14 @@
             %td
               = @item.delivery_days
 
-      -# セラーとカレントユーザーが同じの場合下記表示/
+      -# セラーとカレントユーザーが同じ場合下記表示/
       - if user_signed_in? && current_user.id == @item.seller_id
         %ul.item__edit-btns
           %li.edit-btn
             = link_to items_buy_path do
               編集
           %li.delete-btn
-            = link_to items_buy_path do
+            = link_to item_path(@item.id), method: :delete do
               削除
       - else 
         .item__buy-btn
