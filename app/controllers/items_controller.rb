@@ -7,6 +7,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.item_images
     @main_image = @item.item_images.first
+    @grandchild_category = @item.category
+    @child_category = Category.find(@grandchild_category[:id]).parent
+    @parent_category = Category.find(@child_category[:id]).parent
   end
 
   def new 
