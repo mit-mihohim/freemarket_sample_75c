@@ -30,7 +30,12 @@
           %tr
             %th カテゴリ
             %td
-              = @item.category.name
+              = link_to "#" do
+                = "#{@parent_category.name}"
+              = link_to "#" do
+                = "/#{@child_category.name}"
+              = link_to "#" do
+                = "/#{@grandchild_category.name}"
           %tr
             %th ブランド
             %td
