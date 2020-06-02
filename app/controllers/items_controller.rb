@@ -36,7 +36,10 @@ class ItemsController < ApplicationController
   def update
   end
 
-  def destroy 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to root_path, notice: "削除が完了しました"
   end
 
   def buy
