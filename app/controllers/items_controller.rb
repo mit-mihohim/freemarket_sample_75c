@@ -41,8 +41,13 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path, notice: "削除が完了しました"
+    if @item.destroy
+      flash[:notice] = "削除が完了しました"
+      redirect_to root_path
+    else
+      flash[:alert] = "削除できませんでした"
+      render :show
+    end
   end
 
   def buy
