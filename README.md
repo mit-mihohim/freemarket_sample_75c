@@ -15,7 +15,7 @@
 |brand|string||
 |status|integer|null:false, dafault: 0|
 |delivery_charge_bearer|integer|null:false, dafault: 0|
-|shipping_area|integer|null: false, dafault: 0|
+|prefecture_id|integer|null: false, dafault: 0|
 |dalivery_days|integer|null:false, dafault: 0|
 |price|integer|null:false|
 |seller_id|references|null: false, foreign_key: true|

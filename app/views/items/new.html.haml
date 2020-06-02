@@ -72,7 +72,7 @@
             %label<>発送元の地域
             %span<>必須
           .form-shipping__area__input
-            = f.collection_select :shipping_area,  Prefecture.all, :id, :name, {include_blank: "選択して下さい"}
+            = f.collection_select :prefecture_id,  Prefecture.all, :id, :name, {include_blank: "選択して下さい"}
         .form-shipping__days
           .form-shipping__days__label
             %label<>発送までの日数

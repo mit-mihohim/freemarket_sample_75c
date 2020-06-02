@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :brand
       t.integer :status, null:false, default:0
       t.integer :delivery_charge_bearer, null:false, default:0
-      t.integer :shipping_area, null:false, default:0
+      t.integer :prefecture_id, null:false, default:0
       t.integer :delivery_days, null:false, default:0
       t.integer :price, null:false
       t.references :category, null: false, foreign_key: true
