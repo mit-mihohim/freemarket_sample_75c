@@ -50,8 +50,10 @@
             %label<>カテゴリー
             %span<>必須
           .form-detail__category__input
-            = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択して下さい"}, {class: "select-default", id: "category_select"}
-            
+            = f.collection_select :category_id, @parents, :id, :name, {selected: @parent.id}, {class: "select-default", id: "category_select"}
+            = f.collection_select :category_id, @children, :id, :name, {selected: @child.id}, {class: "select-default", id: "children_categories"}
+            = f.collection_select :category_id, @grandchildren, :id, :name, {selected: @grandchild.id}, {class: "select-default", id: "grandchildren_categories"}
+
         .form-detail__brand
           .form-detail__brand__label
             %label<>ブランド
