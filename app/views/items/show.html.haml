@@ -7,7 +7,7 @@
         = @item.name
       %ul.item__images
         %li.item__images__main
-          = image_tag @main_image.src.url, size: "400x400"          
+          = image_tag @main_image.src.url, size: "400x400"
         %ul.item__images__sub
           - @item.item_images.each do |image|
             %li
@@ -40,6 +40,7 @@
             %th ブランド
             %td
               = @item.brand
+          -# 機能追加時、表示
           -# %tr
           -#   %th 商品サイズ
           -#   %td 
