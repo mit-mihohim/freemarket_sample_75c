@@ -76,6 +76,12 @@
           background-color: #ececec;
           text-align: center;
         }
+        a {
+          color: $font-black;
+        }
+        a:hover {
+          text-decoration: underline $main-color;
+        }
       }
       &__buy-btn {
         width:350px;

@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+$(function(){
     let path = location.pathname;
     
     if (path == "/users/edit_address") {

@@ -1,9 +1,15 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :destroy]
+
   def index
 
   end
 
   def show
+    @main_image = @item.item_images.first
+    @grandchild_category = @item.category
+    @child_category = @grandchild_category.parent
+    @parent_category = @child_category.parent
   end
 
   def new 
@@ -34,7 +40,14 @@ class ItemsController < ApplicationController
   def update
   end
 
-  def destroy 
+  def destroy
+    if @item.destroy
+      flash[:notice] = "削除が完了しました"
+      redirect_to root_path
+    else
+      flash[:alert] = "削除できませんでした"
+      render :show
+    end
   end
 
   def buy
@@ -42,7 +55,11 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :text, :category_id, :brand, :status, :delivery_charge_bearer, :shipping_area, :delivery_days, :price, [item_images_attributes: [:src, :_destroy, :id]]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :text, :category_id, :brand, :status, :delivery_charge_bearer, :prefecture_id, :delivery_days, :price, [item_images_attributes: [:src, :_destroy, :id]]).merge(seller_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end

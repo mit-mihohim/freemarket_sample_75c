@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_115912) do
     t.string "brand"
     t.integer "status", default: 0, null: false
     t.integer "delivery_charge_bearer", default: 0, null: false
-    t.integer "shipping_area", default: 0, null: false
+    t.integer "prefecture_id", default: 0, null: false
     t.integer "delivery_days", default: 0, null: false
     t.integer "price", null: false
     t.bigint "category_id", null: false
