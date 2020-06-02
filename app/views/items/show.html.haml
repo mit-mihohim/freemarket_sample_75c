@@ -62,7 +62,7 @@
       - if user_signed_in? && current_user.id == @item.seller_id
         %ul.item__edit-btns
           %li.edit-btn
-            = link_to items_buy_path do
+            = link_to edit_item_path(@item.id) do
               編集
           %li.delete-btn
             = link_to item_path(@item.id), method: :delete do
