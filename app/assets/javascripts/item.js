@@ -14,7 +14,16 @@
                   </div>`
       return html;
     }
-    // 投稿編集時
+
+    // ラベルのwidth操作
+    function setLabel() {
+      //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
+      var prevContent = $('.label-content').prev();
+      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+      $('.label-content').css('width', labelWidth);
+    }
+
+    // 投稿編集時///////////////////////////////////////////////////////////////
     //items/:i/editページへリンクした際のアクション
 
     if (window.location.href.match(/\/items\/\d+\/edit/)){
@@ -36,28 +45,24 @@
         $('.label-content').hide();
       }
     }
+    ///////////////////////////////////////////////////////////////////////////
 
-    // ラベルのwidth操作
-    function setLabel() {
-      //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
-      var prevContent = $('.label-content').prev();
-      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      $('.label-content').css('width', labelWidth);
-    }
 
     // プレビューの追加
     $(document).on('change', '.hidden-field', function() {
-      setLabel();
       //hidden-fieldのidの数値のみ取得
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
-      //labelボックスのidとforを更新
-      $('.label-box').attr({id: `label-box--${id}`,for: `item_item_images_attributes_${id}_src`});
       //選択したfileのオブジェクトを取得
       var file = this.files[0];
       var reader = new FileReader();
+
+      setLabel();
+      //labelボックスのidとforを更新
+      $('.label-box').attr({id: `label-box--${id}`,for: `item_item_images_attributes_${id}_src`});
       //readAsDataURLで指定したFileオブジェクトを読み込む
       reader.readAsDataURL(file);
       //読み込み時に発火するイベント
+
       reader.onload = function() {
         var image = this.result;
         //プレビューが元々なかった場合はhtmlを追加
@@ -98,27 +103,26 @@
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       //取得したidに該当するプレビューを削除
       $(`#preview-box__${id}`).remove();
+
       //新規投稿時
       //削除用チェックボックスの有無で判定
       if ($(`#item_item_images_attributes_${id}__destroy`).length == 0) {
         //フォームの中身を削除 
         $(`#item_item_images_attributes_${id}_src`).val("");
-        var count = $('.preview-box').length;
         //5個めが消されたらラベルを表示
-        if (count == 4) {
+        if (count == 5) {
           $('.label-content').show();
         }
         setLabel(count);
         if(id < 5){
           $('.label-box').attr({id: `label-box--${id}`,for: `item_item_images_attributes_${id}_src`});
-
         }
       } else {
 
-        //投稿編集時
+        //投稿編集時///////////////////////////////////////////////////////////////////////////////////
         $(`#item_item_images_attributes_${id}__destroy`).prop('checked',true);
         //5個めが消されたらラベルを表示
-        if (count == 4) {
+        if (count == 5) {
           $('.label-content').show();
         }
 
@@ -129,6 +133,7 @@
         if(id < 5){
           $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_src`});
         }
+        //////////////////////////////////////////////////////////////////////////////////////////////
       }
     });
   });
