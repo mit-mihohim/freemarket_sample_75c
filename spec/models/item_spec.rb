@@ -35,9 +35,9 @@ describe Item do
     end
 
     it "prefecture_idがない場合は登録できないこと" do
-      item = build(:item, shipping_area: nil)
+      item = build(:item, prefecture_id: nil)
       item.valid?
-      expect(item.errors[:shipping_area]).to include("を入力してください")
+      expect(item.errors[:prefecture_id]).to include("を入力してください")
     end
 
     it "delivery_daysがない場合は登録できないこと" do
