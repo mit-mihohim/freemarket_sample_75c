@@ -3,7 +3,9 @@ class PurchasesController < ApplicationController
   before_action :set_card, :set_item
 
   def buy
-    if @card.blank?
+    if @item.seller_id == current_user.id
+      redirect_to root_path, notice: '出品者は購入できません'
+    elsif @card.blank?
       redirect_to new_payment_card_path
     else
       Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
@@ -18,13 +20,18 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
-    Payjp::Charge.create(
-      :amount => @item.price,
-      :customer => @card.payjp_customer_id,
-      :currency => "jpy"
-    )
-    redirect_to root_path, notice: '支払いが完了しました' 
+    if @item.seller_id == current_user.id
+      redirect_to root_path, notice: '出品者は購入できません' 
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+      Payjp::Charge.create(
+        :amount => @item.price,
+        :customer => @card.payjp_customer_id,
+        :currency => "jpy"
+      )
+      @item.update(buyer_id: current_user.id)
+      redirect_to root_path, notice: '支払いが完了しました' 
+    end
   end
 
 
