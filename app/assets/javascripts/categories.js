@@ -31,7 +31,10 @@ $(function(){
     // 取得した親カテゴリーのvalueをcategoryに代入
     var parentCategory = document.getElementById("category_select").value;
     // parentCategoryが空でない場合のみAjaxを行う
-    if (parentCategory != ""){
+    if (parentCategory == ""){
+      $("#children_categories").remove()
+      $("#grandchildren_categories").remove();
+    } else {
       // ajaxにて、controllerへ送信
       $.ajax({
         url: "/categories/children_category",
@@ -45,13 +48,16 @@ $(function(){
         children.forEach(function(child){
           insertHtml += appendOption(child);
         });
-        // 子カテゴリセレクションの表示
-        appendChildrenSelection(insertHtml);
-        // 親カテゴリが変更されると、子・孫カテゴリを取り除く
-        $("#category_select").on("change", function(){
-          $("#children_categories").remove()
+
+        if ($("#children_categories").length) {
+          // 子カテゴリが既にある場合、子・孫カテゴリを先に取り除く
           $("#grandchildren_categories").remove();
-        })
+          $("#children_categories").remove();
+          // 子カテゴリセレクションの表示
+          appendChildrenSelection(insertHtml);
+        } else {
+          appendChildrenSelection(insertHtml);
+        }
       })
       .fail(function(){
         alert("カテゴリー取得に失敗しました");
@@ -63,7 +69,9 @@ $(function(){
   $(document).on("change", "#children_categories", function(){
     // 取得した子カテゴリのvalueを代入
     var childCategory = document.getElementById("children_categories").value;
-    if (childCategory != ""){
+    if (childCategory == ""){
+      $("#grandchildren_categories").remove();
+    } else {
       $.ajax ({
         url: "/categories/grandchildren_category",
         type: "GET",
@@ -75,10 +83,13 @@ $(function(){
         grandchildren.forEach(function(grandchild){
           insertHtml += appendOption(grandchild);
         });
-        appendGrandchildrenSelection(insertHtml);
-        $(document).on("change", "#children_categories", function(){
+
+        if ($("#grandchildren_categories").length) {
           $("#grandchildren_categories").remove();
-        })
+          appendGrandchildrenSelection(insertHtml);
+        } else {
+          appendGrandchildrenSelection(insertHtml);
+        }
       })
       .fail(function(){
         alert("カテゴリー取得に失敗しました");

@@ -9,17 +9,24 @@
         %p 最大5枚までアップロードできます
         .form-image__box
           .prev-content
+            - @item.item_images.each_with_index do |image, i|
+              .preview-box{data:{preview_id: i}}
+                .upper-box
+                  = image_tag image.src.url, alt: "preview"
+                .lower-box
+                  .delete-box{data:{delete_id: i}}
+                    %span 削除
+
           .label-content
-            %label{for: "item_item_images_attributes_0_src", class: "label-box"} 
+            = f.label :"item_images_attributes_#{@item.item_images.length}_src", class: "label-box" do
               %pre.label-box-visible 
                 = image_tag "icon_camera.png", size: '35x35' 
           .hidden-content
             = f.fields_for :item_images do |i|
-              = i.file_field :src, class: "hidden-field new-image"
-              %input{class:"hidden-field new-image", type: "file", name: "item[item_images_attributes][1][src]", id: "item_item_images_attributes_1_src" }
-              %input{class:"hidden-field new-image", type: "file", name: "item[item_images_attributes][2][src]", id: "item_item_images_attributes_2_src" }
-              %input{class:"hidden-field new-image", type: "file", name: "item[item_images_attributes][3][src]", id: "item_item_images_attributes_3_src" }
-              %input{class:"hidden-field new-image", type: "file", name: "item[item_images_attributes][4][src]", id: "item_item_images_attributes_4_src" }
+              = i.file_field :src, class: "hidden-field"
+              = i.check_box:_destroy, class: "hidden-checkbox"
+            - @item.item_images.length.upto(@item.item_images.length + 4) do |i|
+              %input{name: "item[item_images_attributes][#{i}][src]", id: "item_item_images_attributes_#{i}_src", class:"hidden-field new-image", type:"file"}
 
 
       .form-item
@@ -43,8 +50,10 @@
             %label<>カテゴリー
             %span<>必須
           .form-detail__category__input
-            = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択して下さい"}, {class: "select-default", id: "category_select"}
-            
+            = f.collection_select :category_id, @parents, :id, :name, {selected: @parent.id}, {class: "select-default", id: "category_select"}
+            = f.collection_select :category_id, @children, :id, :name, {selected: @child.id}, {class: "select-default", id: "children_categories"}
+            = f.collection_select :category_id, @grandchildren, :id, :name, {selected: @grandchild.id}, {class: "select-default", id: "grandchildren_categories"}
+
         .form-detail__brand
           .form-detail__brand__label
             %label<>ブランド
@@ -72,7 +81,7 @@
             %label<>発送元の地域
             %span<>必須
           .form-shipping__area__input
-            = f.collection_select :prefecture_id,  Prefecture.all, :id, :name, {include_blank: "選択して下さい"}
+            = f.collection_select :shipping_area,  Prefecture.all, :id, :name, {include_blank: "選択して下さい"}
         .form-shipping__days
           .form-shipping__days__label
             %label<>発送までの日数
@@ -97,7 +106,7 @@
           %span<>ー
       .form-btn
         .form-btn__top
-          = f.submit '出品する', class:"form-btn__top"
+          = f.submit '変更する', class:"form-btn__top"
         .form-btn__midle
           = link_to "#" do
             下書きに保存

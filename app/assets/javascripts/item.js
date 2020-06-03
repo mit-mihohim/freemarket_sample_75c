@@ -1,134 +1,88 @@
   $(function(){
 
-    //プレビューのhtmlを定義
-    function buildHTML(count) {
-      var html = `<div class="preview-box" id="preview-box__${count}">
+    const prevContent = $('.label-content').prev();
+    const initial = $(".hidden-checkbox").length;
+    var initial_preview_count = initial;
+
+    function buildHTML(id, image) {
+      var html = `<div class="preview-box new-preview-box" data-preview-id= ${id}>
                     <div class="upper-box">
-                      <img src="" alt="preview">
+                      <img src=${image} alt="preview">
                     </div>
                     <div class="lower-box">
-                      <div class="delete-box" id="delete_btn_${count}">
+                      <div class="delete-box new-delete-box" data-delete-id= ${id}>
                         <span>削除</span>
                       </div>
                     </div>
                   </div>`
       return html;
     }
-    // 投稿編集時
-    //items/:i/editページへリンクした際のアクション
 
-    if (window.location.href.match(/\/items\/\d+\/edit/)){
-      //登録済み画像のプレビュー表示欄の要素を取得する
-      var prevContent = $('.label-content').prev();
-      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      $('.label-content').css('width', labelWidth);
-      //プレビューにidを追加
-      $('.preview-box').each(function(index, box){
-        $(box).attr('id', `preview-box__${index}`);
-      })
-      //削除ボタンにidを追加
-      $('.delete-box').each(function(index, box){
-        $(box).attr('id', `delete_btn_${index}`);
-      })
-      var count = $('.preview-box').length;
-      //プレビューが5あるときは、投稿ボックスを消しておく
-      if (count == 5) {
+    function buildForm() {
+      var form = `<input class="hidden-field new-image" type="file" name="item[item_images_attributes][${initial + 4}][src]" id="item_item_images_attributes_${initial + 4}_src">`
+      return form
+    }
+
+    function setLabel(count, initial_preview_count) {
+      if (count == 5) { 
         $('.label-content').hide();
+      } else {
+        $('.label-content').show();
+        labelWidth = (620 - parseInt($(prevContent).css('width')));
+        $('.label-content').css('width', labelWidth);
+        $('.label-box').attr({for: `item_item_images_attributes_${count + initial - initial_preview_count}_src`});
       }
     }
 
-    // ラベルのwidth操作
-    function setLabel() {
-      //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
-      var prevContent = $('.label-content').prev();
-      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      $('.label-content').css('width', labelWidth);
+    // 投稿編集時///////////////////////////////////////////////////////////////
+    if (window.location.href.match(/\/items\/\d+\/edit/)){
+      var count = $('.preview-box').length;
+      setLabel(count, initial_preview_count);
     }
+    ///////////////////////////////////////////////////////////////////////////
 
-    // プレビューの追加
     $(document).on('change', '.hidden-field', function() {
-      setLabel();
-      //hidden-fieldのidの数値のみ取得
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
-      //labelボックスのidとforを更新
-      $('.label-box').attr({id: `label-box--${id}`,for: `item_item_images_attributes_${id}_src`});
-      //選択したfileのオブジェクトを取得
       var file = this.files[0];
       var reader = new FileReader();
-      //readAsDataURLで指定したFileオブジェクトを読み込む
       reader.readAsDataURL(file);
-      //読み込み時に発火するイベント
+      
       reader.onload = function() {
         var image = this.result;
-        //プレビューが元々なかった場合はhtmlを追加
-        if ($(`#preview-box__${id}`).length == 0) {
-          var count = $('.preview-box').length;
-          var html = buildHTML(id);
-          //ラベルの直前のプレビュー群にプレビューを追加
-          var prevContent = $('.label-content').prev();
-          $(prevContent).append(html);
-        }
-        //イメージを追加
-        $(`#preview-box__${id} img`).attr('src', `${image}`);
-        var count = $('.preview-box').length;
-        //プレビューが5個あったらラベルを隠す 
-        if (count == 5) { 
-          $('.label-content').hide();
-        }
-
+        var html = buildHTML(id, image);
+        $(prevContent).append(html);
         if ($(`#item_item_images_attributes_${id}__destroy`)){
           $(`#item_item_images_attributes_${id}__destroy`).prop('checked',false);
         } 
-
-        //ラベルのwidth操作
-        setLabel();
-        //ラベルのidとforの値を変更
-        if(count < 5){
-          //プレビューの数でラベルのオプションを更新する
-          $('.label-box').attr({id: `label-box--${count}`,for: `item_item_images_attributes_${count}_src`});
-        }
+        var count = $('.preview-box').length;
+        setLabel(count, initial_preview_count);
       }
     });
 
-    // 画像の削除
     $(document).on('click', '.delete-box', function() {
+      var id = $(this).attr('data-delete-id')
+      $(this).parent().parent().remove();
       var count = $('.preview-box').length;
-      setLabel(count);
-      //item_images_attributes_${id}_image から${id}に入った数字のみを抽出
-      var id = $(this).attr('id').replace(/[^0-9]/g, '');
-      //取得したidに該当するプレビューを削除
-      $(`#preview-box__${id}`).remove();
-      //新規投稿時
-      //削除用チェックボックスの有無で判定
+
       if ($(`#item_item_images_attributes_${id}__destroy`).length == 0) {
-        //フォームの中身を削除 
-        $(`#item_item_images_attributes_${id}_src`).val("");
-        var count = $('.preview-box').length;
-        //5個めが消されたらラベルを表示
-        if (count == 4) {
-          $('.label-content').show();
-        }
-        setLabel(count);
-        if(id < 5){
-          $('.label-box').attr({id: `label-box--${id}`,for: `item_item_images_attributes_${id}_src`});
-
-        }
+        $(`#item_item_images_attributes_${id}_src`).remove();
+        $(".new-preview-box").each(function(index, box) {
+          $(box).attr('data-preview-id', index + initial);
+        });
+        $(".new-delete-box").each(function(index, box) {
+          $(box).attr('data-delete-id', index + initial);
+        });
+        $(".new-image").each(function(index, box) {
+          $(box).attr('id', `item_item_images_attributes_${index + initial}_src`);
+          $(box).attr('name', `item[item_images_attributes][${index + initial}][src]`);
+        });
+        var form = buildForm();
+        $(".hidden-content").append(form);
       } else {
-
-        //投稿編集時
         $(`#item_item_images_attributes_${id}__destroy`).prop('checked',true);
-        //5個めが消されたらラベルを表示
-        if (count == 4) {
-          $('.label-content').show();
-        }
-
-        //ラベルのwidth操作
-        setLabel();
-        //ラベルのidとforの値を変更
-        //削除したプレビューのidによって、ラベルのidを変更する
-        if(id < 5){
-          $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_src`});
-        }
+        initial_preview_count -= 1;
       }
+
+      setLabel(count, initial_preview_count);
     });
   });

@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy]
+  before_action :move_to_root_path, except: [:index, :show], unless: :user_signed_in?
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.where(buyer_id: nil).order("created_at DESC").limit(3)
@@ -35,9 +37,21 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @grandchild = @item.category
+    @child = @grandchild.parent
+    @parent = @child.parent
+    @grandchildren = @child.children
+    @children = @parent.children
+    @parents = Category.where(ancestry: nil)
   end
 
   def update
+    if @item.update(item_params)
+      #showアクション完成後に、遷移先を商品詳細ページに変更する
+      redirect_to root_path, notice: "変更内容を保存しました"
+    else
+      redirect_to edit_item_path(@item), alert: "必須項目を入力して下さい"
+    end
   end
 
   def destroy
@@ -59,4 +73,14 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def move_to_root_path
+    flash[:alert] = "ログインが必要です"
+    redirect_to root_path
+  end
+
+  def authenticate_user
+    if Item.find(params[:id]).seller != current_user
+      redirect_to root_path
+    end
+  end
 end
