@@ -40,7 +40,7 @@ class PurchasesController < ApplicationController
     #購入品の情報の取得
     @item = Item.find(params[:item_id])
     if @item.buyer_id
-      redirect_to item_path, alert: '購入済み商品のため購入できません'
+      redirect_to item_path(@item.id), alert: '購入済み商品のため購入できません'
     end
   end
 
