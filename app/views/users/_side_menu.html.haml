@@ -12,9 +12,10 @@
       %li{id: "selling_items"}
         %p 出品した商品 
         %span ＞
-    %li{id: "bought_items"}
-      %p 購入した商品
-      %span ＞
+    = link_to bought_items_users_path do
+      %li{id: "bought_items"}
+        %p 購入した商品
+        %span ＞
   %h3 設定
   %ul.side_menu__bottom
     = link_to edit_address_users_path do

@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     @sell_items = current_user.items.order("created_at DESC").page(params[:page]).per(5)
   end
 
+  def bought_items
+  end
+
   def edit_profile
   end
 

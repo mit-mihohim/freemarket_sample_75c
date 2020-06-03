@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     collection do
       get 'edit_profile', 'edit_address'
       get 'sell_items', 'sell_items'
+      get 'bought_items', 'bought_items'
       patch 'update_profile', 'update_address'
     end
   end
