@@ -9,16 +9,16 @@
         %p 最大5枚までアップロードできます
         .form-image__box
           .prev-content
-            - @item.item_images.each do |image|
+            - @item.item_images.each_with_index do |image, i|
               .preview-box
                 .upper-box
                   = image_tag image.src.url, alt: "preview"
                 .lower-box
-                  .delete-box
+                  .delete-box{data:{delete_id: i}}
                     %span 削除
 
           .label-content
-            = f.label :"item_images_attributes_#{@item.item_images.length}_src", class: "label-box", id: "label-box--#{@item.item_images.length}" do
+            = f.label :"item_images_attributes_#{@item.item_images.length}_src", class: "label-box" do
               %pre.label-box-visible 
                 = image_tag "icon_camera.png", size: '35x35' 
           .hidden-content
