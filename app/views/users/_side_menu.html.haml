@@ -8,9 +8,10 @@
       %li{id: "sell_items_link"}
         %p 出品する
         %span ＞
-    %li{id: "selling_items"}
-      %p 出品した商品 - 出品中
-      %span ＞
+    = link_to sell_items_users_path do
+      %li{id: "selling_items"}
+        %p 出品した商品 - 出品中
+        %span ＞
     %li{id: "sold_items"}
       %p 出品した商品 - 売却済み
       %span ＞

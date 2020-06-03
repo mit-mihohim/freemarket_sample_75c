@@ -7,6 +7,10 @@ class UsersController < ApplicationController
   def show
   end
 
+  def sell_items
+    @sell_items = current_user.items
+  end
+
   def edit_profile
   end
 
