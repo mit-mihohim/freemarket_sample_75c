@@ -13,10 +13,10 @@
             .p
               = "商品名: " + sell_item.name
               %br/
-              = "出品日: #{sell_item.created_at.strftime("%Y年%m月%d日 %H時%M分")}"
+              = "出品日: #{sell_item.created_at.strftime("%Y年%m月%d日")}"
             - if sell_item.buyer_id.present? 
               .sold_out
-                SOLD_OUT
+                SOLD_OUT!
       = paginate(@sell_items)
 
 = render "layouts/footer"

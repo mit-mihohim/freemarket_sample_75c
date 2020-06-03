@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def bought_items
+    @bought_items = User.find(current_user.id).buyed_items.page(params[:page]).per(5)
   end
 
   def edit_profile
