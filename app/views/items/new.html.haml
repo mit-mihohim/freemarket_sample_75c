@@ -15,11 +15,11 @@
                 = image_tag "icon_camera.png", size: '35x35' 
           .hidden-content
             = f.fields_for :item_images do |i|
-              = i.file_field :src, class: "hidden-field"
-              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][src]", id: "item_item_images_attributes_1_src" }
-              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][src]", id: "item_item_images_attributes_2_src" }
-              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][src]", id: "item_item_images_attributes_3_src" }
-              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][src]", id: "item_item_images_attributes_4_src" }
+              = i.file_field :src, class: "hidden-field new-image"
+              %input{class:"hidden-field new-image", type: "file", name: "item[item_images_attributes][1][src]", id: "item_item_images_attributes_1_src" }
+              %input{class:"hidden-field new-image", type: "file", name: "item[item_images_attributes][2][src]", id: "item_item_images_attributes_2_src" }
+              %input{class:"hidden-field new-image", type: "file", name: "item[item_images_attributes][3][src]", id: "item_item_images_attributes_3_src" }
+              %input{class:"hidden-field new-image", type: "file", name: "item[item_images_attributes][4][src]", id: "item_item_images_attributes_4_src" }
 
 
       .form-item
