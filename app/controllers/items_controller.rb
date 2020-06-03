@@ -47,8 +47,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      #showアクション完成後に、遷移先を商品詳細ページに変更する
-      redirect_to root_path, notice: "変更内容を保存しました"
+      redirect_to item_path(@item), notice: "変更内容を保存しました"
     else
       redirect_to edit_item_path(@item), alert: "必須項目を入力して下さい"
     end
