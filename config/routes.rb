@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :users, only: :show do
     collection do
       get 'edit_profile', 'edit_address'
+      get 'sell_items'
+      get 'bought_items'
       patch 'update_profile', 'update_address'
     end
   end
