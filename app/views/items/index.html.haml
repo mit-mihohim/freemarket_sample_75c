@@ -90,46 +90,8 @@
       .title
         商品一覧
         .title__border
-      %ul.lists
-        %li.list
-          = link_to "items/item" do
-            = image_tag 'pict/pict-reason-03.jpg', class: 'image'
-            .info
-              .info__top
-                .name
-                  商品1
-                .favorite
-                  ★ 
-                  %span 0
-              .price
-                3000円
-                %p (税込)
-              
-        %li.list
-          = link_to('#', {}) do
-            = image_tag 'pict/pict-reason-03.jpg', class: 'image'
-            .info
-              .info__top
-                .name
-                  商品2
-                .favorite
-                  ★ 
-                  %span 0
-              .price
-                3000円
-                %p (税込)
+      - if @items
+        %ul.lists
+          = render "item", items: @items
 
-        %li.list
-          = link_to('#', {}) do
-            = image_tag 'pict/pict-reason-03.jpg', class: 'image'
-            .info
-              .info__top
-                .name
-                  商品3
-                .favorite
-                  ★ 
-                  %span 0
-              .price
-                3000円
-                %p (税込)
 = render "layouts/footer"
