@@ -4,10 +4,14 @@ class ItemsController < ApplicationController
   before_action :authenticate_user, only: [:edit, :update, :destroy]
 
   def index
-
+    @items = Item.where(buyer_id: nil).order("created_at DESC").limit(3)
   end
 
   def show
+    @main_image = @item.item_images.first
+    @grandchild_category = @item.category
+    @child_category = @grandchild_category.parent
+    @parent_category = @child_category.parent
   end
 
   def new 
@@ -50,24 +54,28 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy 
-  end
-
-  def buy
+  def destroy
+    if @item.destroy
+      flash[:notice] = "削除が完了しました"
+      redirect_to root_path
+    else
+      flash[:alert] = "削除できませんでした"
+      render :show
+    end
   end
 
   private
   def item_params
-    params.require(:item).permit(:name, :text, :category_id, :brand, :status, :delivery_charge_bearer, :shipping_area, :delivery_days, :price, [item_images_attributes: [:src, :_destroy, :id]]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :text, :category_id, :brand, :status, :delivery_charge_bearer, :prefecture_id, :delivery_days, :price, [item_images_attributes: [:src, :_destroy, :id]]).merge(seller_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
   def move_to_root_path
     flash[:alert] = "ログインが必要です"
     redirect_to root_path
-  end
-
-  def set_item
-    @item = Item.find(params[:id])
   end
 
   def authenticate_user

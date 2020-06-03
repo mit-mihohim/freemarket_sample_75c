@@ -1,0 +1,21 @@
+= render "layouts/header"
+.mypage
+  = render "side_menu"
+  .main_contents
+    .item_window
+      %h3 購入した商品一覧
+      .item_window__list
+        - @bought_items.each do |bought_item|      
+          .item           
+            .item_iamge
+              = link_to item_path(bought_item.id) do 
+                = image_tag bought_item.item_images.first.src.url
+            .p
+              = "商品名: " + bought_item.name
+              %br/
+              = "価格: #{bought_item.price}円"
+              %br/
+              = "購入日: #{bought_item.updated_at.strftime("%Y年%m月%d日")}"
+     
+      = paginate(@bought_items)
+= render "layouts/footer"

@@ -7,6 +7,14 @@ class UsersController < ApplicationController
   def show
   end
 
+  def sell_items
+    @sell_items = current_user.items.order("created_at DESC").page(params[:page]).per(5)
+  end
+
+  def bought_items
+    @bought_items = current_user.buyed_items.page(params[:page]).per(5)
+  end
+
   def edit_profile
   end
 
@@ -56,5 +64,7 @@ class UsersController < ApplicationController
   def address_params
     params.require(:address).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :post_number, :prefecture_id, :city, :house_number, :building_name, :phone_number)
   end
+
+
   
 end

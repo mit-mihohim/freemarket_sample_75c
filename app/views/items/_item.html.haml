@@ -1,0 +1,14 @@
+- items.each do |item|
+  %li.list
+    = link_to item_path(item.id) do
+      = image_tag item.item_images.first.src_url, class: 'image'
+      .info
+        .info__top
+          .name
+            = item.name
+          .favorite
+            ★ 
+            %span 0
+        .price
+          = "#{item.price}円"
+          %p (税込)

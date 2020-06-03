@@ -1,0 +1,22 @@
+= render "layouts/header"
+.mypage
+  = render "side_menu"
+  .main_contents
+    .item_window
+      %h3 出品した商品一覧
+      .item_window__list
+        - @sell_items.each do |sell_item|      
+          .item           
+            .item_iamge
+              = link_to item_path(sell_item.id) do 
+                = image_tag sell_item.item_images.first.src.url
+            .p
+              = "商品名: " + sell_item.name
+              %br/
+              = "出品日: #{sell_item.created_at.strftime("%Y年%m月%d日")}"
+            - if sell_item.buyer_id.present? 
+              .sold_out
+                SOLD_OUT!
+      = paginate(@sell_items)
+
+= render "layouts/footer"
