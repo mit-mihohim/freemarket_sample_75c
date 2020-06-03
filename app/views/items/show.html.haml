@@ -72,7 +72,7 @@
               削除
       - else 
         .item__buy-btn
-          = link_to items_buy_path do
+          = link_to buy_item_purchases_path(@item.id) do
             購入画面に進む
 
     %ul.pagenation
