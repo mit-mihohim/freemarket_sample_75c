@@ -166,6 +166,16 @@
 
       .products-index {
         padding: 70px 100px;
+        .pagination {
+          text-align: center;
+          a {
+            text-decoration: none;
+            color: $font-black;
+          }
+          a:hover {
+            text-decoration: underline $main-color;
+          }
+        }
         .title {
           @include title();
           &__border {
@@ -176,13 +186,15 @@
           width: 80%;
           margin: 0 auto;
           display: flex;
+          flex-wrap: wrap;
           justify-content: center;
           .list {
             background-color: $basic-white;
             text-decoration: none;
             width: 220px;
             margin: auto 30px;
-            font-size: 0;
+            margin-bottom: 50px;
+            font-size: 30px;
             a {
               text-decoration: none;
               color: $font-black;

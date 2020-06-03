@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.where(buyer_id: nil).order("created_at DESC").limit(3)
+    @items = Item.where(buyer_id: nil).order("created_at DESC").page(params[:page]).per(9)
   end
 
   def show

@@ -63,17 +63,19 @@
 
       -# セラーとカレントユーザーが同じ場合下記表示/
       - if user_signed_in? && current_user.id == @item.seller_id
-        %ul.item__edit-btns
-          %li.edit-btn
-            = link_to edit_item_path(@item.id) do
-              編集
-          %li.delete-btn
-            = link_to item_path(@item.id), method: :delete do
-              削除
-      - else 
-        .item__buy-btn
-          = link_to buy_item_purchases_path(@item.id) do
-            購入画面に進む
+        - unless @item.buyer_id.present?
+          %ul.item__edit-btns
+            %li.edit-btn
+              = link_to edit_item_path(@item.id) do
+                編集
+            %li.delete-btn
+              = link_to item_path(@item.id), method: :delete do
+                削除
+      - else
+        - unless @item.buyer_id.present?
+          .item__buy-btn
+            = link_to buy_item_purchases_path(@item.id) do
+              購入画面に進む
 
     %ul.pagenation
       %li.prep-item
