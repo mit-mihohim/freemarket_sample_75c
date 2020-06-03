@@ -5,7 +5,7 @@
 # データベース設計
 
 # ER図
-![人生を変えるフリマアプリ](https://user-images.githubusercontent.com/63847712/82854803-794e7980-9f44-11ea-9119-57fdc31d2728.png)
+![人生を変えるフリマアプリ](https://user-images.githubusercontent.com/60055417/83329400-32ee7700-a2c4-11ea-9ed5-361046a4ed10.png)
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -15,7 +15,7 @@
 |brand|string||
 |status|integer|null:false, dafault: 0|
 |delivery_charge_bearer|integer|null:false, dafault: 0|
-|shipping_area|integer|null: false, dafault: 0|
+|prefecture_id|integer|null: false, dafault: 0|
 |dalivery_days|integer|null:false, dafault: 0|
 |price|integer|null:false|
 |seller_id|references|null: false, foreign_key: true|
@@ -33,9 +33,11 @@
 |------|----|-------|
 |name|string|null: false|
 
+### gem指定
+gem ancestry
 ### Association
 - has_many :items
-
+- has_ancestry
 
 ## item_imagesテーブル
 |Column|Type|Options|

@@ -4,72 +4,85 @@
   .item-box
     .item
       %h2.item__name
-        春の華やか花柄ワンピース
+        = @item.name
       %ul.item__images
         %li.item__images__main
-          =image_tag "pict-reason-02.jpg", size:"400x400"
+          = image_tag @main_image.src.url, size: "400x400"
         %ul.item__images__sub
-          %li
-            =image_tag "pict-reason-02.jpg", size:"120x120"
-          %li
-            =image_tag "pict-reason-02.jpg", size:"120x120"
-          %li
-            =image_tag "pict-reason-02.jpg", size:"120x120"
+          - @item.item_images.each do |image|
+            %li
+              = image_tag image.src.url, size:"100x100"
+
       .item__price
-        ¥1900
+        = "#{@item.price}円"
         .item__price__info
-          %span (税込)
-          %span 送料込み
+          %span
+            = @item.delivery_charge_bearer
       .item__details
-        %p 逃した春を思い出させてくれるようなワンピース。白色、綿素材、１、２回着用。夏に向けてまだまだ活躍できるアイテムです！
+        %p
+          = @item.text
       %table.item__table
         %tbody.item__info
           %tr
             %th 出品者
-            %td ちゃん
+            %td
+              = @item.seller.name
           %tr
             %th カテゴリ
-            %td カテゴリ項目
+            %td
+              = link_to "#" do
+                = "#{@parent_category.name}"
+              = link_to "#" do
+                = "/#{@child_category.name}"
+              = link_to "#" do
+                = "/#{@grandchild_category.name}"
           %tr
             %th ブランド
-            %td 
-          %tr
-            %th 商品サイズ
-            %td 
+            %td
+              = @item.brand
+          -# 機能追加時、表示
+          -# %tr
+          -#   %th 商品サイズ
+          -#   %td 
           %tr
             %th 商品の状態
-            %td 新品、未使用
+            %td
+              = @item.status
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td
+              = @item.delivery_charge_bearer
           %tr
             %th 発送元の地域
-            %td 大阪府
+            %td
+              = @item.prefecture.name
           %tr
             %th 発送日の目安
-            %td 1~2日
+            %td
+              = @item.delivery_days
 
-        -# セラーの場合は編集削除ボタンを表示させる
-      - if user_signed_in?
+      -# セラーとカレントユーザーが同じ場合下記表示/
+      - if user_signed_in? && current_user.id == @item.seller_id
+        %ul.item__edit-btns
+          %li.edit-btn
+            = link_to edit_item_path(@item.id) do
+              編集
+          %li.delete-btn
+            = link_to item_path(@item.id), method: :delete do
+              削除
+      - else 
         .item__buy-btn
           = link_to items_buy_path do
             購入画面に進む
-        
-        -# セラーとカレントユーザーが同じの場合下記表示/
-        %ul.item__edit-btns
-          %li.edit-btn
-            = link_to items_buy_path do
-              編集
-          %li.delete-btn
-            = link_to items_buy_path do
-              削除
 
     %ul.pagenation
       %li.prep-item
-        = link_to "#" do
-          前の商品
+        - if @item.previous.present?
+          = link_to item_path(@item.previous) do
+            << 前へ
       %li.prep-item
-        = link_to "#" do
-          後ろの商品
+        - if @item.next.present?
+          = link_to item_path(@item.next) do
+            次へ >>
 
 = render "layouts/footer"

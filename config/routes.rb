@@ -8,17 +8,29 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
   
-  root 'items#index'
 
-  resources :items, only: [:index, :new, :create] 
-
-
-  get 'items/buy',  to: 'items#buy'
-  resources :items 
   resources :users, only: :show do
     collection do
       get 'edit_profile', 'edit_address'
       patch 'update_profile', 'update_address'
+    end
+  end
+ 
+  root 'items#index'
+
+  resources :payment_cards, only: [:new, :create, :index, :destroy]
+  resources :items do
+    resources :purchases do
+      collection do
+        get :buy
+        post :pay
+      end
+    end
+  end
+  resources :categories, only: :index do
+    collection do
+      get "children_category"
+      get "grandchildren_category"
     end
   end
 end
