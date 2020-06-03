@@ -12,5 +12,7 @@
       - if @items
         %ul.lists
           = render "item", items: @items
+  
+      = paginate @items
 
 = render "layouts/footer"
