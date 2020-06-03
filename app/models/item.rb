@@ -12,10 +12,10 @@ class Item < ApplicationRecord
   enum status: {"新品、未使用":1, "未使用に近い":2, "目立った傷や汚れなし":3, "やや傷や汚れあり":4, "傷や汚れあり":5, "全体的に状態が悪い":6} ,_prefix: true
 
   def previous
-    Item.where("id < ?", self.id).order("id DESC").first
+    Item.where("id < ?", self.id).where(buyer_id: nil).order("id DESC").first
   end
   
   def next
-    Item.where("id > ?", self.id).order("id ASC").first
+    Item.where("id > ?", self.id).where(buyer_id: nil).order("id ASC").first
   end
 end
