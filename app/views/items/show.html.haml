@@ -8,10 +8,15 @@
       %ul.item__images
         %li.item__images__main
           = image_tag @main_image.src.url, size: "400x400"
+          - if @item.buyer_id.present? && @item.buyer_id !=current_user.id
+            .sold_out
+              SOLD_OUT!
+           
+              
         %ul.item__images__sub
           - @item.item_images.each do |image|
             %li
-              = image_tag image.src.url, size:"100x100"
+              = image_tag image.src.url, size:"100x100"          
 
       .item__price
         = "#{@item.price}円"
@@ -40,10 +45,6 @@
             %th ブランド
             %td
               = @item.brand
-          -# 機能追加時、表示
-          -# %tr
-          -#   %th 商品サイズ
-          -#   %td 
           %tr
             %th 商品の状態
             %td
@@ -78,13 +79,15 @@
               購入画面に進む
 
     %ul.pagenation
-      %li.prep-item
-        - if @item.previous.present?
-          = link_to item_path(@item.previous) do
-            << 前へ
-      %li.prep-item
-        - if @item.next.present?
-          = link_to item_path(@item.next) do
-            次へ >>
-
+      - if request.referer&.include?("/users/sell_items")  or request.referer&.include?("/users/bought_items")
+        = link_to "<< 戻る", :back
+      -else
+        %li.prep-item
+          - if @item.previous.present?
+            = link_to item_path(@item.previous) do
+              << 前へ
+        %li.prep-item
+          - if @item.next.present?
+            = link_to item_path(@item.next) do
+              次へ >>
 = render "layouts/footer"

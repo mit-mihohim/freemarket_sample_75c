@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
 
   def buy
     if @card.blank?
-      redirect_to new_payment_card_path
+      redirect_to new_payment_card_path  
     else
       Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       customer = Payjp::Customer.retrieve(@card.payjp_customer_id)
