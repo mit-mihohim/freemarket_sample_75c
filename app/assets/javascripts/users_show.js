@@ -19,5 +19,6 @@ $(function(){
         $("#edit_profile").addClass("selected");
         break;
     }
+    
   }
 });
