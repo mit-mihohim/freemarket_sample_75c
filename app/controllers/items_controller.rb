@@ -1,10 +1,14 @@
 class ItemsController < ApplicationController
-  before_action :move_to_root_path, except: [:index, :show], unless: :user_signed_in?
+  before_action :move_to_root_path, except: [:index, :show, :search], unless: :user_signed_in?
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.where(buyer_id: nil).order("created_at DESC").page(params[:page]).per(9)
+  end
+
+  def search
+    @items = Item.search(params[:keyword]).where(buyer_id: nil).order("created_at DESC").page(params[:page]).per(9)
   end
 
   def show
@@ -73,8 +77,8 @@ class ItemsController < ApplicationController
   end
 
   def move_to_root_path
-    flash[:alert] = "ログインが必要です"
-    redirect_to root_path
+    redirect_to root_path 
+    flash[:alert] = "出品するには新規登録、ログインが必要です"
   end
 
   def authenticate_user

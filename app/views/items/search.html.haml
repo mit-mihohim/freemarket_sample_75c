@@ -1,0 +1,17 @@
+= render "layouts/header"
+
+.contents
+  
+    
+  .products-container
+    .products-index
+      .title
+        商品一覧
+        .title__border
+      - if @items
+        %ul.lists
+          = render "item", items: @items
+  
+      = paginate @items
+
+= render "layouts/footer"

@@ -5,9 +5,9 @@
         = link_to root_path do
           = image_tag 'logo.png', size: '140x40' 
       .search-form
-        = form_with(url: search_items_path, local: true, class: "search-box") do |f|
+        = form_with(url: search_items_path, local: true, method: :get,  class: "search-box") do |f|
           = f.text_field :keyword, placeholder: "商品を検索する", class: "search-box__text"
-          = button_tag type: 'submit', class: "search-box__btn" do
+          = button_tag type: "submit",  class: "search-box__btn" do
             = image_tag 'icon-search.png', size: '19x19'
     .nav-bar 
       %ul.nav-bar__left
