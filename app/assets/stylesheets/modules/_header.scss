@@ -102,3 +102,32 @@
   }
 }
 
+.second-header {
+  width: 100%;
+  height: 48px;
+  padding: 0 60px 0 50px;
+  border-top: 1px solid lightgray;
+  
+  .breadcrumbs-list {
+    max-width: 1040px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 48px;
+
+    a {
+      color: #333333;
+      margin: 0 10px;
+
+      &:hover {
+        color: gray;
+        text-decoration: underline;
+      }
+    }
+
+    .current {
+      margin-left: 10px;
+      font-weight: bold;
+    }
+  }
+}
+
