@@ -21,6 +21,16 @@ crumb :edit_address do
   parent :mypage
 end
 
+crumb :payment_method do
+  link "支払い方法", payment_cards_path
+  parent :mypage
+end
+
+crumb :new_payment_card do
+  link "クレジットカード情報入力", new_payment_card_path
+  parent :payment_method
+end
+
 crumb :edit_user do
   link "メール/パスワード", edit_user_registration_path
   parent :mypage
