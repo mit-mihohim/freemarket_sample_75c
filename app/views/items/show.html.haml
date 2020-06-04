@@ -78,13 +78,17 @@
               購入画面に進む
 
     %ul.pagenation
-      %li.prep-item
-        - if @item.previous.present?
-          = link_to item_path(@item.previous) do
-            << 前へ
-      %li.prep-item
-        - if @item.next.present?
-          = link_to item_path(@item.next) do
-            次へ >>
+      - if request.referer&.include?("/users/sell_items")  or request.referer&.include?("/users/bought_items")
+        = link_to "一覧へ戻る", :back
+      -else
 
+
+        %li.prep-item
+          - if @item.previous.present?
+            = link_to item_path(@item.previous) do
+              << 前へ
+        %li.prep-item
+          - if @item.next.present?
+            = link_to item_path(@item.next) do
+              次へ >>
 = render "layouts/footer"

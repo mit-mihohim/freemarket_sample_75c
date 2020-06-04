@@ -18,4 +18,20 @@ class Item < ApplicationRecord
   def next
     Item.where("id > ?", self.id).where(buyer_id: nil).order("id ASC").first
   end
+
+  def sell_previous
+    Item.where("id < ?", self.id).find(current_user.id).order("id DESC").first
+  end
+
+  def sell_next
+    Item.where("id > ?", self.id).find(current_user.id).order("id ASC").first
+  end
+
+
+  
+
+
+
+
+
 end
