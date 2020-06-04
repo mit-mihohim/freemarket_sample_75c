@@ -23,10 +23,4 @@ class Item < ApplicationRecord
     return Item.all unless search
     Item.where('name LIKE(?)', "%#{search}%")
   end
-
-
-
-
-
-
 end
