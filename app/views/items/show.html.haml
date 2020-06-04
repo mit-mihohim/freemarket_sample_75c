@@ -7,8 +7,8 @@
         = @item.name
       %ul.item__images
         %li.item__images__main
+          = image_tag @main_image.src.url, size: "400x400"
           - if @item.buyer_id.present?
-            = image_tag @main_image.src.url, size: "400x400"
             .sold_out
               SOLD_OUT!
            
@@ -80,7 +80,7 @@
 
     %ul.pagenation
       - if request.referer&.include?("/users/sell_items")  or request.referer&.include?("/users/bought_items")
-        = link_to "一覧へ戻る", :back
+        = link_to "戻る", :back
       -else
         %li.prep-item
           - if @item.previous.present?

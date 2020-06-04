@@ -39,6 +39,20 @@
         font-size: 30px;
       }
       &__images {
+        position: relative;
+        .sold_out{
+          color: $basic-white;
+          background-color: red;
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 40px;
+          width: 150px;
+          height: 40px;
+          position: absolute;
+          bottom:128px;
+          right:170px;
+
+        }
         &__sub {
           display: flex;
           justify-content: center;
