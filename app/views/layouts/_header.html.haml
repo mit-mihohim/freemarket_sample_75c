@@ -4,10 +4,11 @@
       %h1.topHeader__main--logo
         = link_to root_path do
           = image_tag 'logo.png', size: '140x40' 
-      .search-box
-        = form_with(url: search_items_path, local: true) do |f|
-          = f.text_field :keyword, placeholer: "商品を検索する", class: "search-box__text"
-          = f.submit class: "serach-box__btn" 
+      .search-form
+        = form_with(url: search_items_path, local: true, class: "search-box") do |f|
+          = f.text_field :keyword, placeholder: "商品を検索する", class: "search-box__text"
+          = f.submit class: "serach-box__btn"
+            =
     .nav-bar 
       %ul.nav-bar__left
         %li.nav-bar__left__left
