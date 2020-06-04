@@ -18,4 +18,9 @@ class Item < ApplicationRecord
   def next
     Item.where("id > ?", self.id).where(buyer_id: nil).order("id ASC").first
   end
+
+  def self.search(search)
+    return Item.all unless search
+    Item.where('name LIKE(?)', "%#{search}%")
+  end
 end

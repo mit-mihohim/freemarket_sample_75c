@@ -22,6 +22,9 @@ Rails.application.routes.draw do
 
   resources :payment_cards, only: [:new, :create, :index, :destroy]
   resources :items do
+    collection do
+      get 'search'
+    end
     resources :purchases do
       collection do
         get :buy

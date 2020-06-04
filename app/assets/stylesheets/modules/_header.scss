@@ -29,10 +29,11 @@
         margin-right: 30px;
         display: block;
       }
-
-      .search-box{
-        width:1040px;
+      
+      .search-form{
+        width: 1040px;
         height: 38px;
+      .search-box{
         display: flex;
 
         &__text{
@@ -40,8 +41,7 @@
           height: 38px;
           padding-left: 5px;
         }
-
-        &__btn{         
+        &__btn{
           width: 38px;
           height: 38px;
           background-color: $main-color;
@@ -52,8 +52,10 @@
           :hover{
             opacity: 0.9;
           }
+        }
       }
     }
+  
 
     .nav-bar{
       width: 100%;
