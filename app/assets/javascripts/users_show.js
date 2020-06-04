@@ -1,19 +1,23 @@
 $(function(){
-    let path = location.pathname;
+  if ($(".mypage").length) {
+    const path = location.pathname;
     
-    if (path == "/users/edit_address") {
-      $("#mypage").removeClass("selected");
-      $("#edit_address").addClass("selected");
-    }
+    switch(path) {
 
-    if (path == "/users/edit") {
-      $("#mypage").removeClass("selected");
-      $("#edit_user").addClass("selected");
-    }
+      case "/users/edit_address":
+        $("#mypage").removeClass("selected");
+        $("#edit_address").addClass("selected");
+        break;
 
-    if (path == "/users/edit_profile") {
-      $("#mypage").removeClass("selected");
-      $("#edit_profile").addClass("selected");
+      case "/users/edit":
+        $("#mypage").removeClass("selected");
+        $("#edit_user").addClass("selected");
+        break;
+
+      case "/users/edit_profile":
+        $("#mypage").removeClass("selected");
+        $("#edit_profile").addClass("selected");
+        break;
     }
-    
+  }
 });
