@@ -103,3 +103,15 @@ gem ancestry
 
 ### Association
 - belongs_to :user
+
+## favoritesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|-----|
+|item_id|references|-----|
+
+### Association
+- has_many :favorites, dependent: :destroy
+- has_many :favorites, dependent: :destroy
+- has_many :favorite_items, through: :favorites, source: :item
+  
