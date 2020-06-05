@@ -3,8 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   validates :name, presence: true
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2, :twitter]
 
+  has_many :sns_credentials
   has_many :items, foreign_key: "seller_id"
   has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item" #userが買った商品
   has_many :selling_items, -> { where("buyer_id is NULL")}, foreign_key: "seller_id", class_name: "Item" #現在売っている商品
