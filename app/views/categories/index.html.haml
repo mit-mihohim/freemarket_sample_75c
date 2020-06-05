@@ -1,6 +1,10 @@
 = render "layouts/header"
 
 .wrapper
+  .category_search
+    - @parents.each do |parent|
+      = link_to parent.name, "##{parent.name}", class: "category_link"
+
   .category-box
     %h1 カテゴリー一覧
     %ul.categories
