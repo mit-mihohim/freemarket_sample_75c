@@ -103,3 +103,13 @@ gem ancestry
 
 ### Association
 - belongs_to :user
+
+## sns_credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|provider|string||
+|uid|string||
+|user_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user, optional: true
