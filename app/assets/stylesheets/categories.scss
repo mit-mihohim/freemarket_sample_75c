@@ -31,3 +31,26 @@
     }
   }
 }
+
+.category_wrapper {
+  background-color: $background-offwhite;
+  width: 100%;
+  padding: 30px 60px 0;
+
+  .category_links {
+    max-width: 1040px;
+    margin: 0 auto;
+
+    a {
+      font-size: 14px;
+      color: $link-blue;
+      padding-right: 10px;
+      line-height: 25px;
+
+      &:hover {
+        color: $light_blue;
+        text-decoration: underline;
+      }
+    }
+  }
+}
