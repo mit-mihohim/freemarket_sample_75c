@@ -27,4 +27,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
   # end
+  private
+  def authorization
+    @user = User.form_omniauth(request.env["omniauth.auth"])
+
+    if @user.presisted?
+      sign_in_and_redirect @user, event: :authentication
+    else
+      render template: 'users/registrations#new'
+    end
+  end
 end
