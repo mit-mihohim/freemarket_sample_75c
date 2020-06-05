@@ -1,9 +1,0 @@
-- if user_signed_in?
-  - if item.favorite_user(current_user.id)
-    = button_to item_favorite_path(favorite, item_id: item.id), method: :delete, id: "favorite-button", remote: true do
-      = image_tag("icon_red_heart.svg")
-  - else
-    = button_to item_favorite_path(tweet), id: "favorite-button", remote: true do
-      = image_tag("icon_heart.svg")
-- else
-    = image_tag("icon_heart.svg")

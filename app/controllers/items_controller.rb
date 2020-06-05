@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
     @grandchild_category = @item.category
     @child_category = @grandchild_category.parent
     @parent_category = @child_category.parent
+    @favorite = Favorite.new
   end
 
   def new 

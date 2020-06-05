@@ -16,4 +16,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile
   
   has_one :payment_card, dependent: :destroy
+  
+  def already_favorite?(item)
+    self.favorites.exists?(item_id: item.id)
+  end
 end
