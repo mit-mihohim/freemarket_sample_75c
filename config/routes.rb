@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       get 'search'
+  resources :favorites, only: [:create, :destroy]
     end
     resources :purchases do
       collection do
