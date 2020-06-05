@@ -19,10 +19,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def authorization
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
-    if @user.presisted?
+    if @user.persisted?
       sign_in_and_redirect @user, event: :authentication
     else
-      render template: 'users/registrations#new'
+      render template: 'devise/registrations/new'
     end
   end
 end
