@@ -30,12 +30,9 @@
           %tr
             %th カテゴリ
             %td
-              = link_to "#" do
-                = "#{@parent_category.name}"
-              = link_to "#" do
-                = "/#{@child_category.name}"
-              = link_to "#" do
-                = "/#{@grandchild_category.name}"
+              = link_to @parent_category.name, category_path(@parent_category)
+              = link_to @child_category.name, category_path(@child_category)
+              = link_to @grandchild_category.name, category_path(@grandchild_category)
           %tr
             %th ブランド
             %td
