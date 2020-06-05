@@ -5,6 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_items, through: :favorites, source: :item
   has_many :items, foreign_key: "seller_id"
   has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item" #userが買った商品
   has_many :selling_items, -> { where("buyer_id is NULL")}, foreign_key: "seller_id", class_name: "Item" #現在売っている商品
