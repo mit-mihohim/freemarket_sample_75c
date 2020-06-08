@@ -16,6 +16,11 @@ crumb :bought_items do
   parent :mypage
 end
 
+crumb :favorite_items do
+  link "いいね! した商品一覧", bought_items_users_path
+  parent :mypage
+end
+
 crumb :edit_address do
   link "発送元・お届け先住所変更", edit_address_users_path
   parent :mypage
