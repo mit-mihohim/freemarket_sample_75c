@@ -17,7 +17,4 @@ class User < ApplicationRecord
   
   has_one :payment_card, dependent: :destroy
   
-  def already_favorite?(item)
-    self.favorites.exists?(item_id: item.id)
-  end
 end
