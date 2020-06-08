@@ -3,13 +3,13 @@
 .wrapper
   .category_search
     - @parents.each do |parent|
-      = link_to parent.name, "##{parent.name}", class: "category_link"
+      = link_to parent.name, "#category-#{parent.id}", class: "category_link"
 
   .category-box
     %h1 カテゴリー一覧
     %ul.categories
       - @parents.each do |parent|
-        %li.parents= link_to "#{parent.name}", category_path(parent)
+        %li.parents= link_to "#{parent.name}", category_path(parent), id: "category-#{parent.id}"
     
         %ul.categories__children
           - parent.children.each do |child|
