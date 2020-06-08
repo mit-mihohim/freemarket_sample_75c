@@ -85,7 +85,6 @@ gem 'rails-i18n'
 gem 'font-awesome-sass'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-gem 'omniauth-twitter'
 gem "omniauth-rails_csrf_protection"
 
 group :production do
