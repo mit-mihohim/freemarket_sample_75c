@@ -1,19 +1,23 @@
 = render "layouts/header"
 
 .wrapper
+  .category_search
+    - @parents.each do |parent|
+      = link_to parent.name, "#category-#{parent.id}", class: "category_link"
+
   .category-box
     %h1 カテゴリー一覧
     %ul.categories
       - @parents.each do |parent|
-        %li.parents= link_to "#{parent.name}", "#"
+        %li.parents= link_to "#{parent.name}", category_path(parent), id: "category-#{parent.id}"
     
         %ul.categories__children
           - parent.children.each do |child|
-            %li.childern= link_to "#{child.name}", "#"
+            %li.childern= link_to "#{child.name}", category_path(child)
 
             %ul.categories__grandchildren
               - child.children.each do |grandchild|
-                %li= link_to "#{grandchild.name}", "#"
+                %li= link_to "#{grandchild.name}", category_path(grandchild)
 
             
 
