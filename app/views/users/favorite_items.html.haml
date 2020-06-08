@@ -17,10 +17,10 @@
               = "商品名: " + favorite_item.name
               %br/
               = "価格: #{favorite_item.price}円"
-            - if favorite_item.buyer_id.present? && favorite_item.buyer_id !=current_user.id
+            - if favorite_item.buyer_id != current_user.id && favorite_item.buyer_id.presence  
               .sold_out
                 SOLD_OUT!
-            - unless favorite_item.buyer_id.present? && favorite_item.buyer_id !=current_user.id
+            - if favorite_item.buyer_id == current_user.id
               .sold_out
                 購入済み
       = paginate(@favorite_items)
