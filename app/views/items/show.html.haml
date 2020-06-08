@@ -14,9 +14,7 @@
       %ul.item__images
         %li.item__images__main
           = image_tag @main_image.src.url, size: "400x400"
-       
-           
-              
+ 
         %ul.item__images__sub
           - @item.item_images.each do |image|
             %li
