@@ -11,7 +11,13 @@
     .nav-bar 
       %ul.nav-bar__left
         %li.nav-bar__left__left
-          = link_to 'カテゴリー', categories_path
+          = link_to 'カテゴリーから探す', categories_path, id: "category-search"
+          .category-menu
+            .category-list.parents-list
+              -@parents.each do |parent|
+                = link_to "#{parent.name}", category_path(parent), class: "category parent_category", id: "#{parent.id}"
+            .category-list.children-list
+            .category-list.grandchildren-list
         %li.nav-bar__left__right
           = link_to 'ブランド', root_path
           

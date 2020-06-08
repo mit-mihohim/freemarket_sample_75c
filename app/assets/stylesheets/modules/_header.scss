@@ -68,6 +68,39 @@
         li{
           padding-right: 30px;
         }
+
+        .category-menu {
+          background-color: white;
+          display: flex;
+          position: absolute;
+          z-index: 10;
+          margin-top: 8px;
+          box-shadow: 1px 1px 1px lightgray;
+          visibility: hidden;
+          
+          .category-list {
+            font-size: 16px;
+            
+            .category {
+              display: block;
+              padding: 10px;
+              min-width: 148px;
+            }
+
+            .selected-parent {
+              background-color: $main-color;
+              color: white;
+            }
+
+            .selected-child {
+              background-color: #f5f5f5;
+            }
+
+            .grandchild_category:hover {
+              background-color: #f5f5f5;
+            }
+          }
+        }
       }
 
       &__right{
