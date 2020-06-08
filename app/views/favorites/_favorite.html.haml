@@ -1,8 +1,10 @@
 - if  current_user.favorites.find_by(item_id: @item.id)
   #favorited
     = link_to item_favorite_path(@item, current_user.favorites.find_by(item_id: @item.id)), method: :delete, remote: true do
-      = fa_icon 'star', class: "favorite_stared"
+      = image_tag "icon_stared.png", size:'40x40'
+    %p お気に入り解除
 - else
   #favorite
     = link_to item_favorites_path(@item, current_user.favorites.build), method: :post, remote: true do
-      = fa_icon 'star', class: "favorite_star"
+      = image_tag "icon_star.png", size: '40x40'
+    %p お気に入り登録
