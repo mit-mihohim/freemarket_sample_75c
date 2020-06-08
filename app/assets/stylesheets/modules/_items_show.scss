@@ -49,7 +49,7 @@
           width: 150px;
           height: 40px;
           position: absolute;
-          bottom:128px;
+          top:0.00001px;
           right:170px;
 
         }
@@ -127,4 +127,17 @@
       font-size: 18px;
     }
   }
+}
+
+
+.favorite_stared:before{
+  color: yellow;
+  font-size: 25px;
+}
+
+.favorite_star:before{
+  color:black;
+  font-size: 25px;
+  background-color: white;
+
 }

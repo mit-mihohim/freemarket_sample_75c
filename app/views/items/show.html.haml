@@ -16,7 +16,11 @@
         %ul.item__images__sub
           - @item.item_images.each do |image|
             %li
-              = image_tag image.src.url, size:"100x100"          
+              = image_tag image.src.url, size:"100x100"     
+
+      - if user_signed_in?
+        = render 'favorites/favorite'
+        
 
       .item__price
         = "#{@item.price}円"
