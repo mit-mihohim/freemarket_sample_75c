@@ -1,37 +1,37 @@
 .side_menu
   %ul.side_menu__top
     = link_to user_path(current_user) do
-      %li.selected{id: "mypage"}
+      %li.selected#mypage
         %p マイページ
         %span ＞
     = link_to new_item_path do
-      %li{id: "sell_items_link"}
+      %li#sell_items_link
         %p 出品する
         %span ＞
     = link_to sell_items_users_path do
-      %li{id: "sold_items"}
+      %li#sold_items
         %p 出品した商品 
         %span ＞
     = link_to bought_items_users_path do
-      %li{id: "bought_items"}
+      %li#bought_items
         %p 購入した商品
         %span ＞
   %h3 設定
   %ul.side_menu__bottom
     = link_to edit_address_users_path do
-      %li{id: "edit_address"}
+      %li#edit_address
         %p 発送元・お届け先住所変更
         %span ＞ 
     = link_to payment_cards_path do
-      %li{id: "payment_method"}
+      %li#payment_method
         %p 支払い方法
         %span ＞
     = link_to edit_user_registration_path do
-      %li{id: "edit_user"}
+      %li#edit_user
         %p メール/パスワード
         %span ＞
     = link_to edit_profile_users_path do
-      %li{id: "edit_profile"}
+      %li#edit_profile
         %p 本人情報
         %span ＞
     = link_to destroy_user_session_path, method: :delete do
