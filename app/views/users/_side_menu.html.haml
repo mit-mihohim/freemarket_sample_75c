@@ -16,6 +16,10 @@
       %li#bought_items
         %p 購入した商品
         %span ＞
+    = link_to favorite_items_users_path do
+      %li{id: "favorite_items"}
+        %p いいね!した商品
+        %span ＞
   %h3 設定
   %ul.side_menu__bottom
     = link_to edit_address_users_path do

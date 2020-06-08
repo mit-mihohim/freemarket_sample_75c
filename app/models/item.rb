@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :seller, class_name: 'User'
   belongs_to :buyer, class_name: 'User', optional: :true
+  has_many :favorites, dependent: :destroy
   has_many :item_images, dependent: :destroy
   accepts_nested_attributes_for :item_images, allow_destroy: true
   validates :name, :text, :item_images, :price, :status, :delivery_charge_bearer, :prefecture_id, :delivery_days, presence: true
@@ -23,4 +24,6 @@ class Item < ApplicationRecord
     return Item.all unless search
     Item.where('name LIKE(?)', "%#{search}%")
   end
+
+
 end

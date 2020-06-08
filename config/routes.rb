@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'sell_items'
       get 'bought_items'
       patch 'update_profile', 'update_address'
+      get 'favorite_items'
     end
   end
  
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :payment_cards, only: [:new, :create, :index, :destroy]
   resources :items do
+    resources :favorites, only: [:create, :destroy]
     collection do
       get 'search'
     end
