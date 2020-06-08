@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     @bought_items = current_user.buyed_items.page(params[:page]).per(5)
   end
 
+  def favorite_items
+    @favorite_items = Item.joins(:favorites).where(favorites: {user_id: current_user}).page(params[:page]).per(5)
+  end
+
   def edit_profile
   end
 
