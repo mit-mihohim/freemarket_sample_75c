@@ -14,6 +14,11 @@ $(function(){
         $("#bought_items").addClass("selected");
         break;
 
+      case "/users/favorite_items":
+        $("#mypage").removeClass("selected");
+        $("#favorite_items").addClass("selected");
+        break;
+
       case "/users/edit_address":
         $("#mypage").removeClass("selected");
         $("#edit_address").addClass("selected");
