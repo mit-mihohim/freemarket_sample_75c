@@ -18,8 +18,9 @@
             %li
               = image_tag image.src.url, size:"100x100"     
 
-      - if user_signed_in?
-        = render 'favorites/favorite'
+      - if user_signed_in? 
+        - unless  current_user.id == @item.seller_id
+          = render 'favorites/favorite'
         
 
       .item__price
@@ -84,7 +85,7 @@
                 購入画面に進む
 
     %ul.pagenation
-      - if request.referer&.include?("/users/sell_items")  or request.referer&.include?("/users/bought_items")
+      - if request.referer&.include?("/users/sell_items")  or request.referer&.include?("/users/bought_items") or request.referer&.include?("/users/favorite_items")
         = link_to "<< 戻る", :back
       -else
         %li.prep-item
