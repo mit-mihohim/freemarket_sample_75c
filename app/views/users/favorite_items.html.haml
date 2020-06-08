@@ -20,5 +20,8 @@
             - if favorite_item.buyer_id.present? && favorite_item.buyer_id !=current_user.id
               .sold_out
                 SOLD_OUT!
+            - unless favorite_item.buyer_id.present? && favorite_item.buyer_id !=current_user.id
+              .sold_out
+                購入済み
       = paginate(@favorite_items)
 = render "layouts/footer"
