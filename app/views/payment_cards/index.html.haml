@@ -1,23 +1,29 @@
 = render "layouts/header"
+.second-header
+  - breadcrumb :payment_method
+  = render "layouts/breadcrumbs"
 
-.mypage-main.col-9
-  %h2.header_title
-    支払い方法
-  .single-container
-    %section.creditcard_section
-      %h3 クレジットカード一覧
-      - if @card.present?
-        .container
-          .creditcard-info
-            = image_tag "creditcards/#{@card_image}",width:'34',height:'20', alt:'@card_brand'
-            %p.creditcard-info__number
-              = "**** **** **** " + @card_info.last4 #クレジットカードの下４桁を表示
-            %p.creditcard-info__period 
-            = @exp_month + " / " + @exp_year
-            = link_to "削除する", payment_card_path(@card), method: :delete, class:"creditcard-info__delete"
-      - else
-        .new-card
-          = link_to new_payment_card_path, class:"new-card-btn" do
-            クレジットカードを追加する
+.mypage
+  = render "users/side_menu"
+  .main_contents
+    .mypage-main.col-9
+      %h2.header_title
+        支払い方法
+      .single-container
+        %section.creditcard_section
+          %h3 クレジットカード一覧
+          - if @card.present?
+            .container
+              .creditcard-info
+                = image_tag "creditcards/#{@card_image}",width:'34',height:'20', alt:'@card_brand'
+                %p.creditcard-info__number
+                  = "**** **** **** " + @card_info.last4 #クレジットカードの下４桁を表示
+                %p.creditcard-info__period 
+                = @exp_month + " / " + @exp_year
+                = link_to "削除する", payment_card_path(@card), method: :delete, class:"creditcard-info__delete"
+          - else
+            .new-card
+              = link_to new_payment_card_path, class:"new-card-btn" do
+                クレジットカードを追加する
 
 = render "layouts/footer"

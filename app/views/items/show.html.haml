@@ -5,18 +5,26 @@
     .item
       %h2.item__name
         = @item.name
+        - if user_signed_in?
+          - if @item.buyer_id != current_user.id && @item.buyer_id.presence  
+            .sold_out
+              SOLD_OUT!
+          - if @item.buyer_id == current_user.id
+            .sold_out
+              購入済み
       %ul.item__images
         %li.item__images__main
           = image_tag @main_image.src.url, size: "400x400"
-          - if @item.buyer_id.present? && @item.buyer_id !=current_user.id
-            .sold_out
-              SOLD_OUT!
-           
-              
+ 
         %ul.item__images__sub
           - @item.item_images.each do |image|
             %li
-              = image_tag image.src.url, size:"100x100"          
+              = image_tag image.src.url, size:"100x100"     
+
+      - if user_signed_in? 
+        - unless  current_user.id == @item.seller_id
+          = render 'favorites/favorite'
+        
 
       .item__price
         = "#{@item.price}円"
@@ -35,12 +43,9 @@
           %tr
             %th カテゴリ
             %td
-              = link_to "#" do
-                = "#{@parent_category.name}"
-              = link_to "#" do
-                = "/#{@child_category.name}"
-              = link_to "#" do
-                = "/#{@grandchild_category.name}"
+              = link_to @parent_category.name, category_path(@parent_category)
+              = link_to @child_category.name, category_path(@child_category)
+              = link_to @grandchild_category.name, category_path(@grandchild_category)
           %tr
             %th ブランド
             %td
@@ -80,7 +85,7 @@
                 購入画面に進む
 
     %ul.pagenation
-      - if request.referer&.include?("/users/sell_items")  or request.referer&.include?("/users/bought_items")
+      - if request.referer&.include?("/users/sell_items")  or request.referer&.include?("/users/bought_items") or request.referer&.include?("/users/favorite_items")
         = link_to "<< 戻る", :back
       -else
         %li.prep-item

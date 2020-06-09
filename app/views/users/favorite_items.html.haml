@@ -1,0 +1,27 @@
+= render "layouts/header"
+.second-header
+  - breadcrumb :favorite_items
+  = render "layouts/breadcrumbs"
+.mypage
+  = render "side_menu"
+  .main_contents
+    .item_window
+      %h3 いいね! した商品一覧
+      .item_window__list
+        - @favorite_items.each do |favorite_item|      
+          .item           
+            .item_iamge
+              = link_to item_path(favorite_item.id) do 
+                = image_tag favorite_item.item_images.first.src.url
+            .p
+              = "商品名: " + favorite_item.name
+              %br/
+              = "価格: #{favorite_item.price}円"
+            - if favorite_item.buyer_id != current_user.id && favorite_item.buyer_id.presence  
+              .sold_out
+                SOLD_OUT!
+            - if favorite_item.buyer_id == current_user.id
+              .sold_out
+                購入済み
+      = paginate(@favorite_items)
+= render "layouts/footer"

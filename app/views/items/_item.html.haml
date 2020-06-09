@@ -6,9 +6,11 @@
         .info__top
           .name
             = item.name
-          .favorite
-            ★ 
-            %span 0
-        .price
-          = "#{item.price}円"
-          %p (税込)
+          .price
+            = "#{item.price}円 "
+            %p (税込)
+        .favorite_count
+          = image_tag "icon/icon_stared", size: "18x18"
+          = item.favorites.count
+          
+      
