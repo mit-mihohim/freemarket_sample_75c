@@ -259,7 +259,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  provider :google_oauth2
+  provider :google_oauth2,
   config.omniauth.credentials.google_oauth2[:key],
   config.omniauth.credentials.google_oauth2[:secret]
 
