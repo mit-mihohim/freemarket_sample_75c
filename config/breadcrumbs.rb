@@ -45,3 +45,7 @@ crumb :edit_profile do
   link "本人情報", edit_profile_users_path
   parent :mypage
 end
+
+crumb :category_index do
+  link "カテゴリー一覧", categories_path
+end
