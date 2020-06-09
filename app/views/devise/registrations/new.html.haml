@@ -2,7 +2,14 @@
   .devise__wrapper
     = render "devise/template/register_header_1"
     .sign-up
-      = link_to image_tag('icon/btn_google_signin_dark_normal_web@2x.png', alt: 'google login', height: '50', width: 'auto', class: ''), user_google_oauth2_omniauth_authorize_path, method: :post
+      .sign-up__sns
+        -if @sns_id.present?
+          %span 本人確認欄
+          を入力して下さい
+        - else
+          %h3 Googleアカウントで登録
+          = link_to image_tag('icon/btn_google_signin_dark_normal_web@2x.png', alt: 'google login', height: '50', width: 'auto', class: ''), user_google_oauth2_omniauth_authorize_path, method: :post
+          %h3 or
       .sign-up__top
         会員情報入力
       .sign-up__bottom
