@@ -8,12 +8,19 @@
         = link_to "新規会員登録", new_user_registration_path, class: "sign_up_link"
 
       .login__bottom
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          .field
-            = f.email_field :email, autofocus: true, placeholder: "メールアドレス"
-          .field
-            = f.password_field :password, placeholder: "パスワード"
-          = f.submit "ログイン", class: "submit_btn"
+        .logins
+          %p Googleアカウントでログイン
+          = link_to image_tag('icon/btn_google_signin_dark_normal_web@2x.png', alt: 'google login', height: '50', width: 'auto', class: ''), user_google_oauth2_omniauth_authorize_path, method: :post
+          %br/
+          %span or
+          %br/
+          %p メールアドレスでログイン
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .field
+              = f.email_field :email, autofocus: true, placeholder: "メールアドレス"
+            .field
+              = f.password_field :password, placeholder: "パスワード"
+            = f.submit "ログイン", class: "submit_btn"
         .password_reset  
           = render "devise/shared/links"
 

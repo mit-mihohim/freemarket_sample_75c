@@ -83,7 +83,7 @@
       }
     }
   }
-
+  
 
   .login {
     background-color: $basic-white;
@@ -111,18 +111,27 @@
 
     &__bottom {
       padding: 40px 64px 32px;
-
-      .field {
+      .logins {
+        text-align: center;
+        font-size: 14px;
+        p {
+          margin-bottom: 5px;
+        }
+        span {
+          display: block;
+          font-size: 14px;
+          margin: 20px 0;
+        }
+        .field {
         margin-bottom: 24px;
         text-align: center;
-
-        input {
+          input {
           width: 320px;
           padding: 10px 16px 8px;
           border-style: none;
           border-radius: 4px;
           border: 1px solid $unfinish;
-          
+          }
         }
       }
 
@@ -172,6 +181,27 @@
   background-color: $basic-white;
   width: 700px;
   margin: 0 auto;
+
+  &__sns {
+    margin: 0 auto;
+    text-align: center;
+    @include line_up_side;
+    flex-direction: column;
+    height: 145px;
+    font-size: 14px;
+    border-bottom: 1px solid $background-offwhite;
+    h3 {
+      font-size: 16px;
+      height: 30px;
+      font-weight: bold;
+    }
+    span{
+      font-size: 20px;
+      font-weight: bold;
+      color: $main-color;
+    }
+  }
+
 
   &__top {
     height: 97px;

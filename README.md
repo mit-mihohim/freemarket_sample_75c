@@ -41,8 +41,9 @@ TECH::CAMP最終課題（チーム開発）として作成したフリマサイ�
   - AWS(EC2 , S3)/Unicorn/Nginx/MySQL/Capistrano
 
 # データベース設計
-## ER図
-![人生を変えるフリマアプリ](https://user-images.githubusercontent.com/60055417/83830947-529cf980-a721-11ea-9707-e9082d0d5627.png)
+
+# ER図
+![人生を変えるフリマアプリ ](https://user-images.githubusercontent.com/64117340/84116768-6622ca00-aa6b-11ea-850e-a8dd3f7cb662.png)
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -92,6 +93,7 @@ gem ancestry
 - has_one :user_address, dependent: :destroy
 - has_one :payment_card, dependent: :destroy
 - has_many :items, dependent: :destroy, foreign_key: :items
+- has_many :sns_credentials, dependent: :destroy
 
 ## profilesテーブル
 |Column|Type|Options|
@@ -129,6 +131,16 @@ gem ancestry
 |customer_id|string|null:false|
 ### Association
 - belongs_to :user
+
+## sns_credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|provider|string||
+|uid|string||
+|user_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user, optional: true
 
 ## favoritesテーブル
 |Column|Type|Options|
