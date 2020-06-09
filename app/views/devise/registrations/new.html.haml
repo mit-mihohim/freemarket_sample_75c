@@ -2,6 +2,7 @@
   .devise__wrapper
     = render "devise/template/register_header_1"
     .sign-up
+      = link_to image_tag('icon/btn_google_signin_dark_normal_web@2x.png', alt: 'google login', height: '50', width: 'auto', class: ''), user_google_oauth2_omniauth_authorize_path, method: :post
       .sign-up__top
         会員情報入力
       .sign-up__bottom
@@ -17,13 +18,16 @@
             %span 必須
             %br/
             = f.email_field :email, autofocus: true, placeholder: "PC・携帯どちらでも可"
-          .field
-            = f.label :パスワード
-            %span 必須
-            %br/
-            = f.password_field :password, placeholder: "7文字以上"
-            %br/
-            = f.password_field :password_confirmation, placeholder: "確認のためもう一度入力してください"
+          - if @sns_id.present?
+            = hidden_field_tag :sns_auth, true
+          - else
+            .field
+              = f.label :パスワード
+              %span 必須
+              %br/
+              = f.password_field :password, placeholder: "7文字以上"
+              %br/
+              = f.password_field :password_confirmation, placeholder: "確認のためもう一度入力してください"
           
           .identify
             %h3 本人確認
