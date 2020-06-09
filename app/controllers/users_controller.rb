@@ -65,6 +65,4 @@ class UsersController < ApplicationController
     params.require(:address).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :post_number, :prefecture_id, :city, :house_number, :building_name, :phone_number)
   end
 
-
-  
 end
