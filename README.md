@@ -61,6 +61,7 @@ gem ancestry
 - has_one :user_address, dependent: :destroy
 - has_one :payment_card, dependent: :destroy
 - has_many :items, dependent: :destroy, foreign_key: :items
+- has_many :sns_credentials, dependent: :destroy
 
 
 ## profilesテーブル
