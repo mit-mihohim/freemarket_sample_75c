@@ -1,4 +1,7 @@
 = render "layouts/header"
+.second-header
+  - breadcrumb :category_index
+  = render "layouts/breadcrumbs"
 
 .wrapper
   .category_search
@@ -18,7 +21,5 @@
             %ul.categories__grandchildren
               - child.children.each do |grandchild|
                 %li= link_to "#{grandchild.name}", category_path(grandchild)
-
-            
 
 = render "layouts/footer"
