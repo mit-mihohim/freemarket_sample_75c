@@ -1,6 +1,6 @@
 # 接続先情報
 ## Basic認証
-- [FURIMA](http://13.113.149.89/)
+- [FURIMA](http://www.freemarket-sample-75c.work/)
 - ID: admin
 - PW: password
 ## テストユーザー等
